@@ -1,7 +1,7 @@
 import { ArrowRight01Icon, BookOpen01Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 
-import { EARLY_ACCESS_URL, THESIS_URL } from '../../lib/links';
+import { EARLY_ACCESS_URL, MANIFESTO_URL } from '../../lib/links';
 import { Button } from './Button';
 
 type ProductCtaVariant = 'hero' | 'footer';
@@ -12,21 +12,16 @@ type ProductCtaProps = {
 
 const productCtaConfig = {
   hero: {
-    wrapperClassName:
-      'flex w-full max-w-md flex-col items-center justify-center gap-4 sm:flex-row',
-    buttonClassName: 'w-full sm:w-auto',
+    wrapperClassName: 'flex w-full max-w-lg flex-col items-stretch gap-4 sm:flex-row sm:items-center',
     size: 'lg',
-    primaryLabel: 'Join early access',
-    secondaryLabel: 'Read the thesis',
-    showArrow: true,
+    primaryLabel: 'Map the first intent',
+    secondaryLabel: 'Read the manifesto',
   },
   footer: {
-    wrapperClassName: 'flex flex-col items-center gap-4 sm:flex-row',
-    buttonClassName: undefined,
+    wrapperClassName: 'flex w-full max-w-md flex-col items-stretch gap-4 sm:flex-row sm:items-center',
     size: 'md',
     primaryLabel: 'Start with intent',
-    secondaryLabel: 'OpenIntent notes',
-    showArrow: false,
+    secondaryLabel: 'Manifesto',
   },
 } as const;
 
@@ -35,24 +30,13 @@ export function ProductCta({ variant }: ProductCtaProps) {
 
   return (
     <div className={config.wrapperClassName}>
-      <Button
-        as="a"
-        href={EARLY_ACCESS_URL}
-        size={config.size}
-        className={config.buttonClassName}
-      >
+      <Button as="a" href={EARLY_ACCESS_URL} size={config.size}>
         {config.primaryLabel}
-        {config.showArrow && (
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-earth/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
           <HugeiconsIcon icon={ArrowRight01Icon} className="h-4 w-4" />
-        )}
+        </span>
       </Button>
-      <Button
-        as="a"
-        href={THESIS_URL}
-        variant="outline"
-        size={config.size}
-        className={config.buttonClassName}
-      >
+      <Button as="a" href={MANIFESTO_URL} variant="outline" size={config.size}>
         <HugeiconsIcon icon={BookOpen01Icon} className="h-4 w-4" />
         {config.secondaryLabel}
       </Button>

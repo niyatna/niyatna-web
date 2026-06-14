@@ -1,60 +1,50 @@
-@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,650&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap';
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Neue Haas Grotesk Display Pro", Inter, "helvetica neue", helvetica, arial, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Brand palette */
-  --color-pitch-black: #08090a;
-  --color-graphite: #0f1011;
-  --color-deep-slate: #161718;
-  --color-charcoal-grey: #23252a;
-  --color-muted-ash: #323334;
-  --color-gunmetal: #383b3f;
-  --color-porcelain: #f7f8f8;
-  --color-light-steel: #d0d6e0;
-  --color-storm-cloud: #8a8f98;
-  --color-fog-grey: #62666d;
-  --color-alabaster: #e5e5e6;
-  --color-neon-lime: #e4f222;
-  --color-aether-blue: #5e6ad2;
-  --color-forest-green: #008d2c;
-  --color-cyan-spark: #02b8cc;
-  --color-emerald: #27a644;
-  --color-warning-red: #eb5757;
-  --color-deep-violet: #6366f1;
-  --color-amethyst: #8b5cf6;
+  --color-earth: #080706;
+  --color-ink: #0d0b08;
+  --color-graphite: #14110d;
+  --color-smoke: #211b14;
+  --color-clay: #c48251;
+  --color-clay-soft: #e0b889;
+  --color-sage: #8d9477;
+  --color-porcelain: #f6efe4;
+  --color-bone: #dfd2bf;
+  --color-ash: #8f8374;
 
-  /* Semantic aliases */
-  --color-background: var(--color-pitch-black);
+  --color-pitch-black: var(--color-earth);
+  --color-background: var(--color-earth);
   --color-foreground: var(--color-porcelain);
-  --color-muted: var(--color-graphite);
-  --color-muted-foreground: var(--color-storm-cloud);
-  --color-text-muted: var(--color-fog-grey);
-  --color-text-muted-hover: var(--color-light-steel);
-  --color-accent: color-mix(in srgb, var(--color-muted-ash) 40%, transparent);
-  --color-border: var(--color-muted-ash);
+  --color-muted: var(--color-smoke);
+  --color-muted-foreground: var(--color-ash);
+  --color-text-muted: var(--color-ash);
+  --color-text-muted-hover: var(--color-bone);
+  --color-accent: color-mix(in srgb, var(--color-clay) 18%, transparent);
+  --color-border: color-mix(in srgb, var(--color-porcelain) 14%, transparent);
   --color-border-subtle: color-mix(in srgb, var(--color-porcelain) 10%, transparent);
-  --color-primary: var(--color-neon-lime);
-  --color-ring: var(--color-neon-lime);
+  --color-primary: var(--color-clay);
+  --color-ring: var(--color-clay);
 
-  /* Surface scale (maps legacy gray-* utilities to brand tokens) */
-  --color-gray-900: var(--color-deep-slate);
-  --color-gray-800: var(--color-charcoal-grey);
-  --color-gray-700: var(--color-muted-ash);
-  --color-gray-600: var(--color-gunmetal);
-  --color-gray-500: var(--color-fog-grey);
-  --color-gray-400: var(--color-storm-cloud);
-  --color-gray-300: var(--color-light-steel);
-  --color-gray-200: var(--color-alabaster);
-  --color-gray-100: var(--color-porcelain);
+  --color-gray-900: #15120e;
+  --color-gray-800: #211b14;
+  --color-gray-700: #342a20;
+  --color-gray-600: #514538;
+  --color-gray-500: #8f8374;
+  --color-gray-400: #b7a996;
+  --color-gray-300: #dfd2bf;
+  --color-gray-200: #efe4d5;
+  --color-gray-100: #f6efe4;
 }
 
 @layer base {
   html,
   body,
-  #root {
+  #app {
     height: 100%;
   }
 
@@ -70,6 +60,7 @@
 
   :root {
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   }
 
@@ -77,9 +68,9 @@
     --os-size: 10px;
     --os-padding-perpendicular: 3px;
     --os-padding-axis: 8px;
-    --os-handle-bg: color-mix(in srgb, var(--color-light-steel) 32%, transparent);
-    --os-handle-bg-hover: color-mix(in srgb, var(--color-light-steel) 54%, transparent);
-    --os-handle-bg-active: color-mix(in srgb, var(--color-porcelain) 72%, transparent);
+    --os-handle-bg: color-mix(in srgb, var(--color-clay) 34%, transparent);
+    --os-handle-bg-hover: color-mix(in srgb, var(--color-clay-soft) 54%, transparent);
+    --os-handle-bg-active: color-mix(in srgb, var(--color-porcelain) 70%, transparent);
     --os-handle-border-radius: 999px;
     --os-track-bg: transparent;
     --os-track-bg-hover: color-mix(in srgb, var(--color-porcelain) 4%, transparent);
@@ -87,28 +78,40 @@
 }
 
 @layer utilities {
-  .pressable {
-    transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out), background-color 160ms var(--ease-out);
-  }
-  .pressable:active {
-    transform: scale(0.97);
+  .grain {
+    opacity: 0.12;
+    background-image:
+      radial-gradient(circle at 18% 24%, rgba(255,255,255,0.13) 0 1px, transparent 1.2px),
+      radial-gradient(circle at 72% 48%, rgba(255,255,255,0.10) 0 1px, transparent 1.2px),
+      linear-gradient(115deg, rgba(255,255,255,0.055), transparent 40%, rgba(255,255,255,0.035));
+    background-size: 29px 29px, 37px 37px, 100% 100%;
+    mix-blend-mode: overlay;
   }
 
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .pressable {
+    transition: transform 220ms var(--ease-spring), opacity 220ms var(--ease-spring), background-color 220ms var(--ease-spring);
+  }
+  .pressable:active { transform: scale(0.98); }
+
   .glass {
-    background: color-mix(in srgb, var(--color-porcelain) 3%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--color-porcelain) 4%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     border: 1px solid var(--color-border-subtle);
   }
 
   .animate-in {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    transition: opacity 700ms var(--ease-spring), transform 700ms var(--ease-spring), filter 700ms var(--ease-spring);
 
     @starting-style {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(38px);
+      filter: blur(8px);
     }
   }
 
@@ -121,10 +124,12 @@
     .animate-in {
       transition: opacity 200ms ease;
       transform: none;
+      filter: none;
 
       @starting-style {
         opacity: 0;
         transform: none;
+        filter: none;
       }
     }
 
