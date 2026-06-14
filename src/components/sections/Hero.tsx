@@ -1,92 +1,106 @@
+import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+
 import { ProductCta } from '../ui/ProductCta';
 
-const pipelineSteps = [
-  { label: 'Intent packet', meta: 'goal + taste + boundary' },
-  { label: 'Trust gate', meta: 'allowed + approval + private' },
-  { label: 'Agent loop', meta: 'worker + reviewer + verifier' },
-  { label: 'Proof return', meta: 'diff + receipt + decision trail' },
+const stats = [
+  { value: 'Human-in-loop', label: 'Control model' },
+  { value: 'Proof required', label: 'Every output' },
+  { value: 'OpenIntent', label: 'Protocol lane' },
+  { value: 'No blind autonomy', label: 'Trust rule' },
 ] as const;
 
-const signalWords = ['intent', 'delegation', 'proof', 'agency'];
+const consoleRows = [
+  { key: 'intent', value: 'launch public agentic-company surface' },
+  { key: 'constraints', value: 'keep human approval + private context intact' },
+  { key: 'delegate', value: 'workers run, reviewers inspect, verifier returns proof' },
+  { key: 'receipt', value: 'diffs, screenshots, checks, links' },
+] as const;
 
 export const Hero = () => {
   return (
-    <section className="relative isolate overflow-hidden px-5 pb-24 pt-32 text-porcelain sm:px-6 sm:pb-32 sm:pt-40">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_18%,rgba(199,131,82,0.28),transparent_29%),radial-gradient(circle_at_8%_22%,rgba(61,77,53,0.28),transparent_24%),linear-gradient(135deg,#090907_0%,#15110c_47%,#070705_100%)]" />
-      <div className="absolute inset-0 -z-10 opacity-[0.08] [background-image:linear-gradient(rgba(244,239,229,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(244,239,229,.7)_1px,transparent_1px)] [background-size:88px_88px]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-background to-transparent" />
+    <section className="relative isolate overflow-hidden pb-20 pt-36 sm:pb-28 sm:pt-44">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[62vh] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(255,255,255,0.08),transparent_70%)]"
+      />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-14 overflow-hidden lg:min-h-[calc(100dvh-9rem)] lg:grid-cols-[1.14fr_0.86fr]">
-        <div className="max-w-5xl">
-          <p className="mb-8 max-w-xl font-mono text-xs uppercase tracking-[0.28em] text-clay-bright/80 animate-in delay-100">
-            Niyatna — empowering human intent
-          </p>
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6">
+        <a
+          href="#proof"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-background/60 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-zinc-400 backdrop-blur-md transition-colors hover:text-white animate-rise"
+        >
+          <span className="size-1.5 rounded-full bg-white/70" />
+          <span>v0.1 — intent layer</span>
+          <HugeiconsIcon icon={ArrowRight01Icon} className="size-3 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+        </a>
 
-          <h1 className="max-w-5xl text-balance text-[clamp(3.25rem,14vw,5.2rem)] font-semibold leading-[0.88] tracking-[-0.055em] text-porcelain animate-in delay-200 sm:text-[clamp(4rem,6.3vw,5.2rem)] sm:leading-[0.86] sm:tracking-[-0.065em] lg:text-[clamp(5rem,6.6vw,5.9rem)]">
-            <span className="block whitespace-nowrap">Human intent,</span>
-            <span className="block whitespace-nowrap text-clay">made executable.</span>
-          </h1>
+        <h1 className="mt-7 text-balance text-4xl font-semibold tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-7xl animate-rise delay-100">
+          <span className="text-foreground/55">The intent-native</span>
+          <br />
+          <span className="text-foreground">execution layer</span>
+          <span className="ml-1 inline-block h-[0.9em] w-px translate-y-[0.12em] bg-foreground/80" aria-hidden />
+        </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-light-steel/80 animate-in delay-300 md:text-xl">
-            Niyatna keeps the human signal intact: intent becomes a structured packet, delegation passes through trust gates, agentic work runs in loops, and every outcome returns with proof.
-          </p>
+        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg animate-rise delay-200">
+          Niyatna turns human intent into trusted delegation, coordinated agent work, and reviewable proof — so the human gets leverage without giving up judgment.
+        </p>
 
-          <div className="mt-10 animate-in delay-400">
-            <ProductCta variant="hero" />
-          </div>
-
-          <div className="mt-12 grid max-w-2xl grid-cols-2 gap-3 animate-in delay-500 sm:grid-cols-4">
-            {signalWords.map((word) => (
-              <div key={word} className="border-t border-porcelain/12 pt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-storm-cloud">
-                {word}
-              </div>
-            ))}
-          </div>
+        <div className="mt-9 animate-rise delay-300">
+          <ProductCta variant="hero" />
         </div>
 
-        <div className="relative min-w-0 overflow-hidden animate-in delay-400">
-          <div className="absolute -left-8 top-10 hidden h-28 w-28 rounded-full border border-clay/25 lg:block" />
-          <div className="absolute -right-6 bottom-12 hidden h-20 w-20 rounded-[2rem] border border-porcelain/10 bg-porcelain/[0.035] rotate-6 lg:block" />
+        <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500 animate-rise delay-400">
+          Human intent · Agent delegation · Proof of Intent
+        </div>
+      </div>
 
-          <div className="double-bezel w-full max-w-full overflow-hidden rounded-[2.35rem] p-2">
-            <div className="relative overflow-hidden rounded-[1.85rem] border border-porcelain/10 bg-[linear-gradient(150deg,#17130e,#0b0b08_58%,#1c130d)] p-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] sm:p-7">
-              <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-clay/18 blur-3xl" />
-              <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_center,rgba(244,239,229,.9)_1px,transparent_1.5px)] [background-size:22px_22px]" />
-
-              <div className="relative mb-7 flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-light-steel/45">Intent packet</p>
-                  <p className="mt-3 max-w-sm text-2xl font-semibold leading-tight tracking-[-0.035em] text-porcelain">
-                    Build an agentic company surface without losing the human thesis.
-                  </p>
-                </div>
-                <div className="rounded-full border border-clay/30 bg-clay/10 px-3 py-1 font-mono text-[11px] text-clay-bright">
-                  proof required
-                </div>
+      <div className="mx-auto mt-16 max-w-6xl px-4 sm:px-6 animate-rise delay-500">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-background/88 px-5 py-7 text-center backdrop-blur-sm sm:px-6 sm:py-8">
+              <div className="font-mono text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                {stat.value}
               </div>
+              <div className="mt-1.5 text-xs uppercase tracking-wide text-zinc-500">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
 
-              <div className="relative space-y-3">
-                {pipelineSteps.map((step, index) => (
-                  <div
-                    key={step.label}
-                    className="group grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-[1.35rem] border border-porcelain/10 bg-porcelain/[0.035] px-4 py-3 transition-[transform,border-color,background-color] duration-300 ease-[var(--ease-out)] hover:border-clay/30 hover:bg-clay/[0.07]"
-                  >
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-clay/12 font-mono text-xs text-clay-bright">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>
-                      <span className="block text-sm font-medium text-porcelain">{step.label}</span>
-                      <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.14em] text-storm-cloud">{step.meta}</span>
-                    </span>
-                    <span className="h-2.5 w-2.5 rounded-full bg-clay shadow-[0_0_24px_rgba(199,131,82,0.7)]" />
+        <div id="thesis" className="mt-14 overflow-hidden rounded-2xl window-frame">
+          <div className="flex items-center gap-1.5 border-b border-white/[0.08] bg-zinc-950/90 px-4 py-2.5">
+            <span className="size-2.5 rounded-full bg-white/22" />
+            <span className="size-2.5 rounded-full bg-white/14" />
+            <span className="size-2.5 rounded-full bg-white/10" />
+            <span className="ml-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">niyatna.intent</span>
+          </div>
+
+          <div className="grid gap-px bg-white/[0.08] lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="bg-zinc-950/86 p-6 sm:p-8 lg:p-10">
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">Intent packet preview</div>
+              <h2 className="mt-5 max-w-xl text-2xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
+                A single handoff that keeps goal, taste, limits, and proof attached.
+              </h2>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-400 sm:text-base">
+                A dark canvas, white light-trail atmosphere, centered confidence, and window-like proof surface — adapted for Niyatna’s intent/delegation thesis.
+              </p>
+            </div>
+
+            <div className="bg-black/70 p-4 sm:p-6">
+              <div className="rounded-xl border border-white/[0.08] bg-black/70 p-4 font-mono text-xs text-zinc-300 shadow-inner sm:p-5">
+                {consoleRows.map((row) => (
+                  <div key={row.key} className="grid grid-cols-[7.5rem_1fr] gap-3 border-b border-white/[0.06] py-3 last:border-b-0">
+                    <span className="text-zinc-600">{row.key}</span>
+                    <span className="text-zinc-300">{row.value}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="relative mt-7 rounded-[1.6rem] border border-porcelain/10 bg-pitch-black/62 p-5">
-                <p className="text-sm leading-6 text-light-steel/75">
-                  OpenIntent names the handoff. Proof of Intent verifies the work. Niyatna makes the bridge legible enough for humans to trust.
-                </p>
+                <div className="mt-5 flex items-center gap-2 text-white">
+                  <span className="text-zinc-600">$</span>
+                  <span>return proof --human-readable</span>
+                  <span className="h-4 w-px animate-pulse bg-white/70" aria-hidden />
+                </div>
               </div>
             </div>
           </div>

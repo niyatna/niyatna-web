@@ -1,4 +1,4 @@
-/** Ease-out cubic — decelerates into the target (corporate / premium landing feel). */
+/** Ease-out cubic — decelerates into the target (premium landing feel). */
 function easeOutCubic(progress: number): number {
   return 1 - (1 - progress) ** 3;
 }
@@ -10,10 +10,10 @@ function prefersReducedMotion(): boolean {
   );
 }
 
-export const HEADER_SCROLL_OFFSET = 112;
+export const HEADER_SCROLL_OFFSET = 96;
 
-/** Nearest scrollable ancestor (OverlayScrollbars viewport or overflow fallback). */
-export function resolveScrollElement(from: HTMLElement): HTMLElement {
+/** Nearest scrollable ancestor; falls back to the document scroller. */
+export function resolveScrollElement(from: HTMLElement): HTMLElement | Window {
   let node: HTMLElement | null = from.parentElement;
 
   while (node) {
@@ -26,21 +26,50 @@ export function resolveScrollElement(from: HTMLElement): HTMLElement {
     node = node.parentElement;
   }
 
-  return document.documentElement;
+  return window;
+}
+
+function isWindowScroll(scrollEl: HTMLElement | Window): scrollEl is Window {
+  return scrollEl === window;
+}
+
+function getScrollTop(scrollEl: HTMLElement | Window): number {
+  if (isWindowScroll(scrollEl)) {
+    return window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+  return scrollEl.scrollTop;
+}
+
+function setScrollTop(scrollEl: HTMLElement | Window, value: number): void {
+  if (isWindowScroll(scrollEl)) {
+    window.scrollTo(0, value);
+    return;
+  }
+  scrollEl.scrollTop = value;
+}
+
+function getMaxScroll(scrollEl: HTMLElement | Window): number {
+  if (isWindowScroll(scrollEl)) {
+    const doc = document.documentElement;
+    return Math.max(0, doc.scrollHeight - window.innerHeight);
+  }
+  return Math.max(0, scrollEl.scrollHeight - scrollEl.clientHeight);
+}
+
+function getScrollViewportTop(scrollEl: HTMLElement | Window): number {
+  if (isWindowScroll(scrollEl)) return 0;
+  return scrollEl.getBoundingClientRect().top;
 }
 
 function getTargetScrollTop(
   target: HTMLElement,
-  scrollEl: HTMLElement,
+  scrollEl: HTMLElement | Window,
   offset: number,
 ): number {
-  const scrollRect = scrollEl.getBoundingClientRect();
   const targetRect = target.getBoundingClientRect();
-  const next =
-    scrollEl.scrollTop + (targetRect.top - scrollRect.top) - offset;
-
-  const max = scrollEl.scrollHeight - scrollEl.clientHeight;
-  return Math.max(0, Math.min(next, max));
+  const viewportTop = getScrollViewportTop(scrollEl);
+  const next = getScrollTop(scrollEl) + (targetRect.top - viewportTop) - offset;
+  return Math.max(0, Math.min(next, getMaxScroll(scrollEl)));
 }
 
 let activeScrollCancel: (() => void) | null = null;
@@ -57,59 +86,50 @@ export function smoothScrollToElement(
   activeScrollCancel?.();
 
   const scrollEl = resolveScrollElement(target);
-  const start = scrollEl.scrollTop;
+  const start = getScrollTop(scrollEl);
   const end = getTargetScrollTop(target, scrollEl, offset);
 
-  if (Math.abs(end - start) < 2) {
-    scrollEl.scrollTop = end;
-    return;
-  }
-
   if (prefersReducedMotion()) {
-    scrollEl.scrollTop = end;
+    setScrollTop(scrollEl, end);
     return;
   }
 
-  const distance = Math.abs(end - start);
-  const duration = Math.min(720, Math.max(420, distance * 0.55));
-  const startTime = performance.now();
-  let frame = 0;
+  const distance = end - start;
+  const duration = Math.min(850, Math.max(280, Math.abs(distance) * 0.35));
+  const startedAt = performance.now();
   let cancelled = false;
 
   activeScrollCancel = () => {
     cancelled = true;
-    cancelAnimationFrame(frame);
-    activeScrollCancel = null;
   };
 
-  const tick = (now: number) => {
+  function step(now: number) {
     if (cancelled) return;
 
-    const elapsed = now - startTime;
-    const progress = Math.min(1, elapsed / duration);
-    scrollEl.scrollTop = start + (end - start) * easeOutCubic(progress);
+    const progress = Math.min(1, (now - startedAt) / duration);
+    setScrollTop(scrollEl, start + distance * easeOutCubic(progress));
 
     if (progress < 1) {
-      frame = requestAnimationFrame(tick);
-    } else {
-      scrollEl.scrollTop = end;
-      activeScrollCancel = null;
+      requestAnimationFrame(step);
+      return;
     }
-  };
 
-  frame = requestAnimationFrame(tick);
+    activeScrollCancel = null;
+  }
+
+  requestAnimationFrame(step);
 }
 
 export function smoothScrollToHash(
   hash: string,
   options?: SmoothScrollOptions,
 ): boolean {
-  const id = hash.replace(/^#/, '');
-  if (!id) return false;
-
+  const id = hash.startsWith('#') ? hash.slice(1) : hash;
   const target = document.getElementById(id);
+
   if (!target) return false;
 
   smoothScrollToElement(target, options);
+  history.pushState(null, '', `#${id}`);
   return true;
 }

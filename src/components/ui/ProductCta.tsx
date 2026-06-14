@@ -1,4 +1,4 @@
-import { ArrowRight01Icon, BookOpen01Icon } from '@hugeicons/core-free-icons';
+import { ArrowRight01Icon, GithubIcon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 
 import { EARLY_ACCESS_URL, THESIS_URL } from '../../lib/links';
@@ -12,16 +12,16 @@ type ProductCtaProps = {
 
 const productCtaConfig = {
   hero: {
-    wrapperClassName: 'flex w-full max-w-lg flex-col items-stretch gap-4 sm:flex-row sm:items-center',
+    wrapperClassName: 'flex flex-col items-center justify-center gap-3 sm:flex-row',
     size: 'lg',
-    primaryLabel: 'Map the first intent',
-    secondaryLabel: 'Read the thesis',
+    primaryLabel: 'Map first intent',
+    secondaryLabel: 'View thesis',
   },
   footer: {
-    wrapperClassName: 'flex w-full max-w-md flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center',
+    wrapperClassName: 'flex flex-col items-center justify-center gap-3 sm:flex-row',
     size: 'md',
     primaryLabel: 'Start with intent',
-    secondaryLabel: 'OpenIntent notes',
+    secondaryLabel: 'Read the thesis',
   },
 } as const;
 
@@ -32,12 +32,10 @@ export function ProductCta({ variant }: ProductCtaProps) {
     <div className={config.wrapperClassName}>
       <Button as="a" href={EARLY_ACCESS_URL} size={config.size}>
         {config.primaryLabel}
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-earth/10 transition-transform duration-500 ease-[var(--ease-heavy)] group-hover:translate-x-1">
-          <HugeiconsIcon icon={ArrowRight01Icon} className="h-4 w-4" />
-        </span>
+        <HugeiconsIcon icon={ArrowRight01Icon} className="size-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
       </Button>
       <Button as="a" href={THESIS_URL} variant="outline" size={config.size}>
-        <HugeiconsIcon icon={BookOpen01Icon} className="h-4 w-4" />
+        <HugeiconsIcon icon={GithubIcon} className="size-4" strokeWidth={2} />
         {config.secondaryLabel}
       </Button>
     </div>

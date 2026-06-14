@@ -1,62 +1,55 @@
 import { useEffect, useRef, useState } from 'react';
 
-import type { FeatureId } from '../../data/features';
+import { HugeiconsIcon } from '@hugeicons/react';
+
+import type { Feature, FeatureId } from '../../data/features';
 import { features } from '../../data/features';
 import { HEADER_SCROLL_OFFSET, smoothScrollToElement } from '../../lib/smooth-scroll';
 import { useReducedMotion } from '../../lib/useReducedMotion';
-import { SectionHeader } from '../ui/SectionHeader';
 
-const visualLabels: Record<FeatureId, string[]> = {
-  '01': ['goal', 'constraints', 'taste', 'deadline'],
-  '02': ['allowed', 'approval', 'private', 'blocked'],
-  '03': ['worker', 'reviewer', 'verifier', 'handoff'],
-  '04': ['diff', 'check', 'screenshot', 'receipt'],
-  '05': ['schema', 'context', 'permissions', 'proof'],
-  '06': ['rest', 'think', 'build', 'decide'],
-};
-
-const visualCaption: Record<FeatureId, string> = {
-  '01': 'Intent packet',
-  '02': 'Trust gate',
-  '03': 'Agent loop',
-  '04': 'Proof return',
-  '05': 'OpenIntent schema',
-  '06': 'Agency returned',
-};
-
-function IntentVisual({ id }: { id: FeatureId }) {
+function FeatureTerminal({ feature }: { feature: Feature }) {
   return (
-    <div className="relative h-full w-full overflow-hidden bg-[radial-gradient(circle_at_24%_20%,rgba(199,131,82,0.22),transparent_29%),radial-gradient(circle_at_82%_70%,rgba(55,70,46,0.24),transparent_31%),linear-gradient(145deg,#18130e,#070706)] p-5 sm:p-7">
-      <div className="absolute inset-0 opacity-[0.075] [background-image:linear-gradient(rgba(244,239,229,.72)_1px,transparent_1px),linear-gradient(90deg,rgba(244,239,229,.72)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="absolute inset-x-8 top-1/2 h-px bg-gradient-to-r from-transparent via-clay/50 to-transparent" />
-      <div className="absolute left-1/2 top-8 h-[calc(100%-4rem)] w-px bg-gradient-to-b from-transparent via-porcelain/12 to-transparent" />
+    <div className="relative h-full min-h-[24rem] overflow-hidden bg-zinc-950/90 p-4 sm:min-h-[30rem] sm:p-6">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(255,255,255,.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.55)_1px,transparent_1px)] [background-size:48px_48px]" />
+      <div className="pointer-events-none absolute -right-24 -top-28 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-28 left-8 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
-      <div className="relative flex h-full min-h-[28rem] flex-col justify-between rounded-[1.55rem] border border-porcelain/10 bg-pitch-black/50 p-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-        <div className="flex items-center justify-between gap-4">
-          <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-light-steel/50">{visualCaption[id]}</span>
-          <span className="h-2.5 w-2.5 rounded-full bg-clay shadow-[0_0_24px_rgba(199,131,82,0.72)]" />
+      <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-black/70 shadow-2xl shadow-black/60">
+        <div className="flex items-center gap-1.5 border-b border-white/[0.08] bg-zinc-950/95 px-4 py-2.5">
+          <span className="size-2.5 rounded-full bg-white/22" />
+          <span className="size-2.5 rounded-full bg-white/14" />
+          <span className="size-2.5 rounded-full bg-white/10" />
+          <span className="ml-3 truncate font-mono text-[11px] uppercase tracking-[0.16em] text-zinc-500">{feature.visualTitle}</span>
         </div>
 
-        <div className="my-8 grid gap-3">
-          {visualLabels[id].map((label, index) => (
-            <div
-              key={label}
-              className="grid grid-cols-[auto_1fr] items-center gap-4 rounded-[1.2rem] border border-porcelain/10 bg-porcelain/[0.035] p-4 shadow-[inset_0_1px_1px_rgba(255,255,255,0.035)]"
-            >
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-clay/12 font-mono text-xs text-clay-bright">
-                {index + 1}
-              </span>
-              <div>
-                <div className="h-2 w-2/3 rounded-full bg-light-steel/35" />
-                <p className="mt-2 text-sm capitalize text-light-steel/72">{label}</p>
-              </div>
+        <div className="grid flex-1 gap-px bg-white/[0.07] md:grid-cols-[0.9fr_1.1fr]">
+          <div className="bg-black/78 p-5 font-mono text-xs text-zinc-400">
+            <div className="mb-4 flex items-center gap-2 text-zinc-500">
+              <HugeiconsIcon icon={feature.icon} className="size-4" strokeWidth={1.7} />
+              <span>{feature.eyebrow.toLowerCase()}.layer</span>
             </div>
-          ))}
-        </div>
+            {feature.visualRows.map((row) => (
+              <div key={row} className="border-b border-white/[0.06] py-3 last:border-b-0">
+                {row}
+              </div>
+            ))}
+          </div>
 
-        <div className="flex items-center justify-between rounded-[1.2rem] border border-clay/22 bg-clay/8 px-4 py-3 text-sm text-clay-bright">
-          <span>proof returned</span>
-          <span className="font-mono">verified</span>
+          <div className="bg-zinc-950/90 p-5">
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">Proof channel</div>
+            <div className="space-y-3">
+              {feature.bullets.map((bullet, index) => (
+                <div key={bullet} className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-white/[0.035] p-3 text-sm text-zinc-300">
+                  <span className="mt-0.5 font-mono text-xs text-zinc-600">0{index + 1}</span>
+                  <span>{bullet}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 rounded-lg border border-white/[0.08] bg-black/55 p-4 font-mono text-xs text-zinc-500">
+              <span className="text-zinc-600">$</span> verify intent --return-receipts
+              <span className="ml-1 inline-block h-3 w-px translate-y-0.5 animate-pulse bg-white/70" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -69,22 +62,50 @@ export const FeatureSection = () => {
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveFeature((entry.target.getAttribute('data-id') || '01') as FeatureId);
-          }
-        });
-      },
-      { rootMargin: '-30% 0px -60% 0px' },
-    );
+    let frame = 0;
 
-    observerRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    const updateActiveFeature = () => {
+      frame = 0;
+      const focusY = HEADER_SCROLL_OFFSET + window.innerHeight * 0.28;
+      let nextFeature = features[0]?.id ?? '01';
+      let nearestDistance = Number.POSITIVE_INFINITY;
 
-    return () => observer.disconnect();
+      observerRefs.current.forEach((element) => {
+        if (!element) return;
+        const id = element.getAttribute('data-id') as FeatureId | null;
+        if (!id) return;
+
+        const rect = element.getBoundingClientRect();
+        const distance = Math.abs(rect.top - focusY);
+        const isPastTop = rect.top <= focusY;
+
+        if (isPastTop && distance < nearestDistance) {
+          nearestDistance = distance;
+          nextFeature = id;
+        }
+      });
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+        nextFeature = features[features.length - 1]?.id ?? nextFeature;
+      }
+
+      setActiveFeature(nextFeature);
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(updateActiveFeature);
+    };
+
+    updateActiveFeature();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+    };
   }, []);
 
   const scrollToFeature = (id: FeatureId) => {
@@ -95,16 +116,22 @@ export const FeatureSection = () => {
   const activeIndex = features.findIndex((feature) => feature.id === activeFeature);
 
   return (
-    <section id="thesis" className="relative mx-auto max-w-7xl overflow-hidden px-5 py-28 sm:px-6 sm:py-36">
-      <div className="pointer-events-none absolute left-1/2 top-12 -z-10 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-clay/8 blur-3xl" />
-
+    <section id="features" className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
       <div className="flex flex-col items-start gap-16 lg:flex-row lg:gap-24">
-        <div className="flex w-full flex-col gap-12 lg:sticky lg:top-32 lg:w-[34%]">
-          <SectionHeader
-            eyebrow="Niyatna thesis"
-            title="The handoff needs a shape."
-            description="A sticky thesis rail orients the story while each scroll frame explains one layer of human intent becoming trusted execution."
-          />
+        <div className="flex w-full flex-col gap-12 lg:sticky lg:top-32 lg:w-1/3">
+          <div>
+            <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+              <span className="text-white/40">01</span>
+              <span className="h-px w-8 bg-white/14" />
+              <span>Scrollable features</span>
+            </div>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-0.03em] text-balance text-white sm:text-4xl lg:text-5xl">
+              Intent work, section by section.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-zinc-400">
+              A sticky rail tracks the active layer while the right side scrolls through feature frames, so the page teaches the system instead of dumping cards.
+            </p>
+          </div>
 
           <div className="lg:hidden -mx-2 overflow-x-auto pb-1 scroll-smooth snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex min-w-max gap-2 px-2">
@@ -115,24 +142,26 @@ export const FeatureSection = () => {
                   onClick={() => scrollToFeature(feature.id)}
                   className={`snap-center rounded-full px-4 py-2 font-mono text-xs tracking-wide whitespace-nowrap transition-[color,background-color,transform,border-color] duration-150 ease-[var(--ease-out)] active:scale-[0.97]
                     ${activeFeature === feature.id
-                      ? 'border border-clay/34 bg-clay/12 text-clay-bright'
-                      : 'border border-porcelain/8 text-text-muted hover:bg-porcelain/5 hover:text-text-muted-hover'
+                      ? 'border border-white/18 bg-white/10 text-white'
+                      : 'border border-transparent text-zinc-500 hover:bg-white/[0.06] hover:text-zinc-300'
                     }`}
                 >
-                  {feature.id} {feature.navTitle}
+                  <span className={activeFeature === feature.id ? 'text-white' : 'text-zinc-600'}>{feature.id}</span>{' '}
+                  {feature.navTitle}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="relative hidden flex-col gap-1 lg:flex">
+          <div className="relative hidden max-h-[calc(100vh-12rem)] flex-col gap-1 overflow-y-auto [scrollbar-width:thin] lg:flex">
             <div
-              className="pointer-events-none absolute left-0 right-0 rounded-xl border border-clay/18 bg-clay/10"
+              className="pointer-events-none absolute left-0 right-0 rounded-lg bg-white/10"
               style={{
                 height: '44px',
                 transform: `translateY(${activeIndex * 48}px)`,
                 transition: reducedMotion ? 'none' : 'transform 250ms var(--ease-in-out)',
               }}
+              data-active-indicator
             />
             {features.map((feature) => (
               <a
@@ -142,17 +171,18 @@ export const FeatureSection = () => {
                   event.preventDefault();
                   scrollToFeature(feature.id);
                 }}
-                className={`relative z-10 flex items-center gap-4 rounded-xl px-4 py-3 font-mono text-sm tracking-wide transition-[color,transform] duration-150 ease-[var(--ease-out)] active:scale-[0.97]
-                  ${activeFeature === feature.id ? 'text-porcelain' : 'text-text-muted hover:text-text-muted-hover'}`}
+                data-active={activeFeature === feature.id ? 'true' : 'false'}
+                className={`relative z-10 flex items-center gap-4 rounded-lg px-4 py-3 font-mono text-sm tracking-wide transition-[color,transform] duration-150 ease-[var(--ease-out)] active:scale-[0.97]
+                  ${activeFeature === feature.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'}`}
               >
-                <span className={activeFeature === feature.id ? 'text-clay-bright' : ''}>{feature.id}</span>
+                <span className={activeFeature === feature.id ? 'text-white' : 'text-zinc-600'}>{feature.id}</span>
                 {feature.navTitle}
               </a>
             ))}
           </div>
         </div>
 
-        <div className="flex w-full flex-col gap-12 lg:w-[66%] lg:gap-20">
+        <div className="flex w-full flex-col gap-12 lg:w-2/3 lg:gap-24">
           {features.map((feature, index) => (
             <div
               key={feature.id}
@@ -163,22 +193,23 @@ export const FeatureSection = () => {
               }}
               className="scroll-mt-32"
             >
-              <div className="double-bezel overflow-hidden rounded-[2rem] p-2 hover-lift">
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-[1.55rem] border border-border-subtle bg-pitch-black/40">
-                  <IntentVisual id={feature.id} />
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]">
+                <div className="aspect-[4/3] w-full overflow-hidden border-b border-white/[0.08] bg-black/40">
+                  <FeatureTerminal feature={feature} />
                 </div>
-                <div className="relative overflow-hidden px-6 py-7 sm:px-10 sm:py-9">
-                  <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-clay/10 blur-3xl" />
-                  <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-clay-bright/65">{feature.id} / {feature.navTitle}</p>
-                      <h3 className="max-w-2xl text-2xl font-semibold leading-tight tracking-[-0.04em] text-foreground sm:text-4xl">
-                        {feature.title}
-                      </h3>
-                    </div>
-                    <span className="mt-1 h-px w-full bg-gradient-to-r from-clay/50 to-transparent sm:w-28" />
+                <div className="relative overflow-hidden p-8 sm:p-12">
+                  <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/[0.04] blur-3xl" />
+                  <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+                    <span className="text-white/40">{feature.id}</span>
+                    <span className="h-px w-8 bg-white/14" />
+                    <span>{feature.eyebrow}</span>
                   </div>
-                  <p className="relative z-10 mt-5 max-w-3xl text-base leading-8 text-light-steel/72 sm:text-lg">{feature.description}</p>
+                  <h3 className="mt-5 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-balance text-white sm:text-4xl lg:text-[2.6rem] lg:leading-[1.05]">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-400 sm:text-[17px]">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             </div>

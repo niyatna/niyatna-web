@@ -18,37 +18,31 @@ export const moreFeatures: MoreFeature[] = [
   {
     icon: FileSearchIcon,
     title: 'Intent memory',
-    description:
-      'Keep the original human context close: goals, taste, constraints, and previous decisions are treated as execution-critical input.',
+    description: 'Goals, taste, constraints, and prior decisions stay attached to the work instead of disappearing into chat history.',
   },
   {
     icon: SecurityLockIcon,
     title: 'Permission boundaries',
-    description:
-      'Separate safe autonomous actions from approval gates, private data, spend, publishing, and irreversible operations.',
+    description: 'Safe actions can run; publishing, spend, privacy, and irreversible moves require explicit human approval.',
   },
   {
     icon: ArchiveRestoreIcon,
     title: 'Evidence ledger',
-    description:
-      'Every important action should leave a reviewable trail: diff, check result, screenshot, receipt, or decision record.',
+    description: 'Important actions return receipts: diffs, checks, screenshots, URLs, logs, and decision notes.',
   },
   {
     icon: Notification01Icon,
     title: 'Human review points',
-    description:
-      'The system returns when judgment is needed instead of pretending all decisions can be automated away.',
+    description: 'The system calls the human back when judgment matters instead of pretending every choice is automatable.',
   },
   {
     icon: Globe02Icon,
-    title: 'Agentic company layer',
-    description:
-      'Niyatna can describe how individuals and companies delegate work to agent workforces without losing governance.',
+    title: 'OpenIntent lane',
+    description: 'A possible shared schema for goals, permissions, context, and proof across agentic systems.',
   },
   {
     icon: ClockIcon,
-    title: 'Time as the output',
-    description:
-      'The point is not machine activity. The point is more time and agency for the human who carried the intent.',
+    title: 'Time returned',
+    description: 'The outcome is less operational drag and more time for human agency, not automation theatre.',
   },
 ];

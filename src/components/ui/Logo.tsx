@@ -14,20 +14,20 @@ export const Logo = ({ className, iconClassName, textClassName }: LogoProps) => 
       to="/"
       aria-label="Niyatna home"
       className={cn(
-        'flex items-center gap-3 transition-[opacity,transform] duration-150 ease-[var(--ease-out)] hover:opacity-80 active:scale-[0.97]',
+        'flex items-center gap-2.5 font-semibold tracking-tight transition-[opacity,transform] duration-150 ease-[var(--ease-out)] hover:opacity-80 active:scale-[0.98]',
         className,
       )}
     >
       <span
         aria-hidden="true"
         className={cn(
-          'grid h-8 w-8 place-items-center rounded-full border border-current/20 bg-current/5 text-sm font-semibold tracking-tight',
+          'grid h-7 w-7 place-items-center rounded-md border border-white/10 bg-white text-sm font-bold text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.7)]',
           iconClassName,
         )}
       >
         N
       </span>
-      <span className={cn('text-xl font-semibold tracking-tight', textClassName)}>Niyatna</span>
+      <span className={cn('text-base text-white', textClassName)}>Niyatna</span>
     </Link>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 type ButtonOwnProps<E extends React.ElementType> = {
-  variant?: 'primary' | 'secondary' | 'dark' | 'outline';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   as?: E;
 };
@@ -29,36 +29,34 @@ const renderButton = <E extends React.ElementType = 'button'>(
     <Component
       ref={ref}
       className={cn(
-        'group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full font-medium whitespace-nowrap',
-        'transition-[transform,opacity,box-shadow,background-color,color,border-color] duration-500 ease-[var(--ease-heavy)] active:scale-[0.98]',
-        'before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100',
+        'group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-medium whitespace-nowrap',
+        'transition-[transform,opacity,box-shadow,background-color,color,border-color] duration-300 ease-[var(--ease-out)] active:scale-[0.98]',
+        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
         variant === 'primary' && [
-          'border border-clay/40 bg-clay text-earth',
-          'shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_18px_40px_rgba(196,130,81,0.20)]',
-          'before:bg-[radial-gradient(circle_at_25%_0%,rgba(255,255,255,0.48),transparent_34%)]',
-          'hover:bg-[#d69b6f]',
+          'border border-white/10 bg-white text-black',
+          'shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_14px_34px_-18px_rgba(255,255,255,0.55)]',
+          'hover:bg-zinc-200',
         ],
         variant === 'secondary' && [
-          'border border-porcelain/12 bg-porcelain/[0.055] text-porcelain backdrop-blur-md',
-          'shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]',
-          'hover:border-porcelain/22 hover:bg-porcelain/[0.085]',
-        ],
-        variant === 'dark' && [
-          'border border-porcelain/10 bg-ink text-porcelain',
-          'shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] hover:bg-porcelain/[0.06]',
+          'border border-white/12 bg-white/[0.04] text-white backdrop-blur-md',
+          'hover:border-white/22 hover:bg-white/[0.07]',
         ],
         variant === 'outline' && [
-          'border border-porcelain/16 bg-porcelain/[0.02] text-porcelain',
-          'hover:border-clay/35 hover:bg-clay/10 hover:text-clay',
+          'border border-white/14 bg-black/20 text-white backdrop-blur-sm',
+          'hover:border-white/28 hover:bg-white/[0.06]',
         ],
-        size === 'sm' && 'px-4 py-2 text-sm',
-        size === 'md' && 'px-6 py-3 text-base',
-        size === 'lg' && 'px-7 py-4 text-base',
+        variant === 'ghost' && [
+          'border border-transparent bg-transparent text-zinc-300',
+          'hover:bg-white/[0.06] hover:text-white',
+        ],
+        size === 'sm' && 'px-3.5 py-1.5 text-sm',
+        size === 'md' && 'px-5 py-2.5 text-sm',
+        size === 'lg' && 'px-6 py-3 text-base',
         className,
       )}
       {...componentProps}
     >
-      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+      {children}
     </Component>
   );
 };

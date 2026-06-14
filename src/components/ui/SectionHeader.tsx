@@ -24,39 +24,29 @@ export function SectionHeader({
   titleId,
 }: SectionHeaderProps) {
   return (
-    <div
-      className={cn(
-        align === 'center' && 'mx-auto text-center',
-        className,
-      )}
-    >
+    <div className={cn(align === 'center' && 'mx-auto text-center', className)}>
       {eyebrow && (
         <div
           className={cn(
-            'mb-6 flex items-center gap-2 text-xs font-mono tracking-wider text-gray-500 uppercase',
+            'mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500',
             align === 'center' && 'justify-center',
           )}
         >
-          <div className="h-1.5 w-1.5 rounded-sm bg-porcelain/30" />
+          <span className="h-px w-8 bg-white/14" />
           {eyebrow}
         </div>
       )}
       <h2
         id={titleId}
         className={cn(
-          'mb-4 text-4xl font-medium tracking-tight text-balance md:text-5xl',
+          'text-balance text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl md:text-5xl',
           titleClassName,
         )}
       >
         {title}
       </h2>
       {description && (
-        <p
-          className={cn(
-            'text-lg leading-relaxed text-gray-400',
-            descriptionClassName,
-          )}
-        >
+        <p className={cn('mt-4 text-base leading-7 text-zinc-400 sm:text-lg', descriptionClassName)}>
           {description}
         </p>
       )}
