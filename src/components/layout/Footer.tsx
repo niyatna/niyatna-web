@@ -32,24 +32,25 @@ const footerColumns: { title: string; links: FooterLinkData[] }[] = [
     links: [
       { label: 'Intent capture', href: '#feature-01' },
       { label: 'Trusted delegation', href: '#feature-02' },
-      { label: 'Evidence ledger', href: '#openintent' },
+      { label: 'Evidence ledger', href: '#feature-04' },
     ],
   },
 ];
 
 export const Footer = () => {
   return (
-    <footer id="early-access" className="mt-20 border-t border-border-subtle bg-background px-6 pb-10 pt-20">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-24 flex flex-col items-center text-center">
+    <footer id="early-access" className="mt-10 border-t border-border-subtle bg-background px-5 pb-10 pt-24 sm:px-6">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-24 grid gap-10 rounded-[2rem] border border-border-subtle bg-porcelain/[0.025] p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <SectionHeader
-            align="center"
             title="Start with intent. Return with proof."
             description="Niyatna is the public layer for turning human intention into delegated agentic execution that remains reviewable by the human."
-            className="mb-8 max-w-3xl"
-            titleClassName="mb-4 text-3xl md:text-5xl"
+            className="max-w-3xl"
+            titleClassName="mb-5 text-4xl leading-[0.95] tracking-[-0.055em] md:text-6xl"
           />
-          <ProductCta variant="footer" />
+          <div className="lg:justify-self-end">
+            <ProductCta variant="footer" />
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-8 border-t border-border-subtle pt-12 md:grid-cols-5">

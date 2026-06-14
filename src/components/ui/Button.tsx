@@ -30,7 +30,7 @@ const renderButton = <E extends React.ElementType = 'button'>(
       ref={ref}
       className={cn(
         'group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full font-medium whitespace-nowrap',
-        'transition-[transform,opacity,box-shadow,background-color,color,border-color] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]',
+        'transition-[transform,opacity,box-shadow,background-color,color,border-color] duration-500 ease-[var(--ease-heavy)] active:scale-[0.98]',
         'before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100',
         variant === 'primary' && [
           'border border-clay/40 bg-clay text-earth',

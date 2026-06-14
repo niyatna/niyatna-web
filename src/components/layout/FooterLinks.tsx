@@ -11,12 +11,12 @@ type FooterColumnProps = {
 };
 
 const footerLinkClassName =
-  'hover:text-white transition-[color,transform] duration-150 ease-[var(--ease-out)] active:scale-[0.97]';
+  'hover:text-porcelain transition-[color,transform] duration-150 ease-[var(--ease-out)] active:scale-[0.97]';
 
 export function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h4 className="mb-4 text-sm font-medium text-white">{title}</h4>
+      <h4 className="mb-4 text-sm font-medium text-porcelain">{title}</h4>
       <ul className="flex flex-col gap-3 text-sm text-gray-500">
         {links.map((link) => (
           <li key={link.label}>
@@ -35,11 +35,13 @@ export function FooterLink({
   href: string;
   children: ReactNode;
 }) {
+  const isExternal = /^https?:\/\//.test(href);
+
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noreferrer"
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noreferrer' : undefined}
       className={footerLinkClassName}
     >
       {children}
