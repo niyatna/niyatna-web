@@ -33,6 +33,11 @@ for (const route of routes) {
 await page.goto('http://localhost:4175/', { waitUntil: 'load' });
 const hasIntentScroll = await page.locator('#intent-scroll').count();
 if (!hasIntentScroll) throw new Error('missing #intent-scroll');
+const faqTrigger = page.locator('[data-slot="accordion-trigger"]').first();
+if (await faqTrigger.count()) {
+  await faqTrigger.click();
+  await page.waitForTimeout(500);
+}
 await page.screenshot({ path: 'artifacts/next-full-niyatna-home.png', fullPage: true });
 await browser.close();
 if (errors.length) throw new Error(errors.join('\n'));
