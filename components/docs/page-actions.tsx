@@ -7,6 +7,7 @@ import {
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 interface PageActionsProps {
   rawMarkdown: string
@@ -65,14 +66,44 @@ function PerplexityLogo({ className }: { className?: string }) {
   )
 }
 
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  )
+}
+
+function SparkleIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M12 2l2.4 7.2 7.2 2.4-7.2 2.4-2.4 7.2-2.4-7.2-7.2-2.4 7.2-2.4z" />
+    </svg>
+  )
+}
+
 export function PageActions({
   rawMarkdown,
 }: PageActionsProps) {
   const [copied, setCopied] = React.useState(false)
-  const [chatGptStatus, setChatGptStatus] = React.useState("")
-  const [claudeStatus, setClaudeStatus] = React.useState("")
-  const [geminiStatus, setGeminiStatus] = React.useState("")
-  const [perplexityStatus, setPerplexityStatus] = React.useState("")
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [activePlatform, setActivePlatform] = React.useState<string | null>(null)
+  const [platformStatus, setPlatformStatus] = React.useState("")
+  const dropdownRef = React.useRef<HTMLDivElement>(null)
 
   const handleCopy = React.useCallback(async () => {
     try {
@@ -85,34 +116,61 @@ export function PageActions({
   }, [rawMarkdown])
 
   const handleOpenPlatform = React.useCallback(
-    async (baseUrl: string, platformName: string, stateSetter: React.Dispatch<React.SetStateAction<string>>) => {
+    async (platformId: string, baseUrl: string, platformName: string) => {
       try {
         const promptText = `Below is the documentation page for Niyatna:\n\n${rawMarkdown}`
         
         // Copy the prompt text to the clipboard so the user has it ready to paste
         await navigator.clipboard.writeText(promptText)
+        setActivePlatform(platformId)
 
         // Try to construct URL with query parameter if it fits within safe limits
         const separator = baseUrl.includes("?") ? "&" : "?"
         const fullUrl = `${baseUrl}${separator}q=${encodeURIComponent(promptText)}`
 
         if (fullUrl.length < 2000) {
-          stateSetter("Opening...")
-          setTimeout(() => stateSetter(""), 2000)
+          setPlatformStatus("Opening...")
           window.open(fullUrl, "_blank")
         } else {
-          stateSetter("Copied prompt!")
-          setTimeout(() => stateSetter(""), 2500)
+          setPlatformStatus("Copied prompt!")
           window.open(baseUrl, "_blank")
         }
+
+        // Keep feedback visible briefly, then reset and close dropdown
+        setTimeout(() => {
+          setIsOpen(false)
+          setActivePlatform(null)
+          setPlatformStatus("")
+        }, 1500)
       } catch (err) {
         console.error(`Failed to handle open for ${platformName}`, err)
-        // Fallback: just open the platform
         window.open(baseUrl, "_blank")
+        setIsOpen(false)
+        setActivePlatform(null)
+        setPlatformStatus("")
       }
     },
     [rawMarkdown]
   )
+
+  React.useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
+  const platforms = [
+    { id: "chatgpt", name: "ChatGPT", url: "https://chatgpt.com/", Logo: ChatGptLogo },
+    { id: "claude", name: "Claude", url: "https://claude.ai/new", Logo: ClaudeLogo },
+    { id: "gemini", name: "Gemini", url: "https://gemini.google.com/app", Logo: GeminiLogo },
+    { id: "perplexity", name: "Perplexity", url: "https://www.perplexity.ai/", Logo: PerplexityLogo },
+  ]
 
   return (
     <div className="mb-4 flex flex-wrap items-center gap-2">
@@ -132,85 +190,51 @@ export function PageActions({
         {copied ? "Copied!" : "Copy Page Markdown"}
       </Button>
 
-      {/* Open in ChatGPT */}
-      <Button
-        variant="outline"
-        onClick={() => handleOpenPlatform("https://chatgpt.com/", "ChatGPT", setChatGptStatus)}
-        type="button"
-        size="sm"
-        className="cursor-pointer rounded-lg gap-2"
-      >
-        {chatGptStatus ? (
-          <HugeiconsIcon
-            icon={Tick01Icon}
-            className="size-3.5"
-            strokeWidth={2}
+      {/* Open in AI Dropdown Wrapper */}
+      <div className="relative inline-block text-left" ref={dropdownRef}>
+        <Button
+          variant="outline"
+          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          size="sm"
+          className="cursor-pointer rounded-lg gap-2"
+        >
+          <SparkleIcon className="size-3.5 text-zinc-400" />
+          Open in AI
+          <ChevronDownIcon
+            className={cn(
+              "size-3 transition-transform duration-200 text-zinc-500",
+              isOpen && "rotate-180"
+            )}
           />
-        ) : (
-          <ChatGptLogo className="size-3.5" />
-        )}
-        {chatGptStatus || "Open in ChatGPT"}
-      </Button>
+        </Button>
 
-      {/* Open in Claude */}
-      <Button
-        variant="outline"
-        onClick={() => handleOpenPlatform("https://claude.ai/new", "Claude", setClaudeStatus)}
-        type="button"
-        size="sm"
-        className="cursor-pointer rounded-lg gap-2"
-      >
-        {claudeStatus ? (
-          <HugeiconsIcon
-            icon={Tick01Icon}
-            className="size-3.5"
-            strokeWidth={2}
-          />
-        ) : (
-          <ClaudeLogo className="size-3.5" />
+        {isOpen && (
+          <div className="absolute left-0 mt-1.5 w-56 origin-top-left rounded-xl border border-zinc-800 bg-zinc-950 p-1 shadow-2xl z-50 animate-in fade-in slide-in-from-top-1 duration-100">
+            {platforms.map((p) => {
+              const isActive = activePlatform === p.id
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => handleOpenPlatform(p.id, p.url, p.name)}
+                  className="flex w-full items-center justify-between px-3 py-2 text-sm text-left rounded-lg transition-colors hover:bg-zinc-900 hover:text-zinc-50 text-zinc-300 cursor-pointer"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <p.Logo className="size-3.5 shrink-0" />
+                    <span>{p.name}</span>
+                  </div>
+                  {isActive && (
+                    <span className="text-[10px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded font-mono">
+                      {platformStatus}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
+          </div>
         )}
-        {claudeStatus || "Open in Claude"}
-      </Button>
-
-      {/* Open in Gemini */}
-      <Button
-        variant="outline"
-        onClick={() => handleOpenPlatform("https://gemini.google.com/app", "Gemini", setGeminiStatus)}
-        type="button"
-        size="sm"
-        className="cursor-pointer rounded-lg gap-2"
-      >
-        {geminiStatus ? (
-          <HugeiconsIcon
-            icon={Tick01Icon}
-            className="size-3.5"
-            strokeWidth={2}
-          />
-        ) : (
-          <GeminiLogo className="size-3.5" />
-        )}
-        {geminiStatus || "Open in Gemini"}
-      </Button>
-
-      {/* Open in Perplexity */}
-      <Button
-        variant="outline"
-        onClick={() => handleOpenPlatform("https://www.perplexity.ai/", "Perplexity", setPerplexityStatus)}
-        type="button"
-        size="sm"
-        className="cursor-pointer rounded-lg gap-2"
-      >
-        {perplexityStatus ? (
-          <HugeiconsIcon
-            icon={Tick01Icon}
-            className="size-3.5"
-            strokeWidth={2}
-          />
-        ) : (
-          <PerplexityLogo className="size-3.5" />
-        )}
-        {perplexityStatus || "Open in Perplexity"}
-      </Button>
+      </div>
     </div>
   )
 }
