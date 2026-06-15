@@ -64,6 +64,12 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
+
+      <div className="w-full overflow-hidden select-none border-t border-border/40 bg-muted/5 pb-6 pt-4 sm:pb-12 sm:pt-8">
+        <div className="text-center font-bold tracking-tighter text-[14vw] leading-[0.8] text-foreground/[0.06]">
+          Niyatna.
+        </div>
+      </div>
     </footer>
   )
 }
