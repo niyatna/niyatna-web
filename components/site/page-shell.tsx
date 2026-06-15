@@ -53,7 +53,7 @@ export function PageHero({
           </p>
         ) : null}
         {meta ? (
-          <div className="mt-6 flex items-center justify-center gap-3 font-mono text-[11px] tracking-[0.12em] text-foreground/60 uppercase">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 font-mono text-[11px] tracking-[0.12em] text-foreground/60 uppercase text-center">
             {meta}
           </div>
         ) : null}

@@ -121,9 +121,9 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-4 flex items-center gap-2 border rounded-xl bg-background/60 px-3 py-1 font-mono text-[11px] tracking-[0.08em] text-foreground/65"
+          className="mt-4 flex flex-wrap justify-center items-center gap-2 border border-border/50 rounded-xl bg-background/60 px-3 py-2 sm:py-1 font-mono text-[10px] sm:text-[11px] tracking-[0.08em] text-foreground/65 text-center max-w-full"
         >
-          <span className="size-1.5 rounded-full bg-foreground/50" />
+          <span className="size-1.5 rounded-full bg-foreground/50 shrink-0" />
           <span>Problem → Intent → Dream → Mission → Vision → Goals → Agents</span>
         </motion.div>
 

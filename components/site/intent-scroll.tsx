@@ -147,7 +147,7 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
         <div className="relative flex flex-col justify-between h-full gap-6 md:gap-8 flex-1">
           {/* Visual Screenshot display on top */}
           <div className="w-full flex-1 min-h-0 relative flex flex-col justify-center">
-            <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex-1 min-h-[180px] flex flex-col">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)] aspect-[16/10] w-full flex flex-col lg:aspect-auto lg:flex-1 lg:min-h-[180px]">
               <div className="flex items-center gap-1 border-b border-border/40 bg-background/60 px-3 py-1.5 shrink-0">
                 <span className="size-1.5 rounded-full bg-foreground/20" />
                 <span className="size-1.5 rounded-full bg-foreground/15" />
