@@ -1,0 +1,35 @@
+---
+title: Agent Workspaces
+description: "How the Niyatna workspace isolates agent execution, manages credentials, and stages verification proofs."
+icon: Layout
+---
+
+An Agentic Company runs on specialized agent workforces. To ensure complete security and operational alignment, every AI agent operates within a dedicated **Agent Workspace**.
+
+The workspace is built around one core principle: **the human supervisor retains total visibility while the agent executes in isolation**.
+
+## Isolated Execution Environments
+
+Each AI Agent (such as your AI COO or AI CFO) is assigned a sandboxed workspace. This sandbox is:
+1. **Isolated:** The agent cannot view files or databases outside its designated scope.
+2. **Ephemeral:** When a task begins, a clean sandbox is spawned. When the task is complete and verified, the sandbox is archived.
+3. **Monitored:** Every shell command, file read, file write, and network request is logged in real-time.
+
+## Key Surface Areas
+
+The workspace interface presents four key views to the human manager:
+
+- **The Intent Rail:** The pinned source of truth. It defines the agent's identity, mission, specific goals, constraints, and success criteria.
+- **The Live Logs Feed:** A real-time audit stream showing what the agent is thinking, what tools it is invoking, and what sub-tasks it is running.
+- **The Proof Panel:** A dedicated space showing the outcome. Depending on the task, this includes database diffs, HubSpot CRM sync receipts, or Stripe transaction matches.
+- **The Decision Gate:** An interactive panel presenting any actions requiring manual approval (e.g., executing a billing change or sending an onboarding package).
+
+## Why Workspace Isolation Matters
+
+In traditional companies, scaling operations usually means sharing database passwords and dashboard logins with many employees, creating security risks. 
+
+Niyatna's Agent Workspaces solve this by:
+- Storing master credentials in a secure vault.
+- Passing only temporary, scoped tokens to the agent sandboxes.
+- Preventing agents from taking high-risk actions without explicit administrative veto approval.
+- Keeping the exact business intent and proof pinned in one unified workspace.

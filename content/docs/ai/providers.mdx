@@ -1,0 +1,20 @@
+---
+title: Model and provider routing
+description: "Choose models for agent work while keeping the human intent and proof standard stable."
+icon: Cpu
+---
+
+Niyatna is model-agnostic by design.
+
+The model is an execution choice, not the source of truth. The source of truth is still the human intent packet.
+
+## Provider principles
+
+- Use the smallest model that can complete the task reliably.
+- Route sensitive work through safer, more inspectable flows.
+- Keep secrets out of public logs and proof bundles.
+- Prefer local or owned routes when privacy matters.
+
+## What proof should include
+
+If a model was used, the result should still return inspectable artifacts: sources, diffs, commands, screenshots, or reasoning summaries tied to the task.

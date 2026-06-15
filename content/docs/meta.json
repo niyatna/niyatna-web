@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "---Overview---",
+    "index",
+    "getting-started/index",
+    "getting-started/workspace",
+    "---Features---",
+    "features/intent-primitive",
+    "features/verification-layer",
+    "features/delegation-trail",
+    "features/agent-workflow",
+    "features/outcome-preview",
+    "features/human-agency",
+    "features/context-explorer",
+    "features/notifications",
+    "---AI---",
+    "ai/providers",
+    "ai/composer",
+    "ai/execution-agents",
+    "ai/plans-and-subagents",
+    "ai/sessions-and-memory",
+    "ai/security",
+    "---Reference---",
+    "reference/shortcuts",
+    "reference/settings",
+    "reference/tool-integration",
+    "reference/workspaces",
+    "reference/data"
+  ]
+}

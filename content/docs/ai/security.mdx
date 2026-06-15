@@ -1,0 +1,19 @@
+---
+title: Agent safety
+description: "Permission gates, evidence, and human approval boundaries for delegated work."
+icon: Shield
+---
+
+Agent safety in Niyatna is operational, not decorative.
+
+The goal is to let useful work move while keeping irreversible, sensitive, or external actions under human control.
+
+## Gate classes
+
+- **Allowed**: local reversible edits, read-only inspection, builds, tests, screenshots.
+- **Approval required**: publish, deploy, external send, billing, account/security settings, destructive database changes.
+- **Blocked**: actions outside the stated intent or without enough context.
+
+## Proof requirements
+
+Sensitive work should return a clear trail: what was attempted, what succeeded, what failed, and what still needs a human decision.

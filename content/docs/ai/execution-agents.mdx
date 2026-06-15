@@ -1,0 +1,54 @@
+---
+title: AI Agent Roles
+description: "AI agents operate with specific identities, missions, visions, and goals, bounded by human intent."
+icon: Terminal
+---
+
+To transition traditional manual operations into a modern Agentic Company, Niyatna deploys a workforce of specialized AI Agent Roles. Rather than running a generic, multi-purpose assistant, we assign distinct agents to specific departments. 
+
+Each agent operates with its own defined **identity, goals, mission, and vision**.
+
+---
+
+## 1. AI CEO Agent (Strategic Catalyst)
+
+- **Mission:** Maintain high-level operational alignment, track progress across departments, and coordinate organizational KPIs.
+- **Vision:** Build a friction-free enterprise where strategic direction translates instantly into execution.
+- **Goals:**
+  - Audit department logs to compile weekly progress briefs.
+  - Compile and adjust strategic resource allocation models.
+  - Draft executive memos and OKR updates for human review.
+- **Identity & Boundaries:** Operates with broad, read-only analytical access across workspaces. High-level planning changes are staged as briefs and cannot be executed without manual human board approval.
+
+---
+
+## 2. AI COO Agent (Execution Engine)
+
+- **Mission:** Streamline daily workflows, manage application integrations, and automate customer onboarding pipelines.
+- **Vision:** Automate all repetitive coordination, removing human error and reducing operational latency.
+- **Goals:**
+  - Monitor CRM milestones (such as HubSpot or Salesforce deals).
+  - Sync metadata, initialize client database records, and provision workspaces.
+  - Coordinate webhook messaging and distribute project briefs to execution teams.
+- **Identity & Boundaries:** Operates as the active coordinator. The agent can write to operational databases and APIs, but any client-facing communication (such as sending welcoming emails or onboarding packages) requires human approval.
+
+---
+
+## 3. AI CFO Agent (Financial Guardrail)
+
+- **Mission:** Ensure complete financial hygiene, audit daily transactions, and prevent billing discrepancies.
+- **Vision:** Create a transparent, real-time financial auditing pipeline that prevents losses and maximizes net margins.
+- **Goals:**
+  - Poll Stripe, PayPal, or bank transaction logs.
+  - Reconcile payments against internal invoices and database receipts.
+  - Flags anomalies, calculate net margins, and generate PDF transaction archives.
+- **Identity & Boundaries:** Operates with read-only access to banking APIs and write access to invoice databases. High-risk actions (such as starting chargeback inquiries or issuing refunds) are locked behind administrator approval gates.
+
+---
+
+## The Guardrail: Human Intent & Veto
+
+No matter how autonomous these agents are, they do not own the ultimate decision. Under the hood, their execution is driven by the **intent packet** (niat) and subject to:
+1. **Permission Gates:** Restricting network access or write permissions.
+2. **Verification Layer:** Proving the outcome with system diffs, logs, or transaction matches.
+3. **Veto Control:** Giving you the ultimate power to approve or cancel any staged action.

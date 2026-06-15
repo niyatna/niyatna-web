@@ -1,0 +1,22 @@
+---
+title: Tool integration
+description: "How external tools report state back into the intent and proof loop."
+icon: CommandLine
+---
+
+Tool integration exists so work can return evidence automatically.
+
+## Event shape
+
+A tool should report:
+
+- intent id
+- action performed
+- status
+- evidence path or URL
+- error or blocker if any
+- whether human approval is needed
+
+## Why events matter
+
+Without structured events, agent work becomes a pile of logs. With structured events, the proof layer can show what happened and what decision remains.

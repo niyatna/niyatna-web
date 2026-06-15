@@ -1,15 +1,17 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "rsc": false,
+  "style": "radix-luma",
+  "rsc": true,
   "tsx": true,
   "tailwind": {
-    "config": "tailwind.config.ts",
-    "css": "src/index.css",
-    "baseColor": "slate",
+    "config": "",
+    "css": "app/globals.css",
+    "baseColor": "mist",
     "cssVariables": true,
     "prefix": ""
   },
+  "iconLibrary": "hugeicons",
+  "rtl": false,
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
@@ -17,12 +19,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {
-    "@efferd": {
-      "url": "https://efferd.com/r/{style}/{name}.json",
-      "headers": {
-        "Authorization": "Bearer ${EFFERD_REGISTRY_TOKEN}"
-      }
-    }
-  }
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
 }

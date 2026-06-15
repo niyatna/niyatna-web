@@ -1,0 +1,14 @@
+{
+  "title": "Features",
+  "icon": "Layout",
+  "pages": [
+    "intent-primitive",
+    "verification-layer",
+    "delegation-trail",
+    "agent-workflow",
+    "outcome-preview",
+    "human-agency",
+    "context-explorer",
+    "notifications"
+  ]
+}

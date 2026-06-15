@@ -1,0 +1,22 @@
+---
+title: Agent workflow
+description: "AI agents execute tasks under your constraints and return structured proof bundles."
+icon: Cpu
+---
+
+The agent workflow is the execution phase where AI agents perform delegated tasks.
+
+Rather than running unchecked or in a black box, agents operate under strict boundaries, and their output must satisfy the intent's acceptance criteria before being merged or executed.
+
+<img src="/ai_workflow.webp" alt="Niyatna agent workflow" width="2560" height="1600" />
+
+## Agent lifecycle
+
+1. **Planning** — The agent reads the intent packet and lists the files, tools, and steps it plans to use.
+2. **Executing** — The agent performs actions (editing files, executing commands, checking routes).
+3. **Verifying** — The agent runs test and verification suites to generate the proof bundle.
+4. **Approval gate** — The agent pauses and surfaces any sensitive, destructive, or external actions for human review.
+
+## Bounded autonomy
+
+Agents are given the tools they need to operate, but they remain a delegated workforce. The human remains the sole source of final authority.
