@@ -189,7 +189,7 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
               </p>
             </div>
 
-            <div className="md:col-span-5 flex flex-col justify-end">
+            <div className="md:col-span-5 flex flex-col">
               <ul className="space-y-2 border-l border-border/60 pl-4 py-1">
                 {active.bullets.map((bullet) => (
                   <li
@@ -202,23 +202,6 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
                 ))}
               </ul>
             </div>
-          </div>
-
-          {/* Core sub-flows at the bottom */}
-          <div className="grid gap-3 sm:grid-cols-3">
-            {active.rows.map((row, index) => (
-              <div
-                key={row}
-                className="rounded-2xl border border-border/60 bg-background/50 p-4 backdrop-blur-sm"
-              >
-                <div className="font-mono text-[9px] tracking-[0.16em] text-muted-foreground uppercase">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <div className="mt-4 text-xs font-medium tracking-tight text-foreground/90">
-                  {row}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
