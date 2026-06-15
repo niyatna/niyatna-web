@@ -118,22 +118,26 @@ export function PageActions({
   const handleOpenPlatform = React.useCallback(
     async (platformId: string, baseUrl: string, platformName: string) => {
       try {
-        const promptText = `Below is the documentation page for Niyatna:\n\n${rawMarkdown}`
-        
-        // Copy the prompt text to the clipboard so the user has it ready to paste
-        await navigator.clipboard.writeText(promptText)
+        const currentUrl = typeof window !== "undefined" ? window.location.href : ""
+        const separator = baseUrl.includes("?") ? "&" : "?"
+
+        // Copy the raw page markdown to the clipboard unconditionally
+        await navigator.clipboard.writeText(rawMarkdown)
         setActivePlatform(platformId)
 
-        // Try to construct URL with query parameter if it fits within safe limits
-        const separator = baseUrl.includes("?") ? "&" : "?"
-        const fullUrl = `${baseUrl}${separator}q=${encodeURIComponent(promptText)}`
+        // Try to construct a full prompt with the page content
+        const fullMarkdownPrompt = `Here is the Niyatna documentation:\n\n${rawMarkdown}\n\nPlease summarize and analyze this page.`
+        const fullUrl = `${baseUrl}${separator}q=${encodeURIComponent(fullMarkdownPrompt)}`
 
         if (fullUrl.length < 2000) {
           setPlatformStatus("Opening...")
           window.open(fullUrl, "_blank")
         } else {
+          // If the markdown is too long, pass a smart prompt with the page URL instructing the AI
           setPlatformStatus("Copied prompt!")
-          window.open(baseUrl, "_blank")
+          const fallbackPrompt = `Please read and analyze the Niyatna documentation page at ${currentUrl}.\n\nProvide a clear summary of its contents and help me understand it. (Note: I have copied the raw page markdown to my clipboard if you need it).`
+          const fallbackUrl = `${baseUrl}${separator}q=${encodeURIComponent(fallbackPrompt)}`
+          window.open(fallbackUrl, "_blank")
         }
 
         // Keep feedback visible briefly, then reset and close dropdown
