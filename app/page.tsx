@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/site/footer"
 import { SiteHeader } from "@/components/site/header"
 import { Hero } from "@/components/site/hero"
 import { IntentScroll } from "@/components/site/intent-scroll"
-import { Stats } from "@/components/site/stats"
 import { SITE } from "@/lib/site"
 
 export default function HomePage() {
@@ -33,7 +32,6 @@ export default function HomePage() {
         <div id="features">
           <IntentScroll />
         </div>
-        <Stats />
         <FeatureGrid />
         <Start />
         <FAQ />

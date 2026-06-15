@@ -62,6 +62,13 @@ const tracks: EngagementBlock[] = [
   },
 ]
 
+const statsList = [
+  { value: "Problem", label: "The starting point" },
+  { value: "Intent", label: "The human decision" },
+  { value: "Goals", label: "Delegated targets" },
+  { value: "Agents", label: "Autonomous execution" },
+]
+
 export function Start() {
   const recommended = {
     label: "Start a conversation",
@@ -88,6 +95,19 @@ export function Start() {
             <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-[17px]">
               The Agentic Company framework begins with your intent. Define the problem, map the goals, and let specialized agents handle the execution within strict boundaries.
             </p>
+
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 mt-6 backdrop-blur-sm">
+              {statsList.map((s) => (
+                <div key={s.label} className="bg-background/60 px-4 py-5 text-center">
+                  <div className="font-mono text-lg font-semibold tracking-tight text-foreground">
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-[9px] tracking-wider text-muted-foreground uppercase">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
  
           <div className="mt-8 rounded-2xl border border-border/60 bg-background/60 p-5 backdrop-blur-sm">
