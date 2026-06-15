@@ -1,9 +1,19 @@
 "use client"
 
 import {
+  AmazonIcon,
+  AppleIcon,
   ArrowRight01Icon,
+  FigmaIcon,
+  GithubIcon,
+  GoogleIcon,
   Mail01Icon,
+  MetaIcon,
+  MicrosoftIcon,
+  SlackIcon,
   SparklesIcon,
+  SpotifyIcon,
+  StripeIcon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { motion } from "motion/react"
@@ -13,15 +23,28 @@ import { TypingAnimation } from "@/components/text-typing"
 import { Button } from "@/components/ui/button"
 import { SITE } from "@/lib/site"
 
+const brands = [
+  { name: "Google", icon: GoogleIcon },
+  { name: "Apple", icon: AppleIcon },
+  { name: "Microsoft", icon: MicrosoftIcon },
+  { name: "Meta", icon: MetaIcon },
+  { name: "Stripe", icon: StripeIcon },
+  { name: "Slack", icon: SlackIcon },
+  { name: "Figma", icon: FigmaIcon },
+  { name: "Github", icon: GithubIcon },
+  { name: "Amazon", icon: AmazonIcon },
+  { name: "Spotify", icon: SpotifyIcon },
+]
+
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
+    <section className="relative isolate overflow-hidden pt-36 sm:pt-44">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(255,255,255,0.06),transparent_70%)]"
       />
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6 pb-20 sm:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,6 +139,31 @@ export function Hero() {
           <span className="size-1 rounded-full bg-muted-foreground/40" />
           <span>Agent-Delegated</span>
         </motion.div>
+      </div>
+
+      {/* Infinite scrolling logo marquee */}
+      <div className="relative w-full overflow-hidden py-6 mt-16 border-t border-b border-border/40 bg-foreground/[0.01]">
+        {/* Fade overlays */}
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        
+        <div className="animate-marquee flex gap-12 sm:gap-16 items-center">
+          {[...brands, ...brands].map((brand, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2.5 shrink-0 text-foreground/45 hover:text-foreground transition-colors cursor-pointer select-none"
+            >
+              <HugeiconsIcon
+                icon={brand.icon}
+                className="size-4 shrink-0"
+                strokeWidth={1.8}
+              />
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase shrink-0">
+                {brand.name}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

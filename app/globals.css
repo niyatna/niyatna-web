@@ -165,4 +165,16 @@
     background-size: 32px 32px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 35s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }
