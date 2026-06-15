@@ -79,15 +79,17 @@ export function Start() {
         className="pointer-events-none absolute inset-0 -z-10 bg-foreground/[0.025] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_0%,black,transparent_70%)]"
       />
       <div className="relative grid gap-8 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <SectionEyebrow>Get started</SectionEyebrow>
-          <SectionHeading className="mt-3">
-            Start with the problem, not the tools.
-          </SectionHeading>
-          <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-[17px]">
-            The Agentic Company framework begins with your intent. Define the problem, map the goals, and let specialized agents handle the execution within strict boundaries.
-          </p>
-
+        <div className="lg:col-span-5 lg:flex lg:flex-col lg:justify-between">
+          <div>
+            <SectionEyebrow>Get started</SectionEyebrow>
+            <SectionHeading className="mt-3">
+              Start with the problem, not the tools.
+            </SectionHeading>
+            <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-[17px]">
+              The Agentic Company framework begins with your intent. Define the problem, map the goals, and let specialized agents handle the execution within strict boundaries.
+            </p>
+          </div>
+ 
           <div className="mt-8 rounded-2xl border border-border/60 bg-background/60 p-5 backdrop-blur-sm">
             <div className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
               Get in touch
