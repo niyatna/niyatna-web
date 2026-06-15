@@ -131,8 +131,8 @@ const steps: Array<{
 
 function IntentVisual({ active }: { active: (typeof steps)[number] }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card/50 shadow-[0_30px_90px_-40px_rgba(0,0,0,0.75)] backdrop-blur-xl">
-      <div className="flex items-center gap-1.5 border-b border-border/60 bg-background/70 px-4 py-3">
+    <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card/50 shadow-[0_30px_90px_-40px_rgba(0,0,0,0.75)] backdrop-blur-xl lg:h-[calc(100vh-14rem)] lg:min-h-[620px] flex flex-col">
+      <div className="flex items-center gap-1.5 border-b border-border/60 bg-background/70 px-4 py-3 shrink-0">
         <span className="size-2.5 rounded-full bg-foreground/25" />
         <span className="size-2.5 rounded-full bg-foreground/18" />
         <span className="size-2.5 rounded-full bg-foreground/12" />
@@ -141,19 +141,19 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
         </span>
       </div>
 
-      <div className="relative p-6 sm:p-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_25%,rgba(255,255,255,0.06),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.04),transparent_28%)]" />
+      <div className="relative p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_25%,rgba(255,255,255,0.06),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.04),transparent_28%)] pointer-events-none" />
 
-        <div className="relative flex flex-col gap-8">
+        <div className="relative flex flex-col justify-between h-full gap-6 md:gap-8 flex-1">
           {/* Visual Screenshot display on top */}
-          <div className="w-full">
-            <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <div className="flex items-center gap-1 border-b border-border/40 bg-background/60 px-3 py-1.5">
+          <div className="w-full flex-1 min-h-0 relative flex flex-col justify-center">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex-1 min-h-[180px] flex flex-col">
+              <div className="flex items-center gap-1 border-b border-border/40 bg-background/60 px-3 py-1.5 shrink-0">
                 <span className="size-1.5 rounded-full bg-foreground/20" />
                 <span className="size-1.5 rounded-full bg-foreground/15" />
                 <span className="size-1.5 rounded-full bg-foreground/10" />
               </div>
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
+              <div className="relative w-full flex-1 overflow-hidden">
                 <Image
                   src={active.image}
                   alt={active.title}
@@ -165,15 +165,15 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/40" />
               </div>
             </div>
-            <div className="mt-2.5 text-center font-mono text-[10px] tracking-wider text-muted-foreground">
+            <div className="mt-2 text-center font-mono text-[10px] tracking-wider text-muted-foreground shrink-0">
               {active.caption}
             </div>
           </div>
 
           {/* Narrative detail & Checkpoints below image */}
-          <div className="grid gap-6 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-7 flex flex-col gap-3">
-              <div className="flex items-center gap-2.5">
+          <div className="grid gap-6 md:grid-cols-12 md:gap-8 shrink-0">
+            <div className="md:col-span-7 flex flex-col gap-2.5">
+              <div className="flex items-center gap-2">
                 <div className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-border/70 bg-background/50 text-muted-foreground">
                   <HugeiconsIcon icon={active.icon} className="size-4" strokeWidth={1.8} />
                 </div>
@@ -181,16 +181,16 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
                   {active.eyebrow}
                 </div>
               </div>
-              <h3 className="text-xl font-semibold tracking-[-0.035em] text-balance text-foreground leading-tight sm:text-2xl">
+              <h3 className="text-lg font-semibold tracking-[-0.035em] text-balance text-foreground leading-snug sm:text-xl">
                 {active.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
                 {active.description}
               </p>
             </div>
 
-            <div className="md:col-span-5 flex flex-col">
-              <ul className="space-y-2 border-l border-border/60 pl-4 py-1">
+            <div className="md:col-span-5 flex flex-col justify-center">
+              <ul className="space-y-1.5 border-l border-border/60 pl-4 py-0.5">
                 {active.bullets.map((bullet) => (
                   <li
                     key={bullet}
