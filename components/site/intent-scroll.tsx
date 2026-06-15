@@ -145,29 +145,52 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_25%,rgba(255,255,255,0.06),transparent_34%),radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.04),transparent_28%)]" />
 
         <div className="relative flex flex-col gap-8">
-          {/* Main Visual content grid */}
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Narrative detail */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-2.5">
-                  <div className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-border/70 bg-background/50 text-muted-foreground">
-                    <HugeiconsIcon icon={active.icon} className="size-4" strokeWidth={1.8} />
-                  </div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-                    {active.eyebrow}
-                  </div>
-                </div>
-                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-balance text-foreground leading-tight sm:text-3xl">
-                  {active.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {active.description}
-                </p>
+          {/* Visual Screenshot display on top */}
+          <div className="w-full">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="flex items-center gap-1 border-b border-border/40 bg-background/60 px-3 py-1.5">
+                <span className="size-1.5 rounded-full bg-foreground/20" />
+                <span className="size-1.5 rounded-full bg-foreground/15" />
+                <span className="size-1.5 rounded-full bg-foreground/10" />
               </div>
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <Image
+                  src={active.image}
+                  alt={active.title}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 800px, 100vw"
+                  className="object-cover opacity-85 saturate-[0.85] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/40" />
+              </div>
+            </div>
+            <div className="mt-2.5 text-center font-mono text-[10px] tracking-wider text-muted-foreground">
+              {active.caption}
+            </div>
+          </div>
 
-              {/* Checkpoints */}
-              <ul className="mt-6 space-y-2.5 border-l border-border/60 pl-4">
+          {/* Narrative detail & Checkpoints below image */}
+          <div className="grid gap-6 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-7 flex flex-col gap-3">
+              <div className="flex items-center gap-2.5">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-border/70 bg-background/50 text-muted-foreground">
+                  <HugeiconsIcon icon={active.icon} className="size-4" strokeWidth={1.8} />
+                </div>
+                <div className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                  {active.eyebrow}
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold tracking-[-0.035em] text-balance text-foreground leading-tight sm:text-2xl">
+                {active.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {active.description}
+              </p>
+            </div>
+
+            <div className="md:col-span-5 flex flex-col justify-end">
+              <ul className="space-y-2 border-l border-border/60 pl-4 py-1">
                 {active.bullets.map((bullet) => (
                   <li
                     key={bullet}
@@ -179,33 +202,9 @@ function IntentVisual({ active }: { active: (typeof steps)[number] }) {
                 ))}
               </ul>
             </div>
-
-            {/* Visual Screenshot display */}
-            <div className="flex flex-col justify-center">
-              <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/50 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                <div className="flex items-center gap-1 border-b border-border/40 bg-background/60 px-3 py-1.5">
-                  <span className="size-1.5 rounded-full bg-foreground/20" />
-                  <span className="size-1.5 rounded-full bg-foreground/15" />
-                  <span className="size-1.5 rounded-full bg-foreground/10" />
-                </div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
-                  <Image
-                    src={active.image}
-                    alt={active.title}
-                    fill
-                    sizes="(min-width: 1024px) 400px, 100vw"
-                    className="object-cover opacity-85 saturate-[0.85] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-[1.015]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/40" />
-                </div>
-              </div>
-              <div className="mt-2.5 text-center font-mono text-[10px] tracking-wider text-muted-foreground">
-                {active.caption}
-              </div>
-            </div>
           </div>
 
-          {/* Core sub-flows */}
+          {/* Core sub-flows at the bottom */}
           <div className="grid gap-3 sm:grid-cols-3">
             {active.rows.map((row, index) => (
               <div
@@ -264,8 +263,8 @@ export function IntentScroll() {
       className="relative px-4 py-24 sm:px-6 lg:py-32"
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-14">
-        <div className="lg:sticky lg:top-28 lg:col-span-4 lg:h-[calc(100dvh-8rem)] lg:self-start">
-          <div className="flex h-full flex-col justify-between gap-8">
+        <div className="lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
+          <div className="flex flex-col gap-10">
             <div>
               <div className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
                 The framework
