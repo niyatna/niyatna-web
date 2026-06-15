@@ -121,23 +121,31 @@ export function PageActions({
         const currentUrl = typeof window !== "undefined" ? window.location.href : ""
         const separator = baseUrl.includes("?") ? "&" : "?"
 
-        // Copy the raw page markdown to the clipboard unconditionally
-        await navigator.clipboard.writeText(rawMarkdown)
+        // Construct the full prompt containing the instruction and the markdown content
+        const fullMarkdownPrompt = `Here is the Niyatna documentation:\n\n${rawMarkdown}\n\nPlease summarize and analyze this page.`
+        
+        // Copy the full prompt to the clipboard unconditionally so the user can paste it in one go
+        await navigator.clipboard.writeText(fullMarkdownPrompt)
         setActivePlatform(platformId)
 
-        // Try to construct a full prompt with the page content
-        const fullMarkdownPrompt = `Here is the Niyatna documentation:\n\n${rawMarkdown}\n\nPlease summarize and analyze this page.`
+        const isGemini = platformId === "gemini"
         const fullUrl = `${baseUrl}${separator}q=${encodeURIComponent(fullMarkdownPrompt)}`
 
-        if (fullUrl.length < 2000) {
+        // Gemini doesn't support query parameters for pre-filling, so we always copy to clipboard and open base URL
+        if (!isGemini && fullUrl.length < 2000) {
           setPlatformStatus("Opening...")
           window.open(fullUrl, "_blank")
         } else {
-          // If the markdown is too long, pass a smart prompt with the page URL instructing the AI
-          setPlatformStatus("Copied prompt!")
-          const fallbackPrompt = `Please read and analyze the Niyatna documentation page at ${currentUrl}.\n\nProvide a clear summary of its contents and help me understand it. (Note: I have copied the raw page markdown to my clipboard if you need it).`
-          const fallbackUrl = `${baseUrl}${separator}q=${encodeURIComponent(fallbackPrompt)}`
-          window.open(fallbackUrl, "_blank")
+          setPlatformStatus(isGemini ? "Copied! Paste in tab" : "Copied prompt!")
+          
+          if (isGemini) {
+            window.open(baseUrl, "_blank")
+          } else {
+            // Fallback for others: open with a short URL-prefilled prompt to notify the AI
+            const fallbackPrompt = `Please read and analyze the Niyatna documentation page at ${currentUrl}.\n\nProvide a clear summary of its contents and help me understand it. (Note: I have copied the raw page markdown to my clipboard if you need it).`
+            const fallbackUrl = `${baseUrl}${separator}q=${encodeURIComponent(fallbackPrompt)}`
+            window.open(fallbackUrl, "_blank")
+          }
         }
 
         // Keep feedback visible briefly, then reset and close dropdown
