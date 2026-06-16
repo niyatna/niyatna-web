@@ -1,35 +1,26 @@
 ---
-title: Settings reference
-description: "Configure Niyatna around intent capture, permission gates, model routing, proof, and visual review."
+title: System Variables Reference
+description: "Configure Niyatna OS variables across intent capture, permission boundaries, and proof registries."
 icon: Settings
 ---
 
-Settings should make the operating contract explicit.
+Niyatna OS behavior is defined via configuration files mounted to the workspace container.
 
-## Intent
+---
 
-- Default proof standard
-- Required acceptance criteria fields
-- Project-level constraints
-- Preferred review style
+## Configuration Variables
 
-## Agents
+### 1. OpenIntent Configuration (`intent.config.json`)
+*   `default_proof_standard`: Defines required proof types (e.g., `diff`, `screenshot`, `test_logs`).
+*   `acceptance_criteria_fields`: Mandatory fields required to validate an intent.
+*   `context_depth`: Memory retrieval limits for local memory queries.
 
-- Allowed tools
-- Approval gates
-- Model routing
-- Local vs cloud preference
+### 2. Niyatna Agents Boundaries (`agents.config.json`)
+*   `allowed_mcp_servers`: Whitelist of mounted Model Context Protocol bridges.
+*   `require_veto_for`: Array of actions requiring human validation (e.g., `git_push`, `db_write`, `api_payout`).
+*   `default_model_routing`: Default model profiles managed by LocalRoute.
 
-## Proof
-
-- Build and test commands
-- Browser/viewports to verify
-- Required screenshots
-- Source citation rules
-
-## Visual system
-
-- Theme
-- Background atmosphere
-- Motion preference
-- Review density
+### 3. Verification & Proof (`verification.config.json`)
+*   `compile_command`: Script to build changes before verification.
+*   `test_command`: Script to run unit/integration checks.
+*   `screenshot_viewports`: Viewport dimensions to capture for UI changes.

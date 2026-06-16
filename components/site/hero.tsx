@@ -7,11 +7,9 @@ import {
   FigmaIcon,
   GithubIcon,
   GoogleIcon,
-  Mail01Icon,
   MetaIcon,
   MicrosoftIcon,
   SlackIcon,
-  SparklesIcon,
   SpotifyIcon,
   StripeIcon,
 } from "@hugeicons/core-free-icons"
@@ -21,7 +19,6 @@ import Link from "next/link"
 
 import { TypingAnimation } from "@/components/text-typing"
 import { Button } from "@/components/ui/button"
-import { SITE } from "@/lib/site"
 
 const brands = [
   { name: "Google", icon: GoogleIcon },
@@ -55,7 +52,7 @@ export function Hero() {
             className="group inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/60 px-3 py-1 font-mono text-[11px] tracking-[0.12em] text-muted-foreground uppercase backdrop-blur-md transition-colors hover:text-foreground"
           >
             <span className="size-1.5 rounded-full bg-foreground/70" />
-            <span>Agentic Company Framework · Read more</span>
+            <span>Agentic Company Systems · Read more</span>
             <HugeiconsIcon
               icon={ArrowRight01Icon}
               className="size-3 transition-transform group-hover:translate-x-0.5"
@@ -70,7 +67,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.05 }}
           className="mt-7 text-4xl font-semibold tracking-[-0.04em] text-balance sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="text-foreground/55">Build the</span>
+          <span className="text-foreground/55">The bridge to the</span>
           <br className="inline" />{" "}
           <TypingAnimation
             words={["Agentic Company.", "Intent-Led Standard.", "Autonomous Workforce.", "Future of Business."]}
@@ -78,7 +75,7 @@ export function Hero() {
             typeSpeed={70}
             deleteSpeed={40}
             pauseDelay={1700}
-            className="text-white"
+            className="text-zinc-900 dark:text-white"
             cursorStyle="line"
           />
         </motion.h1>
@@ -89,7 +86,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.12 }}
           className="mt-7 max-w-2xl text-base text-balance text-foreground/70 sm:text-lg"
         >
-          Every real company starts with a problem worth solving. From that problem comes intent, then mission, then goals—and those goals get delegated to specialized AI agents. That is the Agentic Company. Niyatna is the framework to build it.
+          When anyone can solve problems with AI, the scarce thing becomes the system to organize it. Niyatna builds the operating system, standards, and gates for companies ready to become agentic.
         </motion.p>
 
         <motion.div
@@ -99,9 +96,8 @@ export function Hero() {
           className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
         >
           <Button asChild size="lg" className="rounded-full px-5">
-            <Link href="#features">
-              <HugeiconsIcon icon={SparklesIcon} strokeWidth={2} />
-              Explore the framework
+            <Link href="/contact">
+              Begin Qualification
             </Link>
           </Button>
           <Button
@@ -110,9 +106,8 @@ export function Hero() {
             variant="outline"
             className="rounded-full px-5"
           >
-            <Link href={`mailto:${SITE.email}`}>
-              <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} />
-              Start a conversation
+            <Link href="#features">
+              Explore the system
             </Link>
           </Button>
         </motion.div>

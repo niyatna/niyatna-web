@@ -13,7 +13,6 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
-import { SITE } from "@/lib/site"
 import { cn } from "@/lib/utils"
 import { Section, SectionEyebrow, SectionHeading } from "./section"
 
@@ -33,9 +32,9 @@ interface EngagementBlock {
 
 const tracks: EngagementBlock[] = [
   {
-    id: "framework",
+    id: "system",
     icon: CodeFolderIcon,
-    name: "Framework",
+    name: "System",
     activities: [
       { label: "Intent packets", detail: "How we define your goals and taste bounds", href: "/docs" },
       { label: "Permission gates", detail: "Guarantees on what agents can do automatically", href: "/docs/ai/security" },
@@ -57,7 +56,7 @@ const tracks: EngagementBlock[] = [
     name: "Engagement",
     activities: [
       { label: "Operational safety", detail: "Human-in-the-loop review guidelines", href: "/security" },
-      { label: "Project kickoff", detail: "Establish your agency workforce boundaries", href: "/docs/getting-started" },
+      { label: "Project kickoff", detail: "Establish your agent workforce boundaries", href: "/docs/getting-started" },
     ],
   },
 ]
@@ -71,9 +70,9 @@ const statsList = [
 
 export function Start() {
   const recommended = {
-    label: "Start a conversation",
-    url: `mailto:${SITE.email}`,
-    sub: "Tell us the problem you are solving.",
+    label: "Begin Qualification",
+    url: "/contact",
+    sub: "Tell us the problem you are solving to check system readiness.",
   }
 
   return (
@@ -93,7 +92,7 @@ export function Start() {
               Start with the problem, not the tools.
             </SectionHeading>
             <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-[17px]">
-              The Agentic Company framework begins with your intent. Define the problem, map the goals, and let specialized agents handle the execution within strict boundaries.
+              The Agentic Company is not formed by loose agents, but by intent. Define the problem, map the goals, and delegate execution to specialized agents running inside Niyatna OS.
             </p>
 
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 mt-6 backdrop-blur-sm">

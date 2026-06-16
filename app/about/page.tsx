@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="About Niyatna"
-        lead="Everything starts with intent. A company is not a collection of people or agents—it is a solution to a problem. Niyatna is the framework that makes this the standard."
+        lead="Everything starts with intent. A company is not a collection of people or agents—it is a solution to a problem. Niyatna builds the systems that make this the standard."
         meta={
           <>
             <span>Empowering Human Intent</span>
@@ -47,7 +47,7 @@ export default function AboutPage() {
 
         <h2>What is an Agentic Company?</h2>
         <p>
-          It is not a Kanban board with a chatbot. It is not "AI-powered productivity." An Agentic Company is a modern standard where every department—Finance, Marketing, Sales, Operations, Engineering—can be run by specialized AI agents. Each agent has its own personality, mission, goals, boundaries, responsibilities, targets, capabilities, specialization, knowledge base, tools, MCP skills, and slash commands.
+          It is not a Kanban board with a chatbot. It is not &ldquo;AI-powered productivity.&rdquo; An Agentic Company is a modern standard where every department—Finance, Marketing, Sales, Operations, Engineering—can be run by specialized AI agents. Each agent has its own personality, mission, goals, boundaries, responsibilities, targets, capabilities, specialization, knowledge base, tools, MCP skills, and slash commands.
         </p>
         <p>
           But none of that matters if the company itself has no intent. The agents are not the company. The intent is the company. The agents are the leverage.
@@ -58,15 +58,15 @@ export default function AboutPage() {
           Traditional companies scale by hiring more people. That works, but it is slow, expensive, and creates operational drag. The Agentic Company scales by delegating goals to autonomous agents that execute within strict permission boundaries—while the human retains full strategic authority.
         </p>
         <p>
-          Niyatna exists to make this the standard, not the exception. Not just for enterprises with existing teams, but for anyone with a real problem worth solving and the intent to build a solution around it.
+          Niyatna exists to make this the standard, not the exception. However, Niyatna OS is not a generic utility or an off-the-shelf software product. It is designed strictly for organizations ready to commit to rigorous operational standards, explicit delegation boundaries, and verified intent mapping.
         </p>
 
-        <h2>Who we are</h2>
+        <h2>The Standard</h2>
         <p>
-          We are the team behind the Agentic Company framework. We design the systems, build the agent architectures, and define the standards that make autonomous delegation safe, verifiable, and anchored to human intent.
+          Niyatna builds the operating system, standards, and gates for companies ready to become agentic. We define the company runtime (Niyatna OS), the delegation protocol (OpenIntent), and the verification primitives (Proof of Intent) that make autonomous delegation safe, verifiable, and anchored to human will.
         </p>
         <p>
-          For inquiries, partnerships, or to start building, reach us at{" "}
+          Access to the Niyatna stack is restricted. To review readiness and request system qualification, contact us at{" "}
           <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>.
         </p>
       </Prose>
@@ -115,7 +115,7 @@ export default function AboutPage() {
 
         <h2>Engagement</h2>
         <p>
-          We work with select partners to design, implement, and maintain custom agentic workflows that save operational hours. To read more about how our system operates under the hood, explore our <Link href="/docs">Documentation</Link>.
+          We support qualified organizations in adopting the Niyatna standard to run agentic companies. To read more about how our system operates under the hood, explore our <Link href="/docs">Documentation</Link>.
         </p>
       </Prose>
 

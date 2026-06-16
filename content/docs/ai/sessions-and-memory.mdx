@@ -1,26 +1,23 @@
 ---
-title: Sessions and memory
-description: "Keep durable context useful without letting stale assumptions override the current human intent."
+title: Local Memory Contexts
+description: "How Niyatna OS utilizes durable context without letting outdated assumptions drift human intent."
 icon: Notebook
 ---
 
-Memory helps only when it serves the current intent.
+To prevent agents from repeating mistakes or requesting duplicate details, Niyatna OS integrates a durable, local memory provider.
 
-Niyatna treats memory as context, not command. The newest explicit human instruction wins when it conflicts with stale notes.
+This memory provider indexes past execution metrics, system configurations, preferences, and verified code patterns, serving them as context inputs to agent runtimes.
 
-## Useful memory
+---
 
-- Stable user preferences
-- Project conventions
-- Known environment facts
-- Reusable workflow lessons
+## Context Allocation
 
-## Dangerous memory
+The memory provider handles three distinct context types:
+*   **System Conventions:** Directory configurations, compile parameters, and framework specs.
+*   **Founder Preferences:** Visual aesthetics, copywriting tones, and security constraints.
+*   **Historical Fixes:** Stored logs of past bugs, API rate limits, and configuration corrections.
 
-- Old task state treated as current truth
-- Assumptions that were never verified
-- Copying a past answer without checking files or tools
+## Memory Rule: Intent Dominance
 
-## Rule
+Memory serves only as context, never as a command. In Niyatna OS, the active OpenIntent packet always overrides historical memory. If an intent packet specifies a new direction, the runtime disregards conflicting memory entries, preventing the system from copying outdated solutions.
 
-Use memory to reduce repetition, then verify live state before claiming facts.

@@ -1,24 +1,28 @@
 ---
-title: Intent primitive
-description: "The first operating surface for turning a human goal into a structured task an agent can execute."
+title: OpenIntent & Intent Primitive
+description: "The primary primitive for translating a human business goal into a structured, verifiable task contract."
 icon: Terminal
 ---
 
-The intent primitive (captured in the intent console) is where a vague request becomes a real work contract.
+The **Intent Primitive** (configured in Niyatna HQ's intent panel) is where a business objective is transformed from a vague natural language request into a structured, binding execution contract.
 
-It captures what the person wants, what constraints matter, what can be changed, what needs approval, and what proof must come back.
+Under the **OpenIntent** protocol, this primitive ensures that agents have explicit boundaries, criteria, and proof standards before starting work.
 
 <img src="/terminal.webp" alt="Niyatna intent console" width="2560" height="1600" />
 
-## What it captures
+---
 
-- Goal and desired outcome
-- Context and relevant files or sources
-- Constraints, taste, risk, and boundaries
-- Acceptance criteria
-- Permission level
-- Proof standard
+## OpenIntent Packet Schema
 
-## Why it matters
+An OpenIntent packet defines the target parameters:
 
-Agents are powerful but literal. If the intent is weak, the work drifts. The primitive makes the initial contract explicit before execution begins.
+*   **Goal:** The primary business outcome (e.g., reconcile Stripe ledgers).
+*   **Context:** Pointers to active source files, schemas, and historical context.
+*   **Constraints:** Budget limits, disallowed operations, and deadline variables.
+*   **Permissions:** Whitelisted tool access and APIs.
+*   **Acceptance Criteria:** Concrete tests or conditions the work must pass.
+*   **Proof Standard:** Required artifacts (git diffs, API receipts, screenshots) that prove task completion.
+
+## The Value: Zero Drift
+
+AI agents are powerful but literal. Without a strict intent definition, execution drift occurs. By pinning the intent primitive as the absolute source of truth, Niyatna OS guarantees that agents remain anchored to the founder's original will, eliminating hallucinations and unauthorized operations.

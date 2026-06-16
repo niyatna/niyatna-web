@@ -1,20 +1,24 @@
 ---
-title: Model and provider routing
-description: "Choose models for agent work while keeping the human intent and proof standard stable."
+title: Model Routing & LocalRoute
+description: "Route agent execution across models and API providers while maintaining stable intent and proof standards."
 icon: Cpu
 ---
 
-Niyatna is model-agnostic by design.
+Niyatna OS decouples the reasoning engine from the operational logic. All agent execution is routed through **LocalRoute**—our model, provider, and API key management layer.
 
-The model is an execution choice, not the source of truth. The source of truth is still the human intent packet.
+This architecture ensures that models are treated as temporary execution assets rather than permanent logic repositories.
 
-## Provider principles
+---
 
-- Use the smallest model that can complete the task reliably.
-- Route sensitive work through safer, more inspectable flows.
-- Keep secrets out of public logs and proof bundles.
-- Prefer local or owned routes when privacy matters.
+## LocalRoute Architecture
 
-## What proof should include
+*   **Model-Agnostic Routing:** Dynamically dispatches tasks to the most efficient model (local, private VPS, or cloud API) based on goal complexity.
+*   **Scoped Key Management:** Holds master API keys in an encrypted vault, injecting temporary, permission-restricted session variables into agent containers.
+*   **Privacy Guardrails:** Routes sensitive business operations through local/private runtimes to prevent data leaks.
 
-If a model was used, the result should still return inspectable artifacts: sources, diffs, commands, screenshots, or reasoning summaries tied to the task.
+## Optimization Standard
+
+LocalRoute dynamically optimizes model routing to maintain a high token-to-performance ratio:
+1.  **Low Complexity:** Routes simple tasks (formatting, simple lookups) to fast, lightweight models.
+2.  **High Complexity:** Routes logical planning, refactoring, and verification checks to advanced reasoning models.
+3.  **Proof Verification:** Collects token usage analytics and routes reasoning steps through local caching layers to maximize efficiency.

@@ -1,21 +1,26 @@
 ---
-title: Data and proof locations
-description: "Where Niyatna stores the evidence that proves work was done."
+title: Proof Storage & Ledgers
+description: "Where Niyatna OS stores the evidence that proves work was done."
 icon: Config
 ---
 
-Proof should be findable after the session ends.
+To comply with the Proof of Intent standard, Niyatna OS archives all execution metrics, file diffs, and validation logs in a secure, audit-ready storage layer.
 
-## Proof artifacts
+This data remains accessible via Niyatna HQ for audit and rollback operations.
 
-- patches and diffs
-- screenshots
-- build logs
-- test output
-- browser route checks
-- source extracts
-- approval notes
+---
 
-## Storage principle
+## Proof Artifacts Schema
 
-Keep sensitive data private. Keep proof attached to the task. Never expose secrets inside public logs, screenshots, docs, or memory.
+Every completed or blocked intent stages a proof directory containing:
+
+*   `intent.json`: The original OpenIntent schema parameters.
+*   `execution.log`: The raw terminal logs, reasoning steps, and stdout/stderr outputs.
+*   `patch.diff`: The standard Git-compatible diff showing every file change.
+*   `api-receipts.json`: Signed payload logs of outgoing network requests.
+*   `screenshots/`: Viewport image evidence verifying frontend UI render correctness.
+*   `verification.json`: Pass/fail outputs from compile and test checkers.
+
+## Storage Principles
+
+Niyatna OS enforces zero persistence of unverified files. Secrets, master credentials, and raw database rows are filtered from public logs and proof bundles.

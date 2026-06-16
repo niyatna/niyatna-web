@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Privacy"
         title="Privacy & Data Governance"
-        lead="Niyatna operates on a strict zero-retention, client-first data policy. Here is exactly how we protect your information."
+        lead="Niyatna operates on a strict zero-retention data standard. Here is how we enforce isolation and protect system information under the Niyatna standard."
         meta={<span>Last updated · {updated}</span>}
       />
 
@@ -31,64 +31,61 @@ export default function PrivacyPage() {
           <li><strong>No Telemetry:</strong> Our landing page and documentation do not use tracking cookies or analytics scripts.</li>
         </ul>
 
-        <h2>Secrets and Credentials</h2>
+        <h2>1. Zero-Retention Client Data Policy</h2>
         <p>
-          To delegate work to AI workforces, credentials and API keys must be handled with care:
+          Niyatna operates under a strict, client-first confidentiality model. When provisioning agentic runtimes and deploying Niyatna OS for your organization:
         </p>
         <ul>
-          <li>
-            <strong>Encrypted Vaults:</strong> Any keys provided during active engagements are stored in encrypted vaults and injected dynamically into execution environments.
-          </li>
-          <li>
-            <strong>No Log Leaks:</strong> We strip sensitive variables, access tokens, and credentials from all execution audit logs.
-          </li>
-          <li>
-            <strong>Rotation Policies:</strong> We recommend rotating all credentials used in integrations upon the completion of project delivery.
-          </li>
+          <li><strong>Zero Model Training:</strong> We route all tasks through enterprise API endpoints that guarantee client data is not logged or used for model training.</li>
+          <li><strong>Runtime Isolation:</strong> Task executions occur in isolated, sandboxed virtual environments that are immediately destroyed upon task completion.</li>
+          <li><strong>No Telemetry:</strong> Our Site and documentation do not use tracking cookies, marketing pixels, or analytics scripts.</li>
         </ul>
 
-        <h2>Data Isolation & Transit</h2>
+        <h2>2. Information We Collect</h2>
         <p>
-          AI agents require access to files and execution runtimes to perform tasks. We ensure:
+          Because our Site is primarily informational and does not require user accounts, we collect minimal data:
         </p>
         <ul>
-          <li>
-            <strong>Ephemeral Workspaces:</strong> File reads and writes occur inside sandboxed virtual environments that are destroyed immediately after task completion.
-          </li>
-          <li>
-            <strong>Model Routing:</strong> We route tasks only to enterprise API endpoints (like Anthropic, OpenAI, or Google Cloud Vertex AI) that explicitly guarantee data is not used for model training.
-          </li>
-          <li>
-            <strong>Local Models:</strong> For highly sensitive operations, we can set up fully offline local model execution.
-          </li>
+          <li><strong>Web Server Logs:</strong> When you visit our Site, standard HTTP request metadata (such as IP address, browser type, requested pages, and timestamp) is temporarily logged to detect and prevent abuse.</li>
+          <li><strong>Communications:</strong> If you contact us via email (e.g., at <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link> or <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link>), we collect your email address and any information you choose to provide in your message to assist you.</li>
         </ul>
 
-        <h2>What we collect</h2>
+        <h2>3. Credentials and Secrets Governance</h2>
         <p>
-          Since we run a landing page and documentation site, we do not require user accounts or logins:
+          To delegate tasks to AI workforces, we manage credentials with extreme care:
         </p>
         <ul>
-          <li>
-            <strong>Web Server Logs:</strong> Standard HTTP request logs (IP address, user agent, requested paths) are temporarily processed to protect the website from abuse.
-          </li>
-          <li>
-            <strong>Email Communication:</strong> If you write to us at{" "}
-            <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link> or{" "}
-            <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link>, we store your emails to assist you.
-          </li>
+          <li><strong>Encrypted Vaults:</strong> Any API keys or credentials shared during active engagements are stored in encrypted vaults and injected dynamically into execution runtimes.</li>
+          <li><strong>Log Redaction:</strong> We automatically strip sensitive variables, access tokens, and passwords from all execution audit logs.</li>
         </ul>
 
-        <h2>Changes</h2>
+        <h2>4. Third-Party Service Providers</h2>
         <p>
-          If our operational privacy policies change, we will update the &ldquo;Last updated&rdquo; date at the top of this page and note the changes in our Milestones timeline.
+          We do not sell, rent, or trade your personal data. We may share information with trusted third-party processors only as necessary to provide our services, including:
+        </p>
+        <ul>
+          <li><strong>Hosting Providers:</strong> Hosting services for our Site and documentation.</li>
+          <li><strong>API Providers:</strong> Enterprise AI models (e.g., Anthropic, OpenAI, Google Cloud Vertex AI) under secure, zero-retention API contracts.</li>
+        </ul>
+
+        <h2>5. Security</h2>
+        <p>
+          We implement industry-standard administrative, technical, and physical safeguards designed to protect the confidentiality and integrity of your data. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
         </p>
 
-        <h2>Contact</h2>
+        <h2>6. Your Rights</h2>
         <p>
-          Privacy queries can be sent to{" "}
-          <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>. Security issues go directly to{" "}
-          <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link>.
+          Depending on your jurisdiction, you may have the right to access, correct, delete, or restrict the processing of any personal information we hold about you. To exercise these rights, please contact us using the details below.
         </p>
+
+        <h2>7. Contact Us</h2>
+        <p>
+          If you have any questions regarding this Privacy Policy or our data handling practices, please contact us:
+        </p>
+        <ul>
+          <li>For general privacy inquiries: <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link></li>
+          <li>For security-related issues: <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link></li>
+        </ul>
       </Prose>
 
       <div className="h-24 sm:h-32" />

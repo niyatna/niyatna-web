@@ -1,21 +1,22 @@
 ---
-title: Context explorer
-description: "Keep relevant files, docs, sources, and task context attached to the intent."
+title: Context & Memory Explorer
+description: "Inject structured files, schemas, and historical context into agent runtimes."
 icon: CodeFolder
 ---
 
-The context explorer keeps the agent from guessing.
+The **Context Explorer** in Niyatna OS ensures that agents execute with complete business context, eliminating guesswork and prompt trial-and-error.
 
-It gives the work lane a structured set of files, sources, notes, and references the agent is allowed to use.
+It compiles project directories, schema files, known guidelines, and historical knowledge, delivering a clean context window to the agent runtime.
 
-## Context types
+---
 
-- Project files and directories
-- Product docs and previous decisions
-- Screenshots and visual references
-- External sources and URLs
-- User constraints and taste notes
+## Memory & Context Layers
 
-## Boundary
+Niyatna OS handles two core context variables:
 
-Context is not a dumping ground. Only include what helps the current intent. Too much irrelevant context creates drift.
+*   **Static Context:** Project structures, API specifications, and codebases.
+*   **Local Memory:** Persistent history of past operational decisions, preferences, and verified patterns, ensuring the agent does not repeat historical errors.
+
+## Rule: Intent Priority
+
+Context and memory are secondary to intent. If an instruction in the OpenIntent packet conflicts with past memory, the newest human command wins. The Context Explorer filters memory dynamically, injecting only what is relevant to the active goal to prevent context drift.

@@ -222,7 +222,7 @@ export function PageActions({
         </Button>
 
         {isOpen && (
-          <div className="absolute left-0 mt-1.5 w-56 origin-top-left rounded-xl border border-zinc-800 bg-zinc-950 p-1 shadow-2xl z-50 animate-in fade-in slide-in-from-top-1 duration-100">
+          <div className="absolute left-0 mt-1.5 w-56 origin-top-left rounded-xl border border-zinc-200 bg-white p-1 shadow-2xl z-50 animate-in fade-in slide-in-from-top-1 duration-100 dark:border-zinc-800 dark:bg-zinc-950">
             {platforms.map((p) => {
               const isActive = activePlatform === p.id
               return (
@@ -230,14 +230,14 @@ export function PageActions({
                   key={p.id}
                   type="button"
                   onClick={() => handleOpenPlatform(p.id, p.url, p.name)}
-                  className="flex w-full items-center justify-between px-3 py-2 text-sm text-left rounded-lg transition-colors hover:bg-zinc-900 hover:text-zinc-50 text-zinc-300 cursor-pointer"
+                  className="flex w-full items-center justify-between px-3 py-2 text-sm text-left rounded-lg transition-colors hover:bg-zinc-100 hover:text-zinc-900 text-zinc-700 dark:hover:bg-zinc-900 dark:hover:text-zinc-50 dark:text-zinc-300 cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
                     <p.Logo className="size-3.5 shrink-0" />
                     <span>{p.name}</span>
                   </div>
                   {isActive && (
-                    <span className="text-[10px] bg-zinc-800 text-zinc-400 px-1.5 py-0.5 rounded font-mono">
+                    <span className="text-[10px] bg-zinc-100 text-zinc-500 px-1.5 py-0.5 rounded font-mono dark:bg-zinc-800 dark:text-zinc-400">
                       {platformStatus}
                     </span>
                   )}

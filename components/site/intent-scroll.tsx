@@ -27,105 +27,105 @@ const steps: Array<{
 }> = [
   {
     id: "01",
-    eyebrow: "Intent Primitive",
-    title: "A primitive for translating human will into agent work.",
+    eyebrow: "OpenIntent Protocol",
+    title: "Structured protocol for human intent capture.",
     description:
-      "Niyatna starts where chat is too weak: it captures the person’s intent, turns it into executable delegation, and keeps the original meaning alive through the whole agent loop.",
+      "Instead of loose conversational chats, OpenIntent defines clear packets containing goals, constraints, resources, and explicit proof standards.",
     icon: CommandLineIcon,
-    rows: ["will", "outcome", "meaning"],
+    rows: ["goal constraints", "intent packets", "taste bounds"],
     bullets: [
-      "Intent packets preserve will, outcome, constraints, and proof standard",
-      "Human direction, agent execution, and review stay connected",
-      "Context stays attached so delegated work does not drift",
-      "Previous decisions and proof remain searchable",
+      "Intent packets preserve absolute human intent constraints",
+      "Translates business intentions into structured execution tasks",
+      "Maintains clear alignment targets so runtimes never drift",
+      "Ensures strategic instructions are readable and permanent",
     ],
     image: "/terminal.webp",
     caption: "intent://new-work · proof required",
   },
   {
     id: "02",
-    eyebrow: "Verification Layer",
-    title: "Verification makes delegation trustworthy.",
+    eyebrow: "LocalRoute Gateways",
+    title: "Secure local model and credential routing.",
     description:
-      "AI agents can move fast, but speed only matters if humans can verify the output. Niyatna makes proof part of the work, not an afterthought.",
-    icon: RecordIcon,
-    rows: ["evidence", "receipts", "approval"],
+      "LocalRoute manages key encryption and dynamically dispatches tasks to local vLLM nodes or cloud models under strict privacy boundaries.",
+    icon: CpuIcon,
+    rows: ["vLLM routes", "credential isolation", "key masking"],
     bullets: [
-      "Agent output returns with inspectable evidence",
-      "Decisions and acceptance criteria stay visible",
-      "Readable surfaces for serious verification sessions",
-      "Low-friction handoff from execution to approval",
+      "Routes data through private local or VPS vLLM models",
+      "Prevents proprietary leaks to public third-party APIs",
+      "Encrypts and injects scoped session tokens on compile",
+      "Zero-knowledge runtime credentials prevent leaks",
     ],
     image: "/editor.webp",
-    caption: "proof review · intent packet",
+    caption: "localroute://vllm-endpoint · active",
   },
   {
     id: "03",
-    eyebrow: "Delegation Trail",
-    title: "Delegation needs memory of what happened.",
+    eyebrow: "Secure Agent Sandboxes",
+    title: "Ephemeral hardware-isolated runtimes.",
     description:
-      "Niyatna keeps the history of delegated work visible: what the agent did, why it did it, what evidence came back, and what decision still belongs to the human.",
-    icon: GitBranchIcon,
-    rows: ["changed", "verified", "still-open"],
+      "Agents run inside secure, jailed virtual containers that mount only whitelisted directories and disable unauthorized actions.",
+    icon: RecordIcon,
+    rows: ["jailed execution", "path lockdowns", "ephemeral mounts"],
     bullets: [
-      "Reviewable trail for agent and human changes",
-      "Decision-aware execution notes",
-      "Timeline of runs, approvals, and proof",
-      "Search prior choices and evidence fast",
+      "Hardware-level isolation blocks container escapes",
+      "Workspace mounts are locked to specific project subdirectories",
+      "Destroys and scrubs sandbox environments upon completion",
+      "Outbound network gates require explicit whitelist tokens",
     ],
-    image: "/source-control.webp",
-    caption: "change control · proof trail",
+    image: "/ai_workflow.webp",
+    caption: "sandbox://cfo-agent · locked",
   },
   {
     id: "04",
-    eyebrow: "Agent Workflow",
-    title: "Agents execute; humans remain the source of authority.",
+    eyebrow: "Local Memory Provider",
+    title: "Context mapping without task-context drift.",
     description:
-      "Niyatna treats AI agents as a delegated workforce: useful for acceleration, bounded by permission, and judged by verified output.",
-    icon: CpuIcon,
-    rows: ["worker", "reviewer", "verifier"],
+      "Local memory context assembles durable contextual memory so agents understand historical decisions, while ensuring active OpenIntent parameters always override past data.",
+    icon: GitBranchIcon,
+    rows: ["durable context", "context query", "decision vaults"],
     bullets: [
-      "Proof bundles for every material agent action",
-      "Persistent context for human intent and project direction",
-      "Flexible model routing without changing intent",
-      "Voice-to-intent capture while staying human-owned",
+      "Retrieves historical system states for relevant context",
+      "Strict priority ensures active intent overrides past runs",
+      "Prevents outdated assumptions from drifting intent targets",
+      "Provides agents with searchable operational memory profiles",
     ],
-    image: "/ai_workflow.webp",
-    caption: "agent loop · approval gate",
+    image: "/source-control.webp",
+    caption: "memory://local-context · loaded",
   },
   {
     id: "05",
-    eyebrow: "Outcome Preview",
-    title: "Inspect what the delegation produced.",
+    eyebrow: "Proof of Intent Primitives",
+    title: "Dual-agent validation and cryptographic receipts.",
     description:
-      "The outcome should be visible beside the original intent so the human can see whether the delegated work actually returned the promised leverage.",
+      "Proof of Intent requires runtimes to generate inspectable verification primitives—including build logs, git diffs, and database check logs.",
     icon: Layout02Icon,
-    rows: ["preview", "evidence", "checks"],
+    rows: ["verification loops", "log checkpoints", "execution diffs"],
     bullets: [
-      "Open result surfaces and verification URLs",
-      "Outcome preview beside evidence and approval state",
-      "Plans, tasks, and acceptance checks stay in one flow",
-      "Fast loop from delegation to inspection to decision",
+      "Runtimes must return verifiable proof, not confidence scores",
+      "Validates transaction matches and compile states",
+      "Compares outputs against strict acceptance criteria",
+      "Dual-agent consensus checking validates changes before staging",
     ],
     image: "/web_preview.webp",
-    caption: "proof preview · verified route",
+    caption: "proof://reconciliation-check · passed",
   },
   {
     id: "06",
-    eyebrow: "Human Agency",
-    title: "The interface exists to return time, not consume it.",
+    eyebrow: "Niyatna HQ",
+    title: "Absolute human veto control surface.",
     description:
-      "Niyatna keeps the original visual DNA intact, but the meaning is sharper: a calm surface for turning human intent into agentic leverage and time returned.",
+      "Niyatna HQ is the visual Command Room where human operators inspect logs, review staged changes, and approve or veto commits.",
     icon: EnergyIcon,
-    rows: ["noise reduced", "proof returned", "decision remains human"],
+    rows: ["decision gates", "administrative veto", "leverage reclaimed"],
     bullets: [
-      "Visual calm for long-running delegation and review",
-      "Atmosphere supports focus without stealing attention",
-      "Design tokens keep product, docs, and pages aligned",
-      "The product language stays intent-first everywhere",
+      "Unified dashboard displays intent side-by-side with proof",
+      "Staging interface holds high-risk operations for sign-off",
+      "One-click rollback cancels execution and purges changes",
+      "Returns operational hours back to strategic leaders",
     ],
     image: "/themes.webp",
-    caption: "settings · workspace feel",
+    caption: "niyatna-hq://ops-dashboard · online",
   },
 ]
 
@@ -213,6 +213,9 @@ export function IntentScroll() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const active = steps[activeIndex] ?? steps[0]
+  
+  const [activeMobileIndex, setActiveMobileIndex] = useState(0)
+  const mobileTabsRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     let frame = 0
@@ -220,10 +223,32 @@ export function IntentScroll() {
       frame = 0
       const section = sectionRef.current
       if (!section) return
+      
+      // Desktop scroll detection
       const rect = section.getBoundingClientRect()
       const scrollable = Math.max(1, rect.height - window.innerHeight)
       const progress = Math.min(1, Math.max(0, -rect.top / scrollable))
-      setActiveIndex(Math.min(steps.length - 1, Math.floor(progress * steps.length)))
+      const newActive = Math.min(steps.length - 1, Math.floor(progress * steps.length))
+      setActiveIndex(newActive)
+
+      // Mobile active index detection based on scroll position
+      if (window.innerWidth < 1024) {
+        let closestIndex = 0
+        let minDistance = Infinity
+        steps.forEach((step, idx) => {
+          const el = document.getElementById(`step-card-${step.id}`)
+          if (el) {
+            const elRect = el.getBoundingClientRect()
+            // Measure distance to the viewport top threshold (offset for header + tabs)
+            const distance = Math.abs(elRect.top - 140)
+            if (distance < minDistance) {
+              minDistance = distance
+              closestIndex = idx
+            }
+          }
+        })
+        setActiveMobileIndex(closestIndex)
+      }
     }
     const request = () => {
       if (frame) return
@@ -239,6 +264,24 @@ export function IntentScroll() {
     }
   }, [])
 
+  // Auto-scroll the mobile tabs bar container to center the active button
+  useEffect(() => {
+    if (window.innerWidth >= 1024) return
+    const container = mobileTabsRef.current
+    if (!container) return
+    const activeButton = container.children[activeMobileIndex] as HTMLElement
+    if (!activeButton) return
+
+    const containerWidth = container.offsetWidth
+    const buttonLeft = activeButton.offsetLeft
+    const buttonWidth = activeButton.offsetWidth
+
+    container.scrollTo({
+      left: buttonLeft - containerWidth / 2 + buttonWidth / 2,
+      behavior: "smooth",
+    })
+  }, [activeMobileIndex])
+
   return (
     <section
       ref={sectionRef}
@@ -250,13 +293,13 @@ export function IntentScroll() {
           <div className="flex flex-col gap-10">
             <div>
               <div className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-                The framework
+                The system
               </div>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-balance sm:text-5xl">
                 From problem to intent to execution.
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Every step in the Agentic Company framework is designed to keep
+                Every step in the Agentic Company system is designed to keep
                 human intent connected to agent execution.
               </p>
             </div>
@@ -295,7 +338,40 @@ export function IntentScroll() {
           </div>
         </div>
 
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-8 min-w-0">
+          {/* Mobile Horizontal scrollable tabs, sticky to header on mobile scroll */}
+          <div 
+            ref={mobileTabsRef}
+            className="sticky top-[58px] z-20 mb-6 flex flex-row flex-nowrap gap-2 overflow-x-auto w-full border-b border-border/40 bg-background/90 py-3.5 backdrop-blur-md lg:hidden scrollbar-none"
+          >
+            {steps.map((step, index) => (
+              <button
+                key={step.id}
+                type="button"
+                onClick={() => {
+                  const target = document.getElementById(`step-card-${step.id}`)
+                  if (target) {
+                    const elementPosition = target.getBoundingClientRect().top
+                    const offsetPosition = elementPosition + window.scrollY - 130
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    })
+                  }
+                }}
+                className={cn(
+                  "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-mono font-medium transition-all cursor-pointer whitespace-nowrap",
+                  index === activeMobileIndex
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border/70 bg-background/50 text-muted-foreground hover:text-foreground"
+                )}
+              >
+                <span>{step.id}</span>
+                <span>{step.eyebrow}</span>
+              </button>
+            ))}
+          </div>
+
           <div className="lg:sticky lg:top-28">
             <IntentVisual active={active} />
           </div>
@@ -306,7 +382,9 @@ export function IntentScroll() {
           </div>
           <div className="grid gap-5 lg:hidden">
             {steps.map((step) => (
-              <IntentVisual key={step.id} active={step} />
+              <div key={step.id} id={`step-card-${step.id}`}>
+                <IntentVisual active={step} />
+              </div>
             ))}
           </div>
         </div>

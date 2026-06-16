@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Security",
-  description: `How Niyatna ensures the safety, compliance, and isolation of agentic workflows.`,
+  description: `How Niyatna OS ensures the safety, compliance, and isolation of agentic runtimes.`,
   alternates: { canonical: `${SITE.url}/security` },
 }
 
@@ -19,7 +19,7 @@ export default function SecurityPage() {
       <PageHero
         eyebrow="Security"
         title="Security & Isolation"
-        lead="We design agentic systems that run under strict security guardrails, ensuring client environments, credentials, and data remain safe."
+        lead="Niyatna OS executes agentic runtimes under strict security guardrails, ensuring company environments, credentials, and data remain safe."
         meta={
           <>
             <span>Operational Safety Standard</span>
@@ -39,13 +39,13 @@ export default function SecurityPage() {
       <Prose>
         <h2>Security Under the Hood</h2>
         <p>
-          Executing AI-agent operations requires interacting with codebases, terminals, and third-party APIs. We structure every agent workflow with multi-layered containment.
+          Executing agentic operations requires interacting with codebases, databases, and third-party APIs. Niyatna OS structures every agent workspace sandbox with multi-layered containment.
         </p>
 
         <h2>1. Sandbox Containment</h2>
         <ul>
           <li>
-            <strong>Isolated Containers:</strong> Agents run inside ephemeral, hardware-isolated containers. They cannot escape to our host servers or access sibling workspaces.
+            <strong>Isolated Containers:</strong> Agents run inside ephemeral, hardware-isolated containers (Niyatna Agent). They cannot escape the container host or access sibling workspaces.
           </li>
           <li>
             <strong>Network Restrictions:</strong> Outbound internet access is disabled by default. If a task requires fetching external packages, the agent operates in an approval-restricted network gateway.
@@ -58,20 +58,20 @@ export default function SecurityPage() {
         <h2>2. Human-in-the-Loop Validation</h2>
         <ul>
           <li>
-            <strong>Permission Gates:</strong> We configure agent workflows with specific policy templates. High-risk actions (such as deploying code, database writes, or running external shell scripts) are staged and require human approval.
+            <strong>Permission Gates:</strong> Niyatna OS configures agent runtimes with specific policy templates. High-risk actions (such as deploying code, database writes, or running external shell scripts) are staged and require human approval.
           </li>
           <li>
-            <strong>Verification Layer:</strong> Every output undergoes validation check gates. We review diffs, screenshots, terminal scrollbacks, and source citations before accepting a task as complete.
+            <strong>Verification Layer:</strong> Every output undergoes validation check gates under the Proof of Intent standard. We review diffs, screenshots, terminal scrollbacks, and source citations before accepting a task as complete.
           </li>
         </ul>
 
         <h2>3. Credentials & API Governance</h2>
         <ul>
           <li>
-            <strong>No Plaintext Storage:</strong> Client API keys and service accounts are managed via secure secrets engines. They are never written to disk, committed to source repositories, or logged in transcripts.
+            <strong>No Plaintext Storage:</strong> API keys and service accounts are managed via secure secrets engines. They are never written to disk, committed to source repositories, or logged in transcripts.
           </li>
           <li>
-            <strong>Least-Privilege Roles:</strong> When granting agents access to cloud providers (e.g. AWS, GCP) or SaaS tools (e.g. GitHub, Slack), we configure IAM roles with the narrowest scope possible.
+            <strong>Least-Privilege Roles:</strong> When granting agents access to cloud providers (e.g. AWS, GCP) or SaaS tools (e.g. GitHub, Slack), LocalRoute configures IAM roles and keys with the narrowest scope possible.
           </li>
         </ul>
 

@@ -1,22 +1,33 @@
 ---
-title: Tool integration
-description: "How external tools report state back into the intent and proof loop."
+title: MCP Bridges & Tools
+description: "How external tools and Model Context Protocol servers report states back to Niyatna OS."
 icon: CommandLine
 ---
 
-Tool integration exists so work can return evidence automatically.
+Niyatna OS executes tools via **Model Context Protocol (MCP)** bridges. This design wraps raw command lines and APIs into structured, inspectable interfaces.
 
-## Event shape
+---
 
-A tool should report:
+## Supported MCP Integrations
 
-- intent id
-- action performed
-- status
-- evidence path or URL
-- error or blocker if any
-- whether human approval is needed
+*   **Filesystem Bridge:** Mounts scoped workspace directories, logging reads, writes, and file creations.
+*   **Terminal Sandbox:** Runs compile commands, tests, and scripts in isolated environments.
+*   **LocalRoute Bridge:** Communicates with model API gateways, encrypting and masking authorization keys.
+*   **Office / CRM Bridge:** Syncs CRM statuses (HubSpot) and emails under specific validation rules.
+*   **Ledger Bridge:** Integrates transaction ledgers (Stripe) to finance runtimes under read-only scoping.
 
-## Why events matter
+## Event Schema
 
-Without structured events, agent work becomes a pile of logs. With structured events, the proof layer can show what happened and what decision remains.
+Every tool call returns a structured schema back to Niyatna OS:
+
+```json
+{
+  "intent_id": "niyatna-task-0248",
+  "mcp_server": "filesystem",
+  "tool_invoked": "write_file",
+  "arguments": { "path": "/app/page.tsx" },
+  "status": "success",
+  "evidence_path": "file:///workspace/patch.diff",
+  "requires_approval": true
+}
+```

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next"
-import { Geist_Mono, Inter } from "next/font/google"
 
 import { BackgroundWaves } from "@/components/site/background-waves"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -7,13 +6,6 @@ import { SITE } from "@/lib/site"
 import { cn } from "@/lib/utils"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -25,7 +17,10 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   keywords: [
     "agentic company",
-    "agentic company framework",
+    "agentic company formation",
+    "Niyatna OS",
+    "OpenIntent",
+    "Proof of Intent",
     "AI agent workforce",
     "intent-driven business",
     "autonomous business operations",
@@ -54,11 +49,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/niyatna_icon_256.png", sizes: "256x256", type: "image/png" },
       { url: "/niyatna-icon.png", sizes: "1024x1024", type: "image/png" },
     ],
-    apple: [{ url: "/niyatna_icon_256.png", sizes: "256x256" }],
-    shortcut: ["/niyatna_icon_256.png"],
+    apple: [{ url: "/niyatna-icon.png", sizes: "1024x1024" }],
+    shortcut: ["/favicon.ico"],
   },
   category: "technology",
   robots: { index: true, follow: true },
@@ -82,13 +76,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(
-        "antialiased",
-        fontMono.variable,
-        "font-sans",
-        inter.variable
-      )}
+      className="antialiased font-sans"
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
+      </head>
       <body>
         <ThemeProvider defaultTheme="dark">
           <BackgroundWaves />

@@ -1,21 +1,25 @@
 ---
-title: Workspace environments
-description: "Keep local projects, tools, docs, and agents scoped to the current intent."
+title: Workspace Specifications
+description: "Directory scoping, workspace variables, and virtual environment rules inside Niyatna OS."
 icon: CodeFolder
 ---
 
-A workspace environment is the execution context for an intent.
+A **Workspace** is the secure runtime directory generated for an intent execution.
 
-It may include a project directory, docs, local server, browser route, test command, and approved tools. Niyatna keeps those details scoped so one task does not bleed into another.
+It encapsulates the target source codes, directories, and variables to ensure that one agent task does not bleed into another.
 
-## Workspace contract
+---
 
-- current project or domain
-- allowed directories
-- approved commands
-- required verification
-- proof artifacts
+## Workspace Directory Scoping
 
-## Rule
+When Niyatna OS mounts a sandbox workspace, it configures:
+*   **Target Scope:** Pointers to the specific git branch and working path.
+*   **Whitelisted Directories:** Absolute paths the agent is permitted to read or edit.
+*   **Secrets Directory:** Location of scoped credential tokens injected by LocalRoute.
+*   **Checkers Registry:** Pointers to unit tests and compilers required to generate proof files.
 
-A workspace is not just where commands run. It is where intent, execution, and proof stay connected.
+## Workspace Security Contract
+
+1.  **Read Lockdown:** Prevents agents from accessing directories outside the whitelist (e.g., system `/etc`, other project workspaces).
+2.  **No Direct Pushes:** Git push commands are disabled inside the sandbox; changes are staged as patches for Niyatna HQ approval.
+3.  **Process Termination:** The container processes are killed and scrubbed once verification completes.

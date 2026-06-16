@@ -1,35 +1,34 @@
 ---
-title: Agent Workspaces
-description: "How the Niyatna workspace isolates agent execution, manages credentials, and stages verification proofs."
+title: Niyatna OS & Workspaces
+description: "How Niyatna OS isolates agent execution, manages credentials, and stages verification proofs for the human Command Room."
 icon: Layout
 ---
 
-An Agentic Company runs on specialized agent workforces. To ensure complete security and operational alignment, every AI agent operates within a dedicated **Agent Workspace**.
+An Agentic Company runs on specialized agent workforces. To ensure complete security, process integrity, and operational alignment, every Niyatna Agent operates in a dedicated **Workspace** managed by Niyatna OS.
 
-The workspace is built around one core principle: **the human supervisor retains total visibility while the agent executes in isolation**.
+The architecture is built around one core principle: **the human supervisor retains total visibility and veto power, while the agent runtime executes in secure isolation**.
 
-## Isolated Execution Environments
+---
 
-Each AI Agent (such as your AI COO or AI CFO) is assigned a sandboxed workspace. This sandbox is:
-1. **Isolated:** The agent cannot view files or databases outside its designated scope.
-2. **Ephemeral:** When a task begins, a clean sandbox is spawned. When the task is complete and verified, the sandbox is archived.
-3. **Monitored:** Every shell command, file read, file write, and network request is logged in real-time.
+## Sandbox Runtime Mechanics
 
-## Key Surface Areas
+Each specialized agent (e.g., CFO or COO Agent) runs inside a jailed runtime container. Niyatna OS controls the boundaries:
+1.  **Strict Isolation:** Agents can only read and write to directories explicitly mounted to their workspace container.
+2.  **Ephemeral Life:** Workspaces are spawned dynamically when an intent packet is queued, and archived once verification is complete.
+3.  **Real-Time Auditing:** Every terminal command, code execution, filesystem change, and API request is logged to an immutable proof trail.
 
-The workspace interface presents four key views to the human manager:
+## Niyatna HQ Interface
 
-- **The Intent Rail:** The pinned source of truth. It defines the agent's identity, mission, specific goals, constraints, and success criteria.
-- **The Live Logs Feed:** A real-time audit stream showing what the agent is thinking, what tools it is invoking, and what sub-tasks it is running.
-- **The Proof Panel:** A dedicated space showing the outcome. Depending on the task, this includes database diffs, HubSpot CRM sync receipts, or Stripe transaction matches.
-- **The Decision Gate:** An interactive panel presenting any actions requiring manual approval (e.g., executing a billing change or sending an onboarding package).
+Human operators inspect and direct agent work through Niyatna HQ. The interface is divided into four key panels:
 
-## Why Workspace Isolation Matters
+*   **The Intent Rail:** Pinned at the side, displaying the active goal, constraints, and success criteria.
+*   **The Logs Feed:** A live audit stream showing the agent's reasoning, tool calls, and execution steps.
+*   **The Proof Panel:** Displays the outcomes—such as database schema diffs, CRM sync logs, or payment audit receipts.
+*   **The Decision Gate:** Staging area showing high-risk actions requiring explicit human approval before being executed.
 
-In traditional companies, scaling operations usually means sharing database passwords and dashboard logins with many employees, creating security risks. 
+## Security Architecture
 
-Niyatna's Agent Workspaces solve this by:
-- Storing master credentials in a secure vault.
-- Passing only temporary, scoped tokens to the agent sandboxes.
-- Preventing agents from taking high-risk actions without explicit administrative veto approval.
-- Keeping the exact business intent and proof pinned in one unified workspace.
+Traditional scaling requires sharing sensitive API keys and database login credentials across multiple teams. Niyatna OS solves this by separating credentials from execution:
+*   **Scoped Token Injection:** LocalRoute manages master credentials and issues temporary, scoped session tokens to the agent sandboxes.
+*   **Zero Write Persistence:** Sandbox containers do not persist changes to the server unless they pass the Verification Layer and receive human approval.
+*   **Veto Boundaries:** Irreversible actions (like running database migrations or triggering customer-facing notifications) are blocked by default and require operator validation.

@@ -17,10 +17,10 @@ export default function Layout({ children }: { children: ReactNode }) {
             title: (
               <div className="flex items-center gap-2.5 font-semibold">
                 <Image
-                  src="/niyatna_icon_256.png"
+                  src="/niyatna-icon.png"
                   alt=""
-                  width={24}
-                  height={24}
+                  width={30}
+                  height={30}
                   className="rounded-md"
                 />
                 <span>{SITE.name} Docs</span>

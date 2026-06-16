@@ -1,19 +1,26 @@
 ---
-title: Keyboard shortcuts
-description: "Shortcuts for navigating intent, proof, agents, and review states."
-icon: Keyboard
+title: Slash Commands
+description: "Operational slash commands for executing tasks and managing veto gates inside Niyatna HQ."
+icon: Terminal
 ---
 
-Shortcuts should move the reviewer through the work without hiding context.
+Niyatna HQ incorporates a command-line interface to let operators trigger intent delegation, run verification suites, and approve or veto staged executions directly.
 
-| Action | Shortcut |
-| --- | --- |
-| New intent | `Mod+N` |
-| Open command palette | `Mod+K` |
-| Focus intent rail | `Mod+I` |
-| Focus proof panel | `Mod+P` |
-| Toggle agent lane | `Mod+J` |
-| Mark approval needed | `Mod+Shift+A` |
-| Open docs | `Mod+/` |
+---
 
-Exact bindings can change by product surface, but the principle stays the same: fast navigation, no loss of proof.
+## Operational Commands
+
+| Command | Arguments | Description |
+| :--- | :--- | :--- |
+| `/run` | `<intent_specification>` | Translates a raw business instruction into a structured OpenIntent packet and schedules execution. |
+| `/verify` | `<task_id>` | Manually triggers the Proof of Intent validation loops on a staged workspace. |
+| `/approve` | `<task_id>` | Grants administrative approval to a staged task, committing changes to the production system. |
+| `/veto` | `<task_id>` | Invokes the human veto gate, terminating the Niyatna Agent container and purging the sandbox workspace. |
+| `/memory` | `<query>` | Queries local memory contexts for past decisions, code patterns, or configurations. |
+| `/status` | None | Lists active agent workspaces, execution queue states, and LocalRoute network allocations. |
+
+---
+
+## Command Scoping & Security
+
+All slash commands executed inside Niyatna HQ are authenticated against the operator's security profile. High-risk commands—such as `/approve` or `/veto` on payment routes or deployment branches—require multi-signature verification if specified in the organization's policy templates.

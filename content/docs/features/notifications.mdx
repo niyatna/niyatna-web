@@ -1,21 +1,24 @@
 ---
-title: Notifications
-description: "Bring agent state changes back to the human without flooding the workspace."
+title: Channel Relays & Notifications
+description: "Relay agent state transitions and approval requests back to human channels without visual spam."
 icon: Record
 ---
 
-Notifications exist to return attention at the right moment.
+Niyatna OS keeps operators aligned with the workforce by routing critical events through company communication channels (Discord, Telegram, WhatsApp, email, or voice).
 
-A useful notification says what happened, what proof exists, and whether a decision is needed. It does not spam every internal step.
+Rather than spamming raw terminal output, the system distributes high-signal alerts highlighting what was done, what proof is available, and whether human approval is required.
 
-## Event types
+---
 
-- Agent started
-- Agent needs approval
-- Verification passed or failed
-- Proof bundle ready
-- Unexpected blocker
+## Relay Event Types
 
-## Good notification shape
+*   **Runtime Spawned:** Alerts when an agent runtime is initialized for a queued goal.
+*   **Veto Awaiting:** Alerts when a high-risk action (database write, deployment, payout) is blocked and awaits human validation.
+*   **Verification Complete:** Alerts when an execution passes compilation/test suites and is ready for final review.
+*   **Blocker Encountered:** Alerts when an agent hits boundary constraints or missing credentials.
 
-`intent → status → evidence → decision needed`
+## Alert Structure
+
+Every notification follows a clean, actionable hierarchy:
+
+`intent_id → status → evidence_link → action_required`

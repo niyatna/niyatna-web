@@ -1,23 +1,28 @@
 ---
-title: Verification layer
-description: "Review agent output, edits, citations, and unresolved decisions before accepting a result."
+title: Proof of Intent & Verification
+description: "Review execution logs, file diffs, credentials, and staging outcomes before committing changes."
 icon: Record
 ---
 
-The verification layer (accessed via the proof editor) is the review surface for agent output.
+The **Verification Layer** (accessed via Niyatna HQ) is the core security surface of Niyatna OS. It gathers all evidence produced by agent runtimes and packages them into a verifiable format.
 
-It is where proposed changes, notes, diffs, references, and acceptance criteria can be inspected together instead of scattered across chat history.
+Under the **Proof of Intent** standard, human operators review staged outputs and audit execution logs before any changes are committed to production systems.
 
-<img src="/editor.webp" alt="/editor.webp" width="2560" height="1600" />
+<img src="/editor.webp" alt="Niyatna proof editor" width="2560" height="1600" />
 
-## What belongs here
+---
 
-- Drafted copy, specs, code, and docs
-- Diffs and suggested changes
-- Source references and evidence
-- Open questions and tradeoffs
-- Approval notes
+## Verification Primitives
 
-## Principle
+The Verification Layer aggregates several proof types:
 
-If a human cannot inspect it, it should not be treated as proof.
+*   **Filesystem Diffs:** Line-by-line file modifications staged by the agent sandbox.
+*   **Database Transaction Diffs:** Staged SQL changes showing before-and-after tables.
+*   **Execution Logs:** The raw stdout/stderr logs from terminal commands run by the agent.
+*   **API Receipts:** Payload responses from integrated third-party platforms (HubSpot, Stripe, Slack).
+*   **Rendered Previews:** Screenshots or live viewports of UI components and document templates.
+
+## The Rule: Evidence Over Trust
+
+In Niyatna OS, confidence scores and summaries do not equal proof. If a human operator cannot inspect the exact evidence, it is not treated as complete. The Proof of Intent standard guarantees that delegated execution maps back to the founder's intent before any write action is approved.
+---

@@ -1,23 +1,30 @@
 ---
-title: Intent composer
-description: "Compose requests as structured work packets instead of vague prompts."
+title: OpenIntent Composer
+description: "Translate business requests into structured, verifiable intent packets."
 icon: Command
 ---
 
-The composer turns a request into a structured packet an agent can act on.
+In Niyatna OS, work is never initiated by sending vague conversational prompts to a chat interface. Operators use the **OpenIntent Composer** to construct structured intent packets.
 
-## Packet fields
+This guarantees that agent runtimes receive complete, unambiguous goal definitions, preventing logical drift and unauthorized operations.
 
-- Goal
-- Context
-- Constraints
-- Allowed actions
-- Approval gates
-- Acceptance criteria
-- Proof required
+---
+
+## Packet Specifications
+
+A structured OpenIntent packet requires:
+
+*   **Goal:** A clear, declarative objective.
+*   **Context:** Pointers to active folders, database scopes, and local memory context.
+*   **Allowed Tools:** A strict list of whitelisted capabilities (filesystem access, specific APIs).
+*   **Constraints:** Time limits, file boundaries, and budget ceilings.
+*   **Acceptance Criteria:** Tests, compiler requirements, or checks that must pass.
+*   **Proof Standard:** The exact format of evidence (diffs, logs, receipts) the agent must return.
 
 ## Example
 
-> Restore the full website architecture from the reference, preserve every page and docs route, add the sticky intent-scroll component near the top, rewrite copy for Niyatna, and prove it with build output plus route checks.
+> **Goal:** Crop transparent margins from public/niyatna-logo.png and generate app/favicon.ico containing sizes 16x16 up to 256x256.
+> **Constraints:** Use PIL in a local Python script, preserve the original aspect ratio, and save output directly to the public directory.
+> **Proof Standard:** Return terminal log execution and the generated favicons.
 
-That is an intent. “Make it better” is not.
+This structured packet defines the task boundary. "Fix the logo size" is not an intent.

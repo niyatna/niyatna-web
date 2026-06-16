@@ -1,55 +1,48 @@
 ---
-title: The Transition Roadmap
-description: "How we analyze, architect, deploy, and verify your AI agent workforce to transition you to an Agentic Company."
+title: The Formation Roadmap
+description: "The 5-phase standard for establishing, runtime provisioning, and operating an Agentic Company under Niyatna OS."
 icon: Rocket
 ---
 
-Transitioning from a traditional manual company to an Agentic Company is an operational shift similar to moving from Web2 to Web3. We don't just dump a generic chatbot on your team; we construct a structured transition roadmap.
+Transitioning an organization to the agentic standard requires structured gates and protocol compliance. The Niyatna standard defines a 5-phase formation pathway to establish, run, and scale an Agentic Company.
 
-Here is how we guide you through the process:
+---
 
-## Phase 1: Operational Drag Audit
+## Phase 1: Intent Mapping & Drag Audits
 
-We work with your team to audit your current manual processes and identify high-frequency, repetitive tasks. 
-
-Common audit candidates include:
-- **Finance Operations:** Matching Stripe/PayPal logs against internal invoice databases.
-- **Client Operations:** Provisioning client workspaces, syncing CRM milestones (HubSpot/Salesforce), and triggering onboarding flows.
-- **Reporting & Business Intelligence:** Pulling metrics from multiple databases, calculating margins, and compiling OKR progress reports.
+Before deploying agent runtimes, founders must audit operational drag and explicitly document the company's intent.
+*   **Drag Auditing:** Identify repetitive administrative or analytical processes draining 10–40+ hours per week (e.g., payment reconciliation, customer provisioning, manual reporting).
+*   **Intent Specification:** Translate business rules, data requirements, and taste preferences into structured parameters.
+*   **Standard Boundary Design:** Define what must be automated, what requires human validation, and what must remain blocked.
 
 ## Phase 2: Agent Architecture Design
 
-Once the drag is identified, we design the **Agentic Architecture**. We map out which specialized AI Agent roles are required:
+With the intent mapped, founders design the specialized agent workforce configuration. Roles are designed to map directly to operational departments:
+*   **Niyatna CEO Agent (Strategic Catalyst):** Monitors high-level operational indicators, runs resource models, and prepares executive briefings.
+*   **Niyatna COO Agent (Execution Engine):** Manages data pipelines, webhooks, customer onboarding, and coordinate notifications.
+*   **Niyatna CFO Agent (Financial Guardrail):** Audits ledgers, performs transaction matching, and flags margin discrepancies.
 
-- **AI CEO Agent:** Designed to monitor high-level KPIs, generate strategic roadmaps, and audit team objectives.
-- **AI COO Agent:** Designed to orchestrate customer onboarding, sync API triggers, and dispatch operational notifications.
-- **AI CFO Agent:** Designed to handle transaction reconciliation, ledger matching, and margin monitoring.
+Each agent is provisioned with a dedicated mission, goal set, tools, and visual identity.
 
-Each agent is given a custom profile defining its **identity, goals, constraints, and mission**.
+## Phase 3: Runtime Provisioning (Niyatna OS)
 
-## Phase 3: Secure Sandbox Deployment
+Runtimes are provisioned in secure, isolated sandboxes. The Niyatna OS layer handles infrastructure setup:
+*   **Sandbox Isolation:** Spawns jailed virtual runtimes (isolated agent containers) restricting system path access.
+*   **Credential Routing:** Integrates API keys and certificates using LocalRoute, delivering scoped session tokens to runtimes without exposing master secrets.
+*   **Command Boundaries:** Disables shell write access and external webhooks unless explicitly whitelisted in the workspace config.
 
-We establish secure, isolated workspace environments for your AI agent workforce. 
+## Phase 4: Intent Delegation (OpenIntent)
 
-- **Directory Isolation:** Agents operate in jailed environments (sandboxes) so they cannot access unrelated system files.
-- **Secrets Management:** APIs and credentials are encrypted. Agents only receive temporary, read-only session keys or access via scoped API proxy gateways.
-- **Administrative Veto Gates:** High-risk actions (such as initiating payouts or writing back to production databases) require explicit human sign-off via a verification dashboard.
+Daily operations are dispatched using OpenIntent packets. Rather than vague, conversational chat prompts, tasks are structured into strict schemas containing:
+1.  **Goals:** The target outcomes.
+2.  **Context:** Pointers to local memory, schemas, and live database scopes.
+3.  **Constraints:** Budget caps, time limits, and disallowed libraries.
+4.  **Proof Standards:** Defined evidence (e.g., git diffs, payment logs, transaction receipts) required for verification.
 
-## Phase 4: Intent-to-Execution Mapping
+## Phase 5: Verification & Veto (Proof of Intent)
 
-We help you translate daily operations into clear **Intent Packets**. Unlike standard prompting, an intent packet specifies:
-1. **Target Task:** What needs to be done.
-2. **Context:** Background data, API tokens, and schemas.
-3. **Constraints:** Budget ceilings, disallowed actions, and timing constraints.
-4. **Proof Standard:** What evidence (logs, database diffs, screenshots) is required to consider the task successful.
-
-## Phase 5: Verification & Time Returned
-
-Once activated, the AI agent workforce executes the intent packet in the background. The output is parsed by Niyatna's verification layer.
-
-Instead of asking you to trust the output blindly, the system presents a **Verification Packet**:
-- Signed execution diffs (showing exactly what was changed).
-- System execution logs and API outcomes.
-- Highlighted open decisions requiring human attention.
-
-Once verified, the task is marked completed, returning operational hours back to your team.
+Once execution completes, Niyatna OS parses the output and returns a structured Proof of Intent bundle via Niyatna HQ:
+*   **Evidence Inspection:** Displays execution logs, file diffs, and API receipts.
+*   **Consensus Verification:** Compares agent output against validation rules.
+*   **Human Veto:** The operator reviews the proof and either approves the changes to the production system or triggers a rollback.
+*   **Strategic Leverage:** Completed tasks return time back to the founders, reclaiming space for high-level decision making.

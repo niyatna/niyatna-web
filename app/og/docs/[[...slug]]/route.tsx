@@ -1,31 +1,20 @@
-import { source } from "@/lib/source"
 import { ImageResponse } from "next/og"
 import { notFound } from "next/navigation"
-import fs from "node:fs"
-import path from "node:path"
+import searchIndex from "@/public/search-index.json"
 
-export async function generateStaticParams() {
-  return source.getPages().map((page) => ({
-    slug: page.slugs,
-  }))
-}
-
-// Load logo once during module load / build time
-let logoDataUrl = ""
-try {
-  const logoPath = path.join(process.cwd(), "public/niyatna_icon_256.png")
-  const logoBuffer = fs.readFileSync(logoPath)
-  logoDataUrl = `data:image/png;base64,${logoBuffer.toString("base64")}`
-} catch (e) {
-  console.error("Failed to load logo from filesystem:", e)
-}
+export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export async function GET(
   request: Request,
   props: { params: Promise<{ slug?: string[] }> }
 ) {
+  const logoDataUrl = new URL("/niyatna-icon.png", request.url).toString()
   const params = await props.params
-  const page = source.getPage(params.slug)
+  const slug = params.slug || []
+  const currentUrl = `/docs/${slug.join("/")}`
+
+  const page = searchIndex.find((p) => p.url === currentUrl)
 
   if (!page) {
     return notFound()
@@ -33,24 +22,32 @@ export async function GET(
 
   // Construct breadcrumbs
   const breadcrumbs =
-    page.slugs.length > 1
-      ? page.slugs
+    slug.length > 1
+      ? slug
           .slice(0, -1)
           .map((s) => s.replace(/-/g, " "))
           .join(" > ")
       : "Docs"
 
   // Sibling pages for file-tree fallback
-  const parentPath = page.slugs.slice(0, -1)
-  const siblingPages = source.getPages().filter((p) => {
+  const parentPath = slug.slice(0, -1).join("/")
+  const siblingPages = searchIndex.map(p => {
+    const pSlug = p.url.split("/").filter(Boolean).slice(1) // strip 'docs'
+    return {
+      ...p,
+      slugs: pSlug
+    }
+  }).filter((p) => {
+    const pParentPath = p.slugs.slice(0, -1).join("/")
     return (
-      p.slugs.length === page.slugs.length &&
-      p.slugs.slice(0, -1).join("/") === parentPath.join("/")
+      p.slugs.length === slug.length &&
+      pParentPath === parentPath
     )
   })
 
-  const toc = page.data.toc || []
-  const hasToc = toc.length > 0
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const toc: any[] = []
+  const hasToc = false
 
   return new ImageResponse(
     <div
@@ -134,7 +131,7 @@ export async function GET(
             fontFamily: "monospace",
           }}
         >
-          niyatna.xyz/docs/{page.slugs.join("/")}
+          niyatna.xyz/docs/{slug.join("/")}
         </div>
       </div>
 
@@ -225,7 +222,7 @@ export async function GET(
               display: "flex",
             }}
           >
-            /content/docs/{page.slugs.join("/") || "index"}.mdx
+            /content/docs/{slug.join("/") || "index"}.mdx
           </div>
         </div>
 
@@ -279,7 +276,7 @@ export async function GET(
                 maxWidth: "580px",
               }}
             >
-              {page.data.title}
+              {page.title}
             </div>
 
             {/* Page Description */}
@@ -293,7 +290,7 @@ export async function GET(
                 flexWrap: "wrap",
               }}
             >
-              {page.data.description}
+              {page.content}
             </div>
           </div>
 
@@ -400,8 +397,8 @@ export async function GET(
                     }}
                   >
                     📁{" "}
-                    {page.slugs.length > 1
-                      ? page.slugs[page.slugs.length - 2]
+                    {slug.length > 1
+                      ? slug[slug.length - 2]
                       : "docs"}
                   </div>
                   {siblingPages.slice(0, 5).map((sibling, i) => {

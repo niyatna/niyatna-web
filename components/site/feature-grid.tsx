@@ -17,7 +17,7 @@ const items = [
   {
     icon: CpuIcon,
     title: "Sandbox Isolation",
-    desc: "Every workforce execution is contained inside isolated, hardware-restricted virtual containers.",
+    desc: "Every agent workforce execution is contained inside isolated, hardware-restricted secure containers.",
   },
   {
     icon: CommandIcon,
@@ -26,38 +26,38 @@ const items = [
   },
   {
     icon: AiIdeaIcon,
-    title: "Intent Packets",
-    desc: "Rigorous schemas mapping your desired motives, outcomes, constraints, and success standards.",
+    title: "OpenIntent Packets",
+    desc: "Rigorous schemas mapping your desired outcomes, constraints, and success standards under the OpenIntent protocol.",
   },
   {
     icon: Notebook01Icon,
-    title: "Dynamic Contexts",
-    desc: "Dynamic context assemblers that inject only the necessary variables to perform tasks.",
+    title: "Local Memory Contexts",
+    desc: "Dynamic context assemblers that query historical memory profiles to keep runtimes aligned.",
   },
   {
     icon: CheckListIcon,
-    title: "Verification Consensus",
+    title: "Verification Primitives",
     desc: "Dual-agent verification steps cross-checking outputs before staging for human validation.",
   },
   {
     icon: PaintBrush02Icon,
-    title: "Aesthetic Dashboards",
-    desc: "Clear visual workspaces showing inputs, execution logs, and output diffs in a unified layout.",
+    title: "Niyatna HQ Panels",
+    desc: "Clear visual Command Room workspaces showing inputs, execution logs, and output diffs in a unified layout.",
   },
   {
     icon: Layout02Icon,
-    title: "Human Validation",
+    title: "Administrative Veto",
     desc: "You retain absolute veto power. Action logs, diffs, and outcomes require your approval.",
   },
   {
     icon: CodeFolderIcon,
-    title: "Bespoke Workflows",
-    desc: "Custom agentic scripts and tool integrations built specifically to map your existing SOPs.",
+    title: "Niyatna Agent Runtimes",
+    desc: "Custom agentic scripts and tool integrations built specifically to execute tasks under Niyatna OS.",
   },
   {
     icon: EnergyIcon,
-    title: "Efficiency Analytics",
-    desc: "Real-time cost and saved-hour metrics showing the continuous return on your investment.",
+    title: "Proof Registry",
+    desc: "Saved-hour metrics showing the continuous return on your investment, backed by inspectable evidence logs.",
   },
 ]
 

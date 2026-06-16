@@ -9,7 +9,7 @@ import { Section, SectionEyebrow, SectionHeading, SectionLead } from "./section"
 const faqs = [
   {
     q: "What is Niyatna?",
-    a: "Niyatna is the standard framework for building and operating the Agentic Company. We empower human intent to solve market problems by translating dreams into missions, visions, goals, and delegated AI agent workforces.",
+    a: "Niyatna is the agentic-company formation system: the integrated operating stack, standards, rules, gates, and interfaces for forming and running agentic companies. We empower human intent to solve market problems by translating dreams into missions, visions, goals, and delegated AI agent workforces.",
   },
   {
     q: "Why does an Agentic Company start with real business problems?",
@@ -20,7 +20,7 @@ const faqs = [
     a: "An Agentic Company is the future standard of organization. It is not just a Kanban board with a chatbot. In an Agentic Company, specialized AI agents (across Finance, Marketing, Sales, and Operations) operate with defined personalities, missions, goals, responsibilities, targets, capabilities, knowledge bases, and tools like MCP skills and slash commands.",
   },
   {
-    q: "How does the delegation loop work under this framework?",
+    q: "How does the delegation loop work under this system?",
     a: "It starts with human intent. With intent, you get a dream. From that dream, you derive a mission. From that mission, a vision. From that vision, specific goals. Finally, these goals are delegated to specialized AI agents. This chain ensures that every autonomous action maps directly back to the human will.",
   },
   {

@@ -1,22 +1,25 @@
 ---
-title: Delegation trail
-description: "Track what changed, why it changed, and how it maps back to the original intent."
+title: Delegation & Proof Trails
+description: "Track filesystem modifications, command outcomes, and API changes back to the original intent."
 icon: GitBranch
 ---
 
-The delegation trail (change control panel) keeps agent work reviewable.
+The **Delegation Trail** (monitored in the Command Room) is the ledger of all actions taken by Niyatna Agents.
 
-Niyatna treats every meaningful edit as part of a proof trail: what changed, why, which command or decision caused it, and how it satisfies the intent.
+Every filesystem edit, command execution, and network request produces a permanent, inspectable proof trail linking back to the original OpenIntent packet ID.
 
 <img src="/source-control.webp" alt="Niyatna change control" width="2560" height="1600" />
 
-## Review checklist
+---
 
-- Did the changed files match the intended scope?
-- Did any unrelated component get touched?
-- Are tests, builds, or screenshots attached?
-- Are unresolved tradeoffs named clearly?
+## Audit Checklist
 
-## Result
+Before approving a staged change, the Command Room checks the delegation trail:
+*   **Target Alignment:** Did the agent only modify files and tables specified inside the intent scope?
+*   **Safety Audit:** Were there any unexpected network calls or dependency modifications?
+*   **Test Evidence:** Are compile checks, test suites, or screenshots attached?
+*   **Open Decisions:** Are there any unresolved design decisions or edge cases requiring human judgment?
 
-The human can approve with evidence instead of redoing the whole investigation.
+## Reclaiming Leverage
+
+By presenting structured, verified proof logs instead of raw terminal output, the delegation trail compresses hours of manual code and data investigation into minutes of human review.

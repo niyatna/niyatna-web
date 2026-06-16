@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 import { ThemeToggle } from "./theme-toggle"
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Our Work" },
   { href: "/about", label: "About" },
@@ -97,12 +98,12 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
       <div
         className={cn(
           "mx-3 flex max-w-6xl items-center justify-between gap-4 px-4 sm:mx-auto sm:px-6",
-          "rounded-full transition-all duration-300",
+          "rounded-full transition-all duration-300 w-full",
           (scrolled || mobileMenuOpen) &&
             "border border-white/10 bg-white/70 px-4 py-2 shadow-lg shadow-black/[0.04] backdrop-blur-xl dark:border-white/[0.08] dark:bg-zinc-950/60 dark:shadow-black/40"
         )}
       >
-        <div className="flex items-center gap-2.5">
+        <div className="flex-1 flex items-center justify-start gap-2.5">
           <Link
             href="/"
             className="flex items-center gap-2.5 font-semibold tracking-tight"
@@ -110,10 +111,10 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
             onClick={() => setMobileMenuOpen(false)}
           >
             <Image
-              src="/niyatna_icon_256.png"
+              src="/niyatna-icon.png"
               alt=""
-              width={28}
-              height={28}
+              width={34}
+              height={34}
               priority
               className="rounded-md"
             />
@@ -121,7 +122,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
           </Link>
         </div>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center justify-center gap-1 md:flex">
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -133,12 +134,12 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex-1 flex items-center justify-end gap-2">
           <ThemeToggle />
-          <Button asChild size="sm" className="hidden sm:inline-flex rounded-full">
-            <Link href="/docs">
+          <Button asChild size="sm" className="hidden sm:inline-flex rounded-full gap-2">
+            <Link href="/contact">
               <HugeiconsIcon icon={BookOpenIcon} strokeWidth={2} />
-              Docs
+              Request Access
             </Link>
           </Button>
           
@@ -146,7 +147,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-foreground md:hidden cursor-pointer hover:bg-white/10 transition-colors"
+            className="flex size-8 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100/50 text-foreground md:hidden cursor-pointer hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <CloseIcon className="size-4" /> : <MenuIcon className="size-4" />}
@@ -162,7 +163,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-3 right-3 top-16 rounded-3xl border border-white/10 bg-zinc-950/95 p-6 shadow-2xl backdrop-blur-xl md:hidden z-40 dark:border-white/[0.08]"
+            className="absolute left-3 right-3 top-16 rounded-3xl border border-zinc-200 bg-white/95 p-6 shadow-2xl backdrop-blur-xl md:hidden z-40 dark:border-white/[0.08] dark:bg-zinc-950/95"
           >
             <nav className="flex flex-col gap-4">
               {navLinks.map((l) => (
@@ -175,6 +176,13 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
                   {l.label}
                 </Link>
               ))}
+              <div className="my-1 border-t border-zinc-200 dark:border-white/[0.08]" />
+              <Button asChild className="w-full rounded-full gap-2">
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  <HugeiconsIcon icon={BookOpenIcon} strokeWidth={2} />
+                  Request Access
+                </Link>
+              </Button>
             </nav>
           </motion.div>
         )}

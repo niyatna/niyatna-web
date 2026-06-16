@@ -1,20 +1,23 @@
 ---
-title: Plans and subagents
-description: "Break a large intent into bounded steps and assign agents without losing proof."
+title: Bounded Plan Sequencing
+description: "Decompose complex intents into structured execution sequences and delegate to subagents under Niyatna OS."
 icon: Notebook
 ---
 
-Plans turn a large intent into smaller proof-bearing steps.
+When a human operator submits a large, complex OpenIntent packet, Niyatna OS decomposes the goal into a sequence of smaller, bounded steps. This plan sequencing ensures that each sub-task produces verifiable proof before proceeding.
 
-Subagents are useful when the work has independent streams: research, code, visual QA, copy, or source comparison. Each stream must return evidence, not just a summary.
+---
 
-## Plan shape
+## Subagent Delegation
 
-1. What will be changed?
-2. What will be preserved?
-3. What evidence proves the step?
-4. What needs approval?
+For tasks containing independent operational lanes, Niyatna OS spawns specialized **subagents** (e.g., Code Researcher, Copy Writer, Security Auditor):
+*   **Scoped Workspaces:** Each subagent is spawned in a separate, isolated subdirectory or container.
+*   **Independent Verification:** Each subagent must compile, test, and verify its specific output.
+*   **Result Consolidation:** The parent agent aggregates subagent proofs (file diffs, logs, screenshots) into the main Proof of Intent bundle.
 
-## Subagent output
+## Plan Structure
 
-A subagent result should include paths, commands, URLs, screenshots, or source references that can be checked.
+1.  **Scope Definitions:** Explicitly listing files, directories, and tables to be modified.
+2.  **Preservation Rules:** Declaring what must remain untouched.
+3.  **Verification Criteria:** Specifying the tests, scripts, or checks that prove completion.
+4.  **Staging Flags:** Panning out which steps require human review before executing the next phase.
