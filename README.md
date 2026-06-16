@@ -18,6 +18,20 @@
 
 This repository contains the source code for the website and landing page of [Niyatna](https://niyatna.xyz).
 
+## What is Niyatna?
+
+Niyatna is the **agentic-company formation system**—the integrated operating stack, standards, rules, gates, and interfaces for forming and running agentic companies.
+
+We build the operating layers, boundaries, and command rooms that turn human intent into coordinated, autonomous, and verified agent workforces. 
+
+> **The agents are not the company. The intent is the company. The agents are the leverage.**
+
+When anyone can solve problems with AI, the scarce asset becomes the system that organizes intent, workforces, memory, permissions, channels, and proof into an operating business. Niyatna coordinates these primitives into a unified execution standard.
+
+[Explore Niyatna](https://niyatna.xyz) · [Begin Qualification](https://niyatna.xyz/contact)
+
+---
+
 ## WebGL Hero Waves
 
 The hero background features real-time WebGL line waves compiled from custom GLSL shaders (not videos or Lottie animations):
