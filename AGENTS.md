@@ -214,10 +214,10 @@ For landing-page information architecture, keep these core sections in mind:
 1. Hero — category-defining premise.
 2. Thesis / manifesto — why intent matters more than agents.
 3. Gold-rush / formation-system framing — AI as gold, Niyatna as the company-making system.
-4. System anatomy — Hermes-like agent runtime, Paperclip/Multica-like HQ, OmniRoute-like routing, memory, channels, MCP, skills, accounts, hardware, hooks, and proof.
+4. System anatomy — isolated agent runtime, Paperclip/Multica-like HQ, LocalRoute routing, local memory, channels, MCP, skills, accounts, hardware, hooks, and proof.
 5. Mechanism — intent → agents → channels/tools → permissions → proof → company.
 6. Standards / scarcity — not everyone is ready; access is gated.
-7. Architecture — OpenIntent, Proof of Intent, Niyatna OS, Niyatna Agents, Niyatna HQ / Command Room.
+7. Architecture — OpenIntent, Proof of Intent, Niyatna OS, Niyatna Agents, Niyatna HQ.
 8. CTA — Request Access / Begin Qualification.
 
 ---
@@ -241,6 +241,21 @@ pnpm run lint
 pnpm run typecheck
 pnpm run build
 pnpm run dev
+```
+
+### Production Build & Deploy Pipeline (Cloudflare Pages)
+
+Since this project is configured to build using Vercel CLI compilation and package static files/Edge functions for Cloudflare Pages via `@cloudflare/next-on-pages`, use this exact pipeline to build and deploy to the `niyatna-landing` target:
+
+```bash
+# 1. Build using Vercel compiler, patch prerenders, build Next-on-Pages bundle, and deploy via Wrangler
+pnpm dlx vercel build && \
+node scripts/copy-prerenders.js && \
+node scripts/clean-functions.js && \
+node scripts/fix-prerenders.js && \
+node scripts/fix-config-overrides.js && \
+pnpm exec next-on-pages --skip-build && \
+npx wrangler pages deploy .vercel/output/static --project-name niyatna-landing
 ```
 
 Rules:

@@ -17,21 +17,10 @@
       "config": {
         "zeroConfig": true,
         "framework": "nextjs"
-      },
-      "error": {
-        "name": "Error",
-        "stack": "Error: Command \"pnpm run build\" exited with 1\n    at ChildProcess.<anonymous> (/home/galyarder/.local/share/pnpm/store/v11/links/@vercel/build-utils/13.30.0/e699b806432eccf480f27dc20f0821201dca6cc1ddac4056f04ed2d6f5896a54/node_modules/@vercel/build-utils/dist/index.js:36912:9)\n    at ChildProcess.emit (node:events:509:28)\n    at maybeClose (node:internal/child_process:1124:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:306:5)",
-        "message": "Command \"pnpm run build\" exited with 1",
-        "hideStackTrace": true,
-        "code": "BUILD_UTILS_SPAWN_1"
       }
     }
   ],
-  "error": {
-    "name": "Error",
-    "stack": "Error: Command \"pnpm run build\" exited with 1\n    at ChildProcess.<anonymous> (/home/galyarder/.local/share/pnpm/store/v11/links/@vercel/build-utils/13.30.0/e699b806432eccf480f27dc20f0821201dca6cc1ddac4056f04ed2d6f5896a54/node_modules/@vercel/build-utils/dist/index.js:36912:9)\n    at ChildProcess.emit (node:events:509:28)\n    at maybeClose (node:internal/child_process:1124:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:306:5)",
-    "message": "Command \"pnpm run build\" exited with 1",
-    "hideStackTrace": true,
-    "code": "BUILD_UTILS_SPAWN_1"
+  "features": {
+    "webAnalyticsVersion": "2.0.1"
   }
 }

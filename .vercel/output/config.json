@@ -1,3 +1,454 @@
 {
-  "version": 3
+  "version": 3,
+  "routes": [
+    {
+      "src": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308,
+      "continue": true
+    },
+    {
+      "src": "/_next/__private/trace",
+      "dest": "/404",
+      "status": 404,
+      "continue": true
+    },
+    {
+      "src": "/404/?",
+      "status": 404,
+      "continue": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-prerender-revalidate"
+        }
+      ]
+    },
+    {
+      "src": "/500",
+      "status": 500,
+      "continue": true
+    },
+    {
+      "src": "/(?<path>.+?)(?:/)?$",
+      "dest": "/$path.segments/$segmentPath.segment.rsc",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc",
+          "value": "1"
+        },
+        {
+          "type": "header",
+          "key": "next-router-prefetch",
+          "value": "1"
+        },
+        {
+          "type": "header",
+          "key": "next-router-segment-prefetch",
+          "value": "/(?<segmentPath>.+)"
+        }
+      ],
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/?$",
+      "dest": "/index.segments/$segmentPath.segment.rsc",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc",
+          "value": "1"
+        },
+        {
+          "type": "header",
+          "key": "next-router-prefetch",
+          "value": "1"
+        },
+        {
+          "type": "header",
+          "key": "next-router-segment-prefetch",
+          "value": "/(?<segmentPath>.+)"
+        }
+      ],
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/?",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc",
+          "value": "1"
+        }
+      ],
+      "dest": "/index.rsc",
+      "headers": {
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/((?!.+\\.rsc).+?)(?:/)?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc",
+          "value": "1"
+        }
+      ],
+      "dest": "/$1.rsc",
+      "headers": {
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/index(\\.action|\\.rsc)",
+      "dest": "/",
+      "continue": true
+    },
+    {
+      "src": "^/docs(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.md(?:/)?(?<rscsuff>\\.rsc|\\.segments/.+\\.segment\\.rsc)?$",
+      "dest": "/llms.mdx/docs/$1$rscsuff",
+      "check": true,
+      "headers": {
+        "x-nextjs-rewritten-path": "/llms.mdx/docs/$1"
+      }
+    },
+    {
+      "src": "/\\.prefetch\\.rsc$",
+      "dest": "/__index.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.prefetch\\.rsc$",
+      "dest": "/$1.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/\\.rsc$",
+      "dest": "/index.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.rsc$",
+      "dest": "/$1.rsc",
+      "check": true
+    },
+    {
+      "handle": "resource"
+    },
+    {
+      "src": "/.*",
+      "status": 404
+    },
+    {
+      "handle": "miss"
+    },
+    {
+      "src": "/_next/static/.+",
+      "status": 404,
+      "check": true,
+      "dest": "/_next/static/not-found.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "src": "^/(?<path>.+)(?<rscSuffix>\\.segments/.+\\.segment\\.rsc)(?:/)?$",
+      "dest": "/$path.rsc",
+      "check": true
+    },
+    {
+      "handle": "rewrite"
+    },
+    {
+      "src": "^/(?<path>.+)(?<rscSuffix>\\.segments/.+\\.segment\\.rsc)(?:/)?$",
+      "dest": "/$path.rsc",
+      "check": true,
+      "override": true
+    },
+    {
+      "src": "^/llms\\.mdx/docs(?:/(?<nxtPslug>.+?))?(?<rscSuffix>\\.rsc|\\.prefetch\\.rsc|\\.segments/.+\\.segment\\.rsc)(?:/)?$",
+      "dest": "/llms.mdx/docs/[[...slug]]$rscSuffix?nxtPslug=$nxtPslug",
+      "check": true,
+      "override": true
+    },
+    {
+      "src": "^/llms\\.mdx/docs(?:/(?<nxtPslug>.+?))?(?:/)?$",
+      "dest": "/llms.mdx/docs/[[...slug]]?nxtPslug=$nxtPslug",
+      "check": true,
+      "override": true
+    },
+    {
+      "src": "^/og/docs(?:/(?<nxtPslug>.+?))?(?<rscSuffix>\\.rsc|\\.prefetch\\.rsc|\\.segments/.+\\.segment\\.rsc)(?:/)?$",
+      "dest": "/og/docs/[[...slug]]$rscSuffix?nxtPslug=$nxtPslug",
+      "check": true,
+      "override": true
+    },
+    {
+      "src": "^/og/docs(?:/(?<nxtPslug>.+?))?(?:/)?$",
+      "dest": "/og/docs/[[...slug]]?nxtPslug=$nxtPslug",
+      "check": true,
+      "override": true
+    },
+    {
+      "handle": "hit"
+    },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|VlIr2G2uDv8KHRaxZVNIV)/.+",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/index(?:/)?",
+      "headers": {
+        "x-matched-path": "/"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/((?!index$).*?)(?:/)?",
+      "headers": {
+        "x-matched-path": "/$1"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "handle": "error"
+    },
+    {
+      "src": "/.*",
+      "dest": "/404",
+      "status": 404,
+      "headers": {
+        "x-next-error-status": "404"
+      }
+    },
+    {
+      "src": "/.*",
+      "dest": "/500",
+      "status": 500,
+      "headers": {
+        "x-next-error-status": "500"
+      }
+    }
+  ],
+  "images": {
+    "domains": [],
+    "sizes": [
+      640,
+      750,
+      828,
+      1080,
+      1200,
+      1920,
+      2048,
+      3840,
+      32,
+      48,
+      64,
+      96,
+      128,
+      256,
+      384
+    ],
+    "qualities": [
+      75,
+      92
+    ],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "^(?:^(?:i\\.ytimg\\.com)$)$",
+        "pathname": "^(?:\\/vi(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)|$))$"
+      }
+    ],
+    "localPatterns": [
+      {
+        "pathname": "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$",
+        "search": ""
+      }
+    ],
+    "minimumCacheTTL": 14400,
+    "formats": [
+      "image/avif",
+      "image/webp"
+    ],
+    "dangerouslyAllowSVG": false,
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "contentDispositionType": "attachment"
+  },
+  "overrides": {
+    "404.html": {
+      "path": "404",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "500.html": {
+      "path": "500",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "404.rsc.json": {
+      "path": "404.rsc",
+      "contentType": "application/json"
+    },
+    "404.segments/_tree.segment.rsc.json": {
+      "path": "404.segments/_tree.segment.rsc",
+      "contentType": "application/json"
+    },
+    "500.rsc.json": {
+      "path": "500.rsc",
+      "contentType": "application/json"
+    },
+    "500.segments/_tree.segment.rsc.json": {
+      "path": "500.segments/_tree.segment.rsc",
+      "contentType": "application/json"
+    },
+    "favicon.ico": {
+      "contentType": "image/x-icon"
+    },
+    "_next/static/not-found.txt": {
+      "contentType": "text/plain"
+    },
+    "about.html": {
+      "path": "about",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "contact.html": {
+      "path": "contact",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/composer.html": {
+      "path": "docs/ai/composer",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/execution-agents.html": {
+      "path": "docs/ai/execution-agents",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/plans-and-subagents.html": {
+      "path": "docs/ai/plans-and-subagents",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/providers.html": {
+      "path": "docs/ai/providers",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/security.html": {
+      "path": "docs/ai/security",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/ai/sessions-and-memory.html": {
+      "path": "docs/ai/sessions-and-memory",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/agent-workflow.html": {
+      "path": "docs/features/agent-workflow",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/context-explorer.html": {
+      "path": "docs/features/context-explorer",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/delegation-trail.html": {
+      "path": "docs/features/delegation-trail",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/human-agency.html": {
+      "path": "docs/features/human-agency",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/intent-primitive.html": {
+      "path": "docs/features/intent-primitive",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/notifications.html": {
+      "path": "docs/features/notifications",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/outcome-preview.html": {
+      "path": "docs/features/outcome-preview",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/features/verification-layer.html": {
+      "path": "docs/features/verification-layer",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/getting-started/workspace.html": {
+      "path": "docs/getting-started/workspace",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/getting-started.html": {
+      "path": "docs/getting-started",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/reference/data.html": {
+      "path": "docs/reference/data",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/reference/settings.html": {
+      "path": "docs/reference/settings",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/reference/shortcuts.html": {
+      "path": "docs/reference/shortcuts",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/reference/tool-integration.html": {
+      "path": "docs/reference/tool-integration",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs/reference/workspaces.html": {
+      "path": "docs/reference/workspaces",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "docs.html": {
+      "path": "docs",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "index.html": {
+      "path": "",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "privacy.html": {
+      "path": "privacy",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "security.html": {
+      "path": "security",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "services.html": {
+      "path": "services",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "terms.html": {
+      "path": "terms",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "work.html": {
+      "path": "work",
+      "contentType": "text/html; charset=utf-8"
+    }
+  },
+  "framework": {
+    "slug": "nextjs",
+    "version": "16.1.7"
+  },
+  "crons": []
 }
