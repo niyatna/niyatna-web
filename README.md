@@ -1,63 +1,74 @@
 <div align="center">
-  <img src="public/niyatna_icon_256.png" width="120" height="120" alt="Niyatna" />
-  <h1>Niyatna Website</h1>
-
-  <p><strong>The website and landing page for <a href="https://niyatna.xyz">Niyatna</a>.</strong></p>
-  
-  <p>
-    <img src="https://img.shields.io/badge/Next.js-16-black" alt="next.js" />
-    <img src="https://img.shields.io/badge/React-19-149eca" alt="react" />
-  </p>
-
-  <p><a href="https://niyatna.xyz">niyatna.xyz</a></p>
+  <br />
+  <img src="public/niyatna-icon.png" width="80" height="80" alt="Niyatna" />
+  <br />
+  <br />
+  <h3>Niyatna Website</h3>
+  <p>The codebase for <a href="https://niyatna.xyz">niyatna.xyz</a></p>
+  <br />
 </div>
 
 ---
 
-<p align="center">
-  <img src="niyatna-website-demo.png" alt="Niyatna website" width="820" />
-</p>
+This repository contains the source code for the public website and developer documentation of **Niyatna**—the agentic-company formation system.
 
-The source code for the [niyatna.xyz](https://niyatna.xyz) company profile website.
+The product runtime and AI agent framework live in a separate repository. This codebase is strictly the public web presence, custom WebGL animations, and technical guides.
 
-## The animated background
+## WebGL Hero Waves
 
-The flowing line waves in the hero are the part most people ask about. It is a real-time WebGL shader, not a video or a Lottie file:
+The hero background features real-time WebGL line waves compiled from custom GLSL shaders (not videos or Lottie animations):
+* [`components/site/background-waves.tsx`](components/site/background-waves.tsx) mounts the HTML5 Canvas and initialises parameters.
+* [`components/line-waves.tsx`](components/line-waves.tsx) implements the [OGL](https://github.com/oframe/ogl) WebGL state-machine wrapper and runs the fragment shader rendering the waves.
 
-- [`components/site/background-waves.tsx`](components/site/background-waves.tsx) mounts the canvas and wires it into the page.
-- [`components/line-waves.tsx`](components/line-waves.tsx) holds the [OGL](https://github.com/oframe/ogl) setup and the GLSL fragment shader that draws the lines.
+## Technical Stack
 
-Everything is plain GLSL on top of a tiny WebGL wrapper, so it is easy to read and tweak.
+* **Framework:** Next.js 16 (App Router) & React 19
+* **Styles:** Tailwind CSS v4 (CSS-first variables & directives)
+* **Documentation:** Fumadocs MDX documentation engine
+* **Animations:** Motion (smooth transitions & scrolls)
+* **Assets:** Hugeicons icon set
 
-## Tech stack
+## Local Development
 
-- **Next.js 16** (App Router) + **React 19** + **TypeScript**
-- **Tailwind CSS v4** + **shadcn/ui** components
-- **[OGL](https://github.com/oframe/ogl)** for the WebGL shader background
-- **[Motion](https://motion.dev)** for animations
-- **[Hugeicons](https://hugeicons.com)** icon set
-- Deployed on **Vercel**
-
-## Run locally
-
-**Prerequisites:** Node 20+ and [pnpm](https://pnpm.io).
+Ensure you have [pnpm](https://pnpm.io) installed:
 
 ```bash
+# 1. Install dependencies
 pnpm install
-pnpm dev          # http://localhost:4175
+
+# 2. Start local development server
+pnpm dev
 ```
 
-## Structure
+## Production Build & Deploy (Cloudflare Pages)
 
+The project compiles static pages using Vercel CLI and runs Edge bindings on Cloudflare Pages via `@cloudflare/next-on-pages`. Due to custom overrides needed for dynamic route mapping, use this exact deployment pipeline:
+
+```bash
+pnpm dlx vercel build && \
+node scripts/copy-prerenders.js && \
+node scripts/clean-functions.js && \
+node scripts/fix-prerenders.js && \
+node scripts/fix-config-overrides.js && \
+pnpm exec next-on-pages --skip-build && \
+npx wrangler pages deploy .vercel/output/static --project-name niyatna-landing
 ```
-app/                Next.js routes (home, about, privacy, terms, security)
-components/site/    Page sections (hero, demo, feature grid, footer, ...)
-components/ui/       shadcn/ui primitives
-lib/site.ts         Single source of truth: config, links
+
+## Directory Structure
+
+```text
+app/                Next.js App Router paths (Hero, services, work, about, terms, privacy, security)
+components/site/    Page layout modules (Showcase Demo, Feature Grid, Scrolling system outline)
+components/ui/      Primitive shadcn interface components
+content/            MDX source files for developer documentation & reference configuration guides
+lib/site.ts         Public configuration file (names, URLs, metadata properties)
+scripts/            Custom build-time page-repair and prerender patching scripts
 ```
 
-Want to change config or metadata? It all lives in [`lib/site.ts`](lib/site.ts).
+---
 
-## License
+<div align="center">
+  <sub>Licensed under the Apache-2.0 License.</sub>
+</div>
 
-Licensed under the [Apache-2.0 License](LICENSE).
+
