@@ -7,8 +7,8 @@
   <p>The website and landing page for <a href="https://niyatna.xyz">Niyatna</a></p>
   <br />
   <a href="https://github.com/niyatna/niyatna-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
-  <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Next.js-v16.1.7-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-v19.2.4-20232A?logo=react&logoColor=61DAFB" alt="React" />
   <br />
   <br />
   <img src="public/niyatna-web.png" width="100%" alt="Niyatna Web" />
