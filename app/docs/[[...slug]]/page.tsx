@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import defaultMdxComponents from "fumadocs-ui/mdx"
 import { PageActions } from "@/components/docs/page-actions"
+import { SITE } from "@/lib/site"
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>
@@ -53,6 +54,9 @@ export async function generateMetadata(props: {
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: {
+      canonical: `${SITE.url}${page.url}`,
+    },
     openGraph: {
       images: [
         {

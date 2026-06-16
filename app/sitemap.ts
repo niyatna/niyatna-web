@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next"
 import { SITE } from "@/lib/site"
+import { source } from "@/lib/source"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
-  const routes: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
+  const staticRoutes: { path: string; priority: number; changeFrequency: "weekly" | "monthly" }[] = [
     { path: "", priority: 1, changeFrequency: "weekly" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
     { path: "/services", priority: 0.8, changeFrequency: "monthly" },
@@ -13,10 +14,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/privacy", priority: 0.4, changeFrequency: "monthly" },
     { path: "/terms", priority: 0.4, changeFrequency: "monthly" },
   ]
-  return routes.map((r) => ({
+
+  const staticSitemap = staticRoutes.map((r) => ({
     url: `${SITE.url}${r.path}`,
     lastModified,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }))
+
+  const docsSitemap = source.getPages().map((page) => ({
+    url: `${SITE.url}${page.url}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }))
+
+  return [...staticSitemap, ...docsSitemap]
 }
