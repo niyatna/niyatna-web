@@ -1,18 +1,22 @@
 <div align="center">
   <br />
-  <img src="public/niyatna-icon.png" width="80" height="80" alt="Niyatna" />
+  <img src="public/niyatna-icon.png" width="128" height="128" alt="Niyatna" />
   <br />
   <br />
-  <h3>Niyatna Website</h3>
-  <p>The codebase for <a href="https://niyatna.xyz">niyatna.xyz</a></p>
+  <h3>Niyatna</h3>
+  <p>The website and landing page for <a href="https://niyatna.xyz">Niyatna</a></p>
   <br />
+  <a href="https://github.com/niyatna/niyatna-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
+  <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" alt="React" />
+  <br />
+  <br />
+  <img src="public/niyatna-web.png" width="100%" alt="Niyatna Web" />
 </div>
 
 ---
 
-This repository contains the source code for the public website and developer documentation of **Niyatna**—the agentic-company formation system.
-
-The product runtime and AI agent framework live in a separate repository. This codebase is strictly the public web presence, custom WebGL animations, and technical guides.
+This repository contains the source code for the website and landing page of [Niyatna](https://niyatna.xyz).
 
 ## WebGL Hero Waves
 
