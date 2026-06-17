@@ -372,7 +372,7 @@ export function IntentScroll() {
             ))}
           </div>
 
-          <div className="lg:sticky lg:top-28">
+          <div className="hidden lg:sticky lg:top-28 lg:block">
             <IntentVisual active={active} />
           </div>
           <div className="pointer-events-none hidden lg:block" aria-hidden="true">
