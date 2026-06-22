@@ -69,7 +69,7 @@ node scripts/clean-functions.js && \
 node scripts/fix-prerenders.js && \
 node scripts/fix-config-overrides.js && \
 pnpm exec next-on-pages --skip-build && \
-npx wrangler pages deploy .vercel/output/static --project-name niyatna-landing
+npx wrangler pages deploy .vercel/output/static
 ```
 
 ## Directory Structure
