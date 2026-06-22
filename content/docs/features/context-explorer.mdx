@@ -1,22 +1,28 @@
 ---
 title: Context & Memory Explorer
-description: "Inject structured files, schemas, and historical context into agent runtimes."
+description: "Attach the right company context to an intent without letting stale assumptions override the current request."
 icon: CodeFolder
 ---
 
-The **Context Explorer** in Niyatna OS ensures that agents execute with complete business context, eliminating guesswork and prompt trial-and-error.
+The **Context Explorer** helps Niyatna attach relevant company knowledge to a request before it is routed.
 
-It compiles project directories, schema files, known guidelines, and historical knowledge, delivering a clean context window to the agent runtime.
+It should answer: what does the system need to know to complete this work safely and correctly?
 
 ---
 
-## Memory & Context Layers
+## Context layers
 
-Niyatna OS handles two core context variables:
+Niyatna can attach several kinds of context:
 
-*   **Static Context:** Project structures, API specifications, and codebases.
-*   **Local Memory:** Persistent history of past operational decisions, preferences, and verified patterns, ensuring the agent does not repeat historical errors.
+* **Company canon:** Mission, standards, product definitions, and operating rules.
+* **Department context:** SOPs, responsibilities, checklists, and recurring workflows.
+* **Source material:** Files, records, docs, links, screenshots, or submitted outputs.
+* **Decision history:** Prior approvals, rejected paths, and known constraints.
+* **Proof history:** Evidence from similar completed or blocked work.
+* **Preference memory:** Brand, design, copy, security, and workflow preferences.
 
-## Rule: Intent Priority
+## Rule: intent priority
 
-Context and memory are secondary to intent. If an instruction in the OpenIntent packet conflicts with past memory, the newest human command wins. The Context Explorer filters memory dynamically, injecting only what is relevant to the active goal to prevent context drift.
+Context supports the active intent. It does not replace it.
+
+If old context conflicts with a current authorized instruction, the current instruction wins. Niyatna should inject only the context needed for the active goal so work stays focused instead of drifting into old assumptions.

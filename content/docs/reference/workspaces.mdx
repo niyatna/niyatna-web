@@ -1,25 +1,36 @@
 ---
 title: Workspace Specifications
-description: "Directory scoping, workspace variables, and virtual environment rules inside Niyatna OS."
+description: "How Niyatna scopes company workspaces, context, tools, and proof for each intent."
 icon: CodeFolder
 ---
 
-A **Workspace** is the secure runtime directory generated for an intent execution.
+A **workspace** is the boundary around a piece of company work.
 
-It encapsulates the target source codes, directories, and variables to ensure that one agent task does not bleed into another.
+It defines what context can be used, which tools are available, who owns the work, what review is required, and what proof must be returned.
 
 ---
 
-## Workspace Directory Scoping
+## Workspace scope
 
-When Niyatna OS mounts a sandbox workspace, it configures:
-*   **Target Scope:** Pointers to the specific git branch and working path.
-*   **Whitelisted Directories:** Absolute paths the agent is permitted to read or edit.
-*   **Secrets Directory:** Location of scoped credential tokens injected by LocalRoute.
-*   **Checkers Registry:** Pointers to unit tests and compilers required to generate proof files.
+A workspace may define:
 
-## Workspace Security Contract
+* **Company or department:** Which part of the organization the work belongs to.
+* **Requester:** Who asked for the work and under which role.
+* **Assignee:** The human, agent, or mixed path responsible for the next step.
+* **Allowed context:** Files, SOPs, records, memory, or submitted materials available to the workflow.
+* **Allowed tools:** Systems that may be used for the active intent.
+* **Review gate:** Who approves staged or risky actions.
+* **Proof destination:** Where the result and evidence are stored.
 
-1.  **Read Lockdown:** Prevents agents from accessing directories outside the whitelist (e.g., system `/etc`, other project workspaces).
-2.  **No Direct Pushes:** Git push commands are disabled inside the sandbox; changes are staged as patches for Niyatna HQ approval.
-3.  **Process Termination:** The container processes are killed and scrubbed once verification completes.
+## Workspace security contract
+
+A Niyatna workspace should:
+
+1. Keep work inside the approved scope.
+2. Separate draft, staged, and accepted outputs.
+3. Make risky actions wait for review.
+4. Return proof before memory or operating records are updated.
+
+## Workspace rule
+
+The workspace should make the boundary visible. If a request does not define scope, owner, allowed tools, and proof, it is not ready for execution.

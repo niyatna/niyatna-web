@@ -1,33 +1,38 @@
 ---
-title: MCP Bridges & Tools
-description: "How external tools and Model Context Protocol servers report states back to Niyatna OS."
+title: Tool Boundaries & Integrations
+description: "How Niyatna connects company tools through scoped, inspectable, proof-producing interfaces."
 icon: CommandLine
 ---
 
-Niyatna OS executes tools via **Model Context Protocol (MCP)** bridges. This design wraps raw command lines and APIs into structured, inspectable interfaces.
+Niyatna can connect to company tools, but integrations should never become hidden authority.
+
+Every tool path should be scoped by the active intent, role boundary, action class, and proof requirement.
 
 ---
 
-## Supported MCP Integrations
+## Integration types
 
-*   **Filesystem Bridge:** Mounts scoped workspace directories, logging reads, writes, and file creations.
-*   **Terminal Sandbox:** Runs compile commands, tests, and scripts in isolated environments.
-*   **LocalRoute Bridge:** Communicates with model API gateways, encrypting and masking authorization keys.
-*   **Office / CRM Bridge:** Syncs CRM statuses (HubSpot) and emails under specific validation rules.
-*   **Ledger Bridge:** Integrates transaction ledgers (Stripe) to finance runtimes under read-only scoping.
+* **Workspace access:** Read or write only the approved files, records, or folders needed for the request.
+* **Company systems:** Connect to approved business tools under role and workflow boundaries.
+* **Communication channels:** Send status, review requests, and report-backs to the right channel.
+* **Scheduling systems:** Create reminders, follow-ups, or recurring work within allowed scopes.
+* **Evidence capture:** Store screenshots, source notes, reports, task records, or receipts as proof.
 
-## Event Schema
+## Tool event schema
 
-Every tool call returns a structured schema back to Niyatna OS:
+Every tool action should return a structured event:
 
 ```json
 {
-  "intent_id": "niyatna-task-0248",
-  "mcp_server": "filesystem",
-  "tool_invoked": "write_file",
-  "arguments": { "path": "/app/page.tsx" },
-  "status": "success",
-  "evidence_path": "file:///workspace/patch.diff",
-  "requires_approval": true
+  "intent_id": "niyatna-intent-0248",
+  "tool_surface": "workspace",
+  "action": "prepare_report",
+  "status": "staged",
+  "evidence": "proof://intent-0248/report",
+  "requires_review": true
 }
 ```
+
+## Integration rule
+
+If a tool cannot explain what it touched, why it touched it, and what proof it produced, it should not be part of a Niyatna workflow.

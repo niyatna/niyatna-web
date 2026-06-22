@@ -1,28 +1,32 @@
 ---
 title: OpenIntent & Intent Primitive
-description: "The primary primitive for translating a human business goal into a structured, verifiable task contract."
+description: "Turn a company request into a structured intent with boundaries, criteria, and proof."
 icon: Terminal
 ---
 
-The **Intent Primitive** (configured in Niyatna HQ's intent panel) is where a business objective is transformed from a vague natural language request into a structured, binding execution contract.
+The **Intent Primitive** is the smallest unit of governed company work in Niyatna.
 
-Under the **OpenIntent** protocol, this primitive ensures that agents have explicit boundaries, criteria, and proof standards before starting work.
+It turns a request like “prepare the finance recap” or “review this customer handoff” into a structured intent the company system can route, assign, evaluate, remember, and prove.
 
-<img src="/brand/screenshots/openintent-spec.jpg" alt="OpenIntent Specification" width="2560" height="1600" />
+<img src="/brand/screenshots/proof-intent-abstract.png" alt="Proof of Intent abstract card" width="1672" height="941" />
 
 ---
 
-## OpenIntent Packet Schema
+## OpenIntent packet
 
-An OpenIntent packet defines the target parameters:
+An OpenIntent packet defines:
 
-*   **Goal:** The primary business outcome (e.g., reconcile Stripe ledgers).
-*   **Context:** Pointers to active source files, schemas, and historical context.
-*   **Constraints:** Budget limits, disallowed operations, and deadline variables.
-*   **Permissions:** Whitelisted tool access and APIs.
-*   **Acceptance Criteria:** Concrete tests or conditions the work must pass.
-*   **Proof Standard:** Required artifacts (git diffs, API receipts, screenshots) that prove task completion.
+* **Goal:** The company outcome to produce.
+* **Requester:** Who asked and what role or access scope they have.
+* **Context:** SOPs, source materials, prior decisions, or relevant memory.
+* **Permissions:** What the system can read, write, schedule, or escalate.
+* **Assignee path:** Human, agent, or mixed workflow.
+* **Constraints:** Time, risk, privacy, budget, and tool boundaries.
+* **Acceptance criteria:** Conditions that must be true for the work to count as done.
+* **Proof standard:** Evidence and report-back format.
 
-## The Value: Preventing Drift
+## The value: preventing drift
 
-AI agents are powerful but literal. Without a strict intent definition, execution drift occurs. By pinning the intent primitive as the absolute source of truth, Niyatna OS is designed to keep agents anchored to the founder's original parameters, minimizing execution drift and unauthorized operations.
+AI agents can produce useful work, but unbounded instructions drift. OpenIntent anchors execution to the company request, the allowed scope, and the evidence required before the work is accepted.
+
+The intent stays human-owned. Agents and tools are routed around it.

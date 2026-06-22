@@ -1,22 +1,33 @@
 ---
-title: Permission Gates & Runtimes
-description: "How Niyatna OS secures execution using isolated runtimes, permission boundaries, and veto gates."
+title: Permission Gates & Runtime Boundaries
+description: "How Niyatna keeps agentic work scoped, reviewable, and approval-gated."
 icon: Shield
 ---
 
-Security in Niyatna OS is built into the infrastructure layer, rather than handled at the prompt level. Runtimes are restricted by design, ensuring that agents can only execute tasks under strict supervision.
+Security in Niyatna is an operating design problem, not a prompt-style disclaimer.
+
+Every company decides what the system can read, write, schedule, escalate, and report back. Niyatna makes those boundaries visible before work begins and reviewable before risky actions complete.
 
 ---
 
-## The Sandbox Model
+## Boundary layers
 
-All agents execute inside isolated, secure containers. Niyatna OS configures the boundaries:
-*   **Path Scoping:** The runtime only mounts directories needed for the specific intent. Master configurations are inaccessible.
-*   **LocalRoute Key Masking:** Agents never see raw API keys. LocalRoute proxies requests or mounts scoped, temporary credentials.
-*   **Network Isolation:** Outbound internet access is disabled by default and only enabled for specific API endpoints when explicitly whitelisted.
+Niyatna uses several boundary types:
 
-## Action Gate Classes
+* **Role boundary:** Who is allowed to request or approve the work.
+* **Context boundary:** Which company docs, memory, or records may be used.
+* **Tool boundary:** Which systems can be called.
+* **Action boundary:** Which actions are allowed, staged, or blocked.
+* **Proof boundary:** What evidence is required before the result is accepted.
 
-*   **Allowed:** Local file edits, compile checks, local server tests, directory indexing, and formatting.
-*   **Approval Awaiting (Staged):** Git pushes, deployments, writing back to production databases, and routing messages to customer channels.
-*   **Blocked:** Actions exceeding directory scopes, accessing unauthorized credentials, or violating system-wide constraints.
+## Action gate classes
+
+| Gate | Meaning | Examples |
+| :--- | :--- | :--- |
+| Allowed | Low-risk work may proceed inside the defined scope. | Read-only lookup, draft creation, local formatting, report preparation. |
+| Staged | Work can be prepared but needs review before completion. | External message, deployment, database write, payment action. |
+| Blocked | The request exceeds the company boundary. | Unauthorized credentials, out-of-scope data, unapproved external sharing. |
+
+## Security rule
+
+A Niyatna workflow should make the next risky action obvious. If the requester, scope, tool, or proof requirement is unclear, the system should pause rather than guess.

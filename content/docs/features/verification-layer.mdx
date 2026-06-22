@@ -1,28 +1,28 @@
 ---
 title: Proof of Intent & Verification
-description: "Review execution logs, file diffs, credentials, and staging outcomes before committing changes."
+description: "Review evidence, outcomes, and memory updates before work is accepted."
 icon: Record
 ---
 
-The **Verification Layer** (accessed via Niyatna HQ) is the core security surface of Niyatna OS. It gathers all evidence produced by agent runtimes and packages them into a verifiable format.
+**Proof of Intent** is the verification layer that connects a company request to the work that came back.
 
-Under the **Proof of Intent** standard, human operators review staged outputs and audit execution logs before any changes are committed to production systems.
+It is not a confidence score and it is not a vague summary. It is a structured record showing what was requested, who or what handled it, what evidence was produced, what was reviewed, and what should be remembered.
 
-<img src="/brand/screenshots/niyatna-agent.png" alt="Proof of Intent Verification" width="2560" height="1600" />
+<img src="/brand/screenshots/proof-intent-abstract.png" alt="Proof of Intent verification" width="1672" height="941" />
 
 ---
 
-## Verification Primitives
+## Verification primitives
 
-The Verification Layer aggregates several proof types:
+A proof bundle can include:
 
-*   **Filesystem Diffs:** Line-by-line file modifications staged by the agent sandbox.
-*   **Database Transaction Diffs:** Staged SQL changes showing before-and-after tables.
-*   **Execution Logs:** The raw stdout/stderr logs from terminal commands run by the agent.
-*   **API Receipts:** Payload responses from integrated third-party platforms (HubSpot, Stripe, Slack).
-*   **Rendered Previews:** Screenshots or live viewports of UI components and document templates.
+* **Original intent:** The request, requester, permission scope, and acceptance criteria.
+* **Assignment trail:** The human, agent, model, or tool path used.
+* **Evidence artifacts:** Files, screenshots, reports, receipts, task records, or source-backed notes.
+* **Review status:** Approved, rejected, blocked, or returned for changes.
+* **Memory update:** What the company system should remember after completion.
+* **Report-back:** The final answer returned to the requester.
 
-## The Rule: Evidence Over Trust
+## The rule: evidence over trust
 
-In Niyatna OS, confidence scores and summaries do not equal proof. If a human operator cannot inspect the exact evidence, it is not treated as complete. The Proof of Intent standard guarantees that delegated execution maps back to the founder's intent before any write action is approved.
----
+A delegated result is not complete because an agent says it is complete. It is complete when the company can inspect the proof, compare it with the intent, and decide whether the work satisfies the standard.

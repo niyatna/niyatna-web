@@ -1,22 +1,26 @@
 ---
 title: Bounded Agent Lifecycles
-description: "How Niyatna Agents execute tasks under sandbox constraints and generate structured proof."
+description: "How Niyatna Agents receive scoped work, execute within boundaries, and report proof back."
 icon: Cpu
 ---
 
-The **Agent Workflow** is the execution cycle where specialized Niyatna Agents process goals. Agents do not run in black boxes; they operate under strict sandbox constraints and must produce verifiable proof before changes are committed.
+A **Niyatna Agent lifecycle** begins when an intent is assigned and ends when the company receives proof and report-back.
 
-<img src="/brand/screenshots/niyatna-os.png" alt="Bounded Agent execution sandbox" width="2560" height="1600" />
+Agents are useful because they can carry work forward, but they must remain bounded by role, context, permissions, and proof requirements.
+
+<img src="/brand/screenshots/automations-route.png" alt="Niyatna automations and route" width="1672" height="941" />
 
 ---
 
-## Agent Lifecycle Phases
+## Lifecycle phases
 
-1.  **Intent Parsing:** The agent reads the OpenIntent packet, maps the goal, and registers required tools, directories, and memory scopes.
-2.  **Execution:** The agent performs operations (editing code, compiling scripts, checking route outputs) inside its isolated workspace container.
-3.  **Self-Verification:** The agent compiles and tests the changes, generating the Proof of Intent bundle.
-4.  **Staging Gate:** The agent pauses, staging all proposed changes, and flags Niyatna HQ for human approval.
+1. **Intent intake:** The agent receives the goal, context, permissions, and acceptance criteria.
+2. **Route selection:** Niyatna chooses the right model, tool, data source, or human handoff.
+3. **Execution:** The agent performs the scoped work.
+4. **Self-check:** The agent gathers evidence and checks the work against the acceptance criteria.
+5. **Review gate:** Risky or external actions pause for approval.
+6. **Report-back:** The result, proof, and memory update return to the company system.
 
-## Bounded Autonomy
+## Bounded autonomy
 
-Niyatna Agents are equipped with advanced tools, wallets, and skills, but they remain a delegated workforce. The human operator retains final authority, maintaining veto control over all outbound actions.
+Niyatna Agents can use powerful tools, but authority stays legible. The company should always know what the agent was asked to do, what it touched, and what proof it returned.

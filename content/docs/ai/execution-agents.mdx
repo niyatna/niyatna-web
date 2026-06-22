@@ -1,38 +1,36 @@
 ---
 title: Niyatna Agents & Identities
-description: "The execution layer: specialized agents operating with dedicated profiles, tools, and boundaries."
+description: "Scoped workforce units with roles, permissions, tools, memory, and proof duties."
 icon: Terminal
 ---
 
-To transition manual workflows into the agentic standard, Niyatna OS deploys a workforce of specialized **Niyatna Agents**. Rather than running generic chatbot assistants, we assign distinct agents to head specific operational departments.
+Niyatna Agents are accountable workforce units inside the company system.
 
-Each agent functions as an independent execution unit with its own defined **identity, goals, tools, and authority boundaries**.
+They are not generic chat assistants and they are not replacements for company structure. Each agent receives a defined role, tool scope, memory scope, proof duty, and report-back path.
 
 ---
 
-## 1. Niyatna Sales Ops Agent (Lead Acquisition)
-*   **Mission:** Scrape target profiles, qualify prospects, and draft personalized outreach.
-*   **Outcome:** A high-margin outbound acquisition machine designed to minimize manual search latency.
-*   **Goals:**
-    *   Scrape B2B contacts from target directories based on custom filters.
-    *   Qualify leads matching exact revenue, head count, and tech stack criteria.
-    *   Generate personalized outreach drafts and stage them for manual approval.
-*   **Boundaries:** Scopes are limited to lead databases and draft folders. Cannot dispatch live emails without human sign-off.
+## Agent identity model
 
-## 2. Niyatna Ops Agent (Process Sync)
-*   **Mission:** Automate customer onboarding pipelines, provision workspaces, and sync CRM milestones.
-*   **Outcome:** Instant client onboarding designed to eliminate manual delays and operational lag.
-*   **Goals:**
-    *   Monitor HubSpot/Salesforce CRM webhooks for closed-won deal triggers.
-    *   Initialize client database entries, clone repositories, and provision secure sandboxes.
-    *   Publish onboarding briefings and setup logs across Slack/Discord company channels.
-*   **Boundaries:** Authorized to read CRM data and write to isolated client servers. Outbound credentials and packages are staged for human veto.
+A Niyatna Agent should be described by:
 
-## 3. Niyatna CFO Agent (Financial Guardrail)
-*   **Mission:** Automate daily invoice reconciliation, audit transactions, and flag margin drift.
-*   **Outcome:** Real-time billing integrity with automated checks to flag invoice errors or leakages.
-*   **Goals:**
-    *   Fetch daily transactions from Stripe, PayPal, and bank ledger endpoints.
-    *   Match transaction payloads against invoices using checksum validation.
-    *   Isolate invoice anomalies, compile net margin reports, and update ledgers.
-*   **Boundaries:** Read-only transaction endpoints. Write permissions are restricted to staging databases. Bank transfers and payouts require explicit human approval.
+* **Mission:** What company outcome it supports.
+* **Role boundary:** Which department, workflow, or operating surface it belongs to.
+* **Permission scope:** What it can read, write, schedule, or escalate.
+* **Tools:** Which company systems it can use.
+* **Memory access:** Which SOPs, decisions, and proof history it can retrieve.
+* **Proof duty:** What evidence it must return before work is accepted.
+* **Report-back path:** Who receives the final result.
+
+## Example agent roles
+
+| Agent | Purpose | Boundary |
+| :--- | :--- | :--- |
+| Operations Agent | Turns recurring operations requests into assigned work and follow-up. | Tasks, schedules, SOPs, and approved operations tools. |
+| Finance Agent | Reviews finance submissions against company standards and attached rules. | Finance workspace, read-only records, and approval-gated report-back. |
+| Proof Agent | Checks whether completed work matches the original intent and evidence standard. | Proof artifacts, evaluation notes, and memory write-back. |
+| Research Agent | Collects source-backed context for a scoped decision or workflow. | Approved sources and clearly cited outputs. |
+
+## Agent rule
+
+An agent is useful only when its authority is legible. If a company cannot see what the agent was asked to do, what it touched, and what proof it returned, the work is not complete.

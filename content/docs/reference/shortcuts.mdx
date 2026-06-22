@@ -1,26 +1,31 @@
 ---
-title: Slash Commands
-description: "Operational slash commands for executing tasks and managing veto gates inside Niyatna HQ."
+title: Company Commands
+description: "Operational commands for creating intents, checking status, reviewing proof, and approving staged work."
 icon: Terminal
 ---
 
-Niyatna HQ incorporates a command-line interface to let operators trigger intent delegation, run verification suites, and approve or veto staged executions directly.
+Niyatna commands are shortcuts into governed company work.
+
+They should create or inspect structured intents; they should not bypass permissions, review gates, or proof requirements.
 
 ---
 
-## Operational Commands
+## Command examples
 
-| Command | Arguments | Description |
-| :--- | :--- | :--- |
-| `/run` | `<intent_specification>` | Translates a raw business instruction into a structured OpenIntent packet and schedules execution. |
-| `/verify` | `<task_id>` | Manually triggers the Proof of Intent validation loops on a staged workspace. |
-| `/approve` | `<task_id>` | Grants administrative approval to a staged task, committing changes to the production system. |
-| `/veto` | `<task_id>` | Invokes the human veto gate, terminating the Niyatna Agent container and purging the sandbox workspace. |
-| `/memory` | `<query>` | Queries local memory contexts for past decisions, code patterns, or configurations. |
-| `/status` | None | Lists active agent workspaces, execution queue states, and LocalRoute network allocations. |
+| Command | Purpose |
+| :--- | :--- |
+| `/intent` | Create a structured OpenIntent request from a company instruction. |
+| `/assign` | Assign an intent to a human, agent, or mixed path. |
+| `/status` | Show active work, owner, due date, and current gate. |
+| `/proof` | Open the evidence and report-back for an intent. |
+| `/review` | Mark a staged result as accepted, rejected, or needing revision. |
+| `/memory` | Query relevant company context for the active scope. |
+| `/schedule` | Create a follow-up or recurring workflow inside allowed boundaries. |
 
----
+## Command scoping
 
-## Command Scoping & Security
+Commands run under the requester’s role and workspace scope. A finance lead, partner, auditor, client, and internal agent may see different actions because they have different boundaries.
 
-All slash commands executed inside Niyatna HQ are authenticated against the operator's security profile. High-risk commands—such as `/approve` or `/veto` on payment routes or deployment branches—require multi-signature verification if specified in the organization's policy templates.
+## Command rule
+
+A command is not a shortcut around governance. If a command would create external side effects, modify sensitive data, or publish a result, it should pass through the right review gate first.

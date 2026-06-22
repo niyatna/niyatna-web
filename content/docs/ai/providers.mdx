@@ -1,24 +1,42 @@
 ---
-title: Model Routing & LocalRoute
-description: "Route agent execution across models and API providers while maintaining stable intent and proof standards."
+title: Niyatna Route
+description: "Route company work to the right human, agent, model, tool, and review path."
 icon: Cpu
 ---
 
-Niyatna OS decouples the reasoning engine from the operational logic. All agent execution is routed through **LocalRoute**—our model, provider, and API key management layer.
+Niyatna Route decides how an intent should move through the company system.
 
-This architecture ensures that models are treated as temporary execution assets rather than permanent logic repositories.
+The route is not just a model picker. It is the decision layer that determines whether work should go to a human reviewer, an agent, a lightweight model, a stronger reasoning model, a company tool, or a gated review path.
 
 ---
 
-## LocalRoute Architecture
+## Routing inputs
 
-*   **Model-Agnostic Routing:** Dynamically dispatches tasks to the most efficient model (local, private VPS, or cloud API) based on goal complexity.
-*   **Scoped Key Management:** Holds master API keys in an encrypted vault, injecting temporary, permission-restricted session variables into agent containers.
-*   **Privacy Guardrails:** Routes sensitive business operations through local/private runtimes to prevent data leaks.
+Niyatna Route considers:
 
-## Optimization Standard
+* the requested outcome;
+* role and permission scope;
+* sensitivity of the attached context;
+* tool requirements;
+* cost and latency needs;
+* required proof standard;
+* whether the action needs review before completion.
 
-LocalRoute dynamically optimizes model routing to maintain a high token-to-performance ratio:
-1.  **Low Complexity:** Routes simple tasks (formatting, simple lookups) to fast, lightweight models.
-2.  **High Complexity:** Routes logical planning, refactoring, and verification checks to advanced reasoning models.
-3.  **Proof Verification:** Collects token usage analytics and routes reasoning steps through local caching layers to maximize efficiency.
+## Routing outcomes
+
+A route may choose:
+
+* a human-only path;
+* an agent-assisted path;
+* a low-risk automation;
+* a higher-reasoning model path;
+* a read-only tool path;
+* a staged action that waits for approval.
+
+## Route stability
+
+The route can change over time, but the intent should stay stable. Niyatna keeps the company request, acceptance criteria, and proof requirement as the anchor while routing work through the best available execution path.
+
+## Why it matters
+
+Agentic companies need leverage without losing control. Niyatna Route is designed to choose the right execution path while preserving company boundaries, proof, and report-back.

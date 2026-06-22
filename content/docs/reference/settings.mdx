@@ -1,26 +1,41 @@
 ---
-title: System Variables Reference
-description: "Configure Niyatna OS variables across intent capture, permission boundaries, and proof registries."
+title: System Settings Reference
+description: "Configure Niyatna settings for intent capture, role boundaries, routing, and proof."
 icon: Settings
 ---
 
-Niyatna OS behavior is defined via configuration files mounted to the workspace container.
+Niyatna settings define how company work moves through the system.
+
+They should be readable by humans first. Configuration exists to preserve operating boundaries, not to hide decisions in technical files.
 
 ---
 
-## Configuration Variables
+## Core setting groups
 
-### 1. OpenIntent Configuration (`intent.config.json`)
-*   `default_proof_standard`: Defines required proof types (e.g., `diff`, `screenshot`, `test_logs`).
-*   `acceptance_criteria_fields`: Mandatory fields required to validate an intent.
-*   `context_depth`: Memory retrieval limits for local memory queries.
+### OpenIntent settings
 
-### 2. Niyatna Agents Boundaries (`agents.config.json`)
-*   `allowed_mcp_servers`: Whitelist of mounted Model Context Protocol bridges.
-*   `require_veto_for`: Array of actions requiring human validation (e.g., `git_push`, `db_write`, `api_payout`).
-*   `default_model_routing`: Default model profiles managed by LocalRoute.
+* `required_intent_fields`: Fields that must exist before work can be routed.
+* `default_proof_standard`: Evidence required for common workflow types.
+* `acceptance_criteria_templates`: Reusable criteria for reports, reviews, UI work, or recurring tasks.
 
-### 3. Verification & Proof (`verification.config.json`)
-*   `compile_command`: Script to build changes before verification.
-*   `test_command`: Script to run unit/integration checks.
-*   `screenshot_viewports`: Viewport dimensions to capture for UI changes.
+### Role and permission settings
+
+* `authorized_requesters`: Roles allowed to create or assign work.
+* `review_required_for`: Actions that must pause for approval.
+* `blocked_actions`: Actions the system should never perform under this workspace.
+
+### Route settings
+
+* `default_route`: Preferred human, agent, model, or tool path.
+* `sensitive_context_route`: Safer path for confidential company context.
+* `fallback_route`: What happens when the preferred path is unavailable.
+
+### Proof and memory settings
+
+* `proof_destination`: Where evidence is stored.
+* `memory_writeback_policy`: Which outcomes should update company memory.
+* `retention_scope`: How long proof and work records should remain available.
+
+## Settings rule
+
+Settings should make governance explicit. If an action is sensitive, expensive, external, or irreversible, it should have a visible review rule.

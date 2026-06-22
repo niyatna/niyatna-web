@@ -1,24 +1,32 @@
 ---
 title: Channel Relays & Notifications
-description: "Relay agent state transitions and approval requests back to human channels without visual spam."
+description: "Send high-signal status, proof, and approval requests back to the right company channels."
 icon: Record
 ---
 
-Niyatna OS keeps operators aligned with the workforce by routing critical events through company communication channels (Discord, Telegram, WhatsApp, email, or voice).
+Niyatna keeps company participants aligned by routing important events back to the channels where work happens.
 
-Rather than spamming raw terminal output, the system distributes high-signal alerts highlighting what was done, what proof is available, and whether human approval is required.
+A notification should not dump noise. It should explain what changed, what proof exists, and whether someone needs to approve, revise, or respond.
 
 ---
 
-## Relay Event Types
+## Relay event types
 
-*   **Runtime Spawned:** Alerts when an agent runtime is initialized for a queued goal.
-*   **Veto Awaiting:** Alerts when a high-risk action (database write, deployment, payout) is blocked and awaits human validation.
-*   **Verification Complete:** Alerts when an execution passes compilation/test suites and is ready for final review.
-*   **Blocker Encountered:** Alerts when an agent hits boundary constraints or missing credentials.
+* **Intent accepted:** A request has been converted into owned work.
+* **Work assigned:** A human, agent, or mixed path now owns the next step.
+* **Review needed:** A staged action requires approval before completion.
+* **Proof ready:** Evidence is available for inspection.
+* **Blocked:** The work hit a missing permission, unclear context, or boundary constraint.
+* **Reported back:** The requester receives the final result and proof summary.
 
-## Alert Structure
+## Alert structure
 
-Every notification follows a clean, actionable hierarchy:
+Every useful notification should answer:
 
-`intent_id → status → evidence_link → action_required`
+```text
+intent → owner → status → proof → action required
+```
+
+## Relay rule
+
+Send the smallest message that lets the right person act. If the channel cannot show the proof directly, link to the proof surface instead of pasting noisy logs.

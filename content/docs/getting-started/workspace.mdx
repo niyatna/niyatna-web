@@ -1,34 +1,52 @@
 ---
 title: Niyatna OS & Workspaces
-description: "How Niyatna OS isolates agent execution, manages credentials, and stages verification proofs for the human operator."
+description: "How Niyatna organizes company workspaces, role boundaries, and proof surfaces."
 icon: Layout
 ---
 
-An Agentic Company runs on specialized agent workforces. To ensure complete security, process integrity, and operational alignment, every Niyatna Agent operates in a dedicated **Workspace** managed by Niyatna OS.
+A Niyatna workspace is the controlled environment where a company request becomes owned work.
 
-The architecture is built around one core principle: **the human supervisor retains total visibility and veto power, while the agent runtime executes in secure isolation**.
+It is not just a folder or dashboard. It is the context boundary for one company, one department, one workflow, or one approved request.
 
 ---
 
-## Sandbox Runtime Mechanics
+## What a workspace holds
 
-Each specialized agent (e.g., CFO or COO Agent) runs inside a jailed runtime container. Niyatna OS controls the boundaries:
-1.  **Strict Isolation:** Agents can only read and write to directories explicitly mounted to their workspace container.
-2.  **Ephemeral Life:** Workspaces are spawned dynamically when an intent packet is queued, and archived once verification is complete.
-3.  **Real-Time Auditing:** Every terminal command, code execution, filesystem change, and API request is logged to an immutable proof trail.
+A workspace can include:
 
-## Niyatna HQ Interface
+* the active OpenIntent request;
+* company context and SOPs;
+* role and permission rules;
+* assigned humans or agents;
+* allowed tools and data sources;
+* review gates;
+* proof artifacts;
+* memory updates after completion.
 
-Human operators inspect and direct agent work through Niyatna HQ. The interface is divided into four key panels:
+## Company-wide access
 
-*   **The Intent Rail:** Pinned at the side, displaying the active goal, constraints, and success criteria.
-*   **The Logs Feed:** A live audit stream showing the agent's reasoning, tool calls, and execution steps.
-*   **The Proof Panel:** Displays the outcomes—such as database schema diffs, CRM sync logs, or payment audit receipts.
-*   **The Decision Gate:** Staging area showing high-risk actions requiring explicit human approval before being executed.
+Niyatna workspaces are designed for authorized company participants, not only one owner.
 
-## Security Architecture
+Examples:
 
-Traditional scaling requires sharing sensitive API keys and database login credentials across multiple teams. Niyatna OS solves this by separating credentials from execution:
-*   **Scoped Token Injection:** LocalRoute manages master credentials and issues temporary, scoped session tokens to the agent sandboxes.
-*   **Zero Write Persistence:** Sandbox containers do not persist changes to the server unless they pass the Verification Layer and receive human approval.
-*   **Veto Boundaries:** Irreversible actions (like running database migrations or triggering customer-facing notifications) are blocked by default and require operator validation.
+* a finance lead requests a standard-based review;
+* an operations member schedules a recurring handoff;
+* a partner receives scoped status visibility;
+* an auditor reviews proof artifacts;
+* an agent completes a bounded task and reports back.
+
+## HQ surface
+
+Niyatna HQ should make work legible:
+
+* what was requested;
+* who owns it;
+* what context is attached;
+* what is allowed;
+* what needs review;
+* what proof was returned;
+* what memory changed.
+
+## Workspace principle
+
+A good workspace reduces ambiguity. It should make it obvious what the company asked for, what the system is allowed to do, and what evidence is required before the work is accepted.

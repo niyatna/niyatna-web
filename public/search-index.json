@@ -2,133 +2,133 @@
   {
     "id": "/docs/ai/composer",
     "title": "OpenIntent Composer",
-    "content": "Translate business requests into structured, verifiable intent packets.",
+    "content": "Translate company requests into structured intents with boundaries, acceptance criteria, and proof.",
     "url": "/docs/ai/composer"
   },
   {
     "id": "/docs/ai/execution-agents",
     "title": "Niyatna Agents & Identities",
-    "content": "The execution layer: specialized agents operating with dedicated profiles, tools, and boundaries.",
+    "content": "Scoped workforce units with roles, permissions, tools, memory, and proof duties.",
     "url": "/docs/ai/execution-agents"
   },
   {
     "id": "/docs/ai/plans-and-subagents",
     "title": "Bounded Plan Sequencing",
-    "content": "Decompose complex intents into structured execution sequences and delegate to subagents under Niyatna OS.",
+    "content": "Break complex intents into owned steps, review gates, and proof-backed handoffs.",
     "url": "/docs/ai/plans-and-subagents"
   },
   {
     "id": "/docs/ai/providers",
-    "title": "Model Routing & LocalRoute",
-    "content": "Route agent execution across models and API providers while maintaining stable intent and proof standards.",
+    "title": "Niyatna Route",
+    "content": "Route company work to the right human, agent, model, tool, and review path.",
     "url": "/docs/ai/providers"
   },
   {
     "id": "/docs/ai/security",
-    "title": "Permission Gates & Runtimes",
-    "content": "How Niyatna OS secures execution using isolated runtimes, permission boundaries, and veto gates.",
+    "title": "Permission Gates & Runtime Boundaries",
+    "content": "How Niyatna keeps agentic work scoped, reviewable, and approval-gated.",
     "url": "/docs/ai/security"
   },
   {
     "id": "/docs/ai/sessions-and-memory",
-    "title": "Local Memory Contexts",
-    "content": "How Niyatna OS utilizes durable context without letting outdated assumptions drift human intent.",
+    "title": "Company Memory Contexts",
+    "content": "How Niyatna keeps decisions, SOPs, proof history, and preferences available without letting stale context override intent.",
     "url": "/docs/ai/sessions-and-memory"
   },
   {
     "id": "/docs/features/agent-workflow",
     "title": "Bounded Agent Lifecycles",
-    "content": "How Niyatna Agents execute tasks under sandbox constraints and generate structured proof.",
+    "content": "How Niyatna Agents receive scoped work, execute within boundaries, and report proof back.",
     "url": "/docs/features/agent-workflow"
   },
   {
     "id": "/docs/features/context-explorer",
     "title": "Context & Memory Explorer",
-    "content": "Inject structured files, schemas, and historical context into agent runtimes.",
+    "content": "Attach the right company context to an intent without letting stale assumptions override the current request.",
     "url": "/docs/features/context-explorer"
   },
   {
     "id": "/docs/features/delegation-trail",
     "title": "Delegation & Proof Trails",
-    "content": "Track filesystem modifications, command outcomes, and API changes back to the original intent.",
+    "content": "Track assigned work, decisions, and evidence back to the original company intent.",
     "url": "/docs/features/delegation-trail"
   },
   {
     "id": "/docs/features/human-agency",
     "title": "Human Agency & Visual Standard",
-    "content": "The dark graphite visual system designed to keep Niyatna HQ inspectable and calm.",
+    "content": "The visual and operating standard that keeps agentic work calm, legible, and human-governed.",
     "url": "/docs/features/human-agency"
   },
   {
     "id": "/docs/features/intent-primitive",
     "title": "OpenIntent & Intent Primitive",
-    "content": "The primary primitive for translating a human business goal into a structured, verifiable task contract.",
+    "content": "Turn a company request into a structured intent with boundaries, criteria, and proof.",
     "url": "/docs/features/intent-primitive"
   },
   {
     "id": "/docs/features/notifications",
     "title": "Channel Relays & Notifications",
-    "content": "Relay agent state transitions and approval requests back to human channels without visual spam.",
+    "content": "Send high-signal status, proof, and approval requests back to the right company channels.",
     "url": "/docs/features/notifications"
   },
   {
     "id": "/docs/features/outcome-preview",
     "title": "Staged Outcome Previews",
-    "content": "Inspect live execution results next to original goal parameters inside Niyatna HQ.",
+    "content": "Inspect proposed results against the original intent before accepting the work.",
     "url": "/docs/features/outcome-preview"
   },
   {
     "id": "/docs/features/verification-layer",
     "title": "Proof of Intent & Verification",
-    "content": "Review execution logs, file diffs, credentials, and staging outcomes before committing changes.",
+    "content": "Review evidence, outcomes, and memory updates before work is accepted.",
     "url": "/docs/features/verification-layer"
   },
   {
     "id": "/docs/getting-started",
     "title": "The Formation Roadmap",
-    "content": "The 5-phase standard for establishing, runtime provisioning, and operating an Agentic Company under Niyatna OS.",
+    "content": "A practical formation path for companies moving from scattered AI use into governed agentic operations.",
     "url": "/docs/getting-started"
   },
   {
     "id": "/docs/getting-started/workspace",
     "title": "Niyatna OS & Workspaces",
-    "content": "How Niyatna OS isolates agent execution, manages credentials, and stages verification proofs for the human operator.",
+    "content": "How Niyatna organizes company workspaces, role boundaries, and proof surfaces.",
     "url": "/docs/getting-started/workspace"
   },
   {
     "id": "/docs/",
     "title": "The Agentic Company",
-    "content": "Niyatna is the operating system and standards for forming and operating agentic companies.",
+    "content": "Niyatna is the formation system for companies becoming askable, assignable, remembered, automated, and proven.",
     "url": "/docs/"
   },
   {
     "id": "/docs/reference/data",
-    "title": "Proof Storage & Ledgers",
-    "content": "Where Niyatna OS stores the evidence that proves work was done.",
+    "title": "Proof Storage & Operating Records",
+    "content": "Where Niyatna stores evidence, review outcomes, and memory updates for company work.",
     "url": "/docs/reference/data"
   },
   {
     "id": "/docs/reference/settings",
-    "title": "System Variables Reference",
-    "content": "Configure Niyatna OS variables across intent capture, permission boundaries, and proof registries.",
+    "title": "System Settings Reference",
+    "content": "Configure Niyatna settings for intent capture, role boundaries, routing, and proof.",
     "url": "/docs/reference/settings"
   },
   {
     "id": "/docs/reference/shortcuts",
-    "title": "Slash Commands",
-    "content": "Operational slash commands for executing tasks and managing veto gates inside Niyatna HQ.",
+    "title": "Company Commands",
+    "content": "Operational commands for creating intents, checking status, reviewing proof, and approving staged work.",
     "url": "/docs/reference/shortcuts"
   },
   {
     "id": "/docs/reference/tool-integration",
-    "title": "MCP Bridges & Tools",
-    "content": "How external tools and Model Context Protocol servers report states back to Niyatna OS.",
+    "title": "Tool Boundaries & Integrations",
+    "content": "How Niyatna connects company tools through scoped, inspectable, proof-producing interfaces.",
     "url": "/docs/reference/tool-integration"
   },
   {
     "id": "/docs/reference/workspaces",
     "title": "Workspace Specifications",
-    "content": "Directory scoping, workspace variables, and virtual environment rules inside Niyatna OS.",
+    "content": "How Niyatna scopes company workspaces, context, tools, and proof for each intent.",
     "url": "/docs/reference/workspaces"
   }
 ]

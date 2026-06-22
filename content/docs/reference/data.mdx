@@ -1,26 +1,34 @@
 ---
-title: Proof Storage & Ledgers
-description: "Where Niyatna OS stores the evidence that proves work was done."
+title: Proof Storage & Operating Records
+description: "Where Niyatna stores evidence, review outcomes, and memory updates for company work."
 icon: Config
 ---
 
-To comply with the Proof of Intent standard, Niyatna OS archives all execution metrics, file diffs, and validation logs in a secure, audit-ready storage layer.
+Niyatna stores proof so delegated work can be reviewed later.
 
-This data remains accessible via Niyatna HQ for audit and rollback operations.
+The storage layer should preserve the relationship between the original intent, assigned work, evidence, review status, and memory update.
 
 ---
 
-## Proof Artifacts Schema
+## Proof record schema
 
-Every completed or blocked intent stages a proof directory containing:
+A completed or blocked intent can produce a proof record with:
 
-*   `intent.json`: The original OpenIntent schema parameters.
-*   `execution.log`: The raw terminal logs, reasoning steps, and stdout/stderr outputs.
-*   `patch.diff`: The standard Git-compatible diff showing every file change.
-*   `api-receipts.json`: Signed payload logs of outgoing network requests.
-*   `screenshots/`: Viewport image evidence verifying frontend UI render correctness.
-*   `verification.json`: Pass/fail outputs from compile and test checkers.
+* `intent`: original request, requester, scope, and acceptance criteria;
+* `assignment`: owner, agent path, or human review path;
+* `evidence`: files, reports, screenshots, task records, citations, or receipts;
+* `review`: accepted, rejected, blocked, or revised;
+* `report_back`: final summary sent to the requester;
+* `memory_update`: what should be remembered or ignored next time.
 
-## Storage Principles
+## Storage principles
 
-Niyatna OS enforces zero persistence of unverified files. Secrets, master credentials, and raw database rows are filtered from public logs and proof bundles.
+* Store evidence that helps the company audit work.
+* Keep sensitive context scoped to the right workspace.
+* Avoid exposing private credentials or raw confidential data in proof bundles.
+* Keep draft, staged, and accepted records distinct.
+* Preserve enough history for future decisions without turning memory into command.
+
+## Data rule
+
+Proof storage should answer one question clearly: what was requested, what happened, who reviewed it, and what can the company trust next time?

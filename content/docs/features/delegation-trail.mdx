@@ -1,25 +1,28 @@
 ---
 title: Delegation & Proof Trails
-description: "Track filesystem modifications, command outcomes, and API changes back to the original intent."
+description: "Track assigned work, decisions, and evidence back to the original company intent."
 icon: GitBranch
 ---
 
-The **Delegation Trail** (monitored in Niyatna HQ) is the ledger of all actions taken by Niyatna Agents.
+The **Delegation Trail** is the history of how an intent moved through the company system.
 
-Every filesystem edit, command execution, and network request produces a permanent, inspectable proof trail linking back to the original OpenIntent packet ID.
+It records the path from request to assignment, execution, review, proof, memory update, and report-back. The goal is not to expose noisy raw logs; the goal is to make delegated work inspectable.
 
-<img src="/brand/screenshots/niyatna-agent.png" alt="Delegation and change audit trail" width="2560" height="1600" />
+<img src="/brand/screenshots/hq-owned-work.png" alt="Niyatna HQ owned work trail" width="1672" height="941" />
 
 ---
 
-## Audit Checklist
+## Audit checklist
 
-Before approving a staged change, Niyatna OS checks the delegation trail:
-*   **Target Alignment:** Did the agent only modify files and tables specified inside the intent scope?
-*   **Safety Audit:** Were there any unexpected network calls or dependency modifications?
-*   **Test Evidence:** Are compile checks, test suites, or screenshots attached?
-*   **Open Decisions:** Are there any unresolved design decisions or edge cases requiring human judgment?
+Before accepting completed work, Niyatna checks:
 
-## Reclaiming Leverage
+* **Intent alignment:** Did the result answer the original request?
+* **Scope control:** Did the work stay inside its permission boundary?
+* **Ownership:** Was the right human or agent assigned?
+* **Review gate:** Was a risky step approved before completion?
+* **Evidence:** Are the required artifacts attached?
+* **Memory:** Should the outcome update company context?
 
-By presenting structured, verified proof logs instead of raw terminal output, the delegation trail compresses hours of manual code and data investigation into minutes of human review.
+## Reclaiming leverage
+
+Delegation should reduce review burden, not create hidden work. A clear trail lets humans move faster because they can inspect the important decisions and evidence without replaying every intermediate action.

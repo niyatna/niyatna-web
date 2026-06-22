@@ -1,23 +1,30 @@
 ---
-title: Local Memory Contexts
-description: "How Niyatna OS utilizes durable context without letting outdated assumptions drift human intent."
+title: Company Memory Contexts
+description: "How Niyatna keeps decisions, SOPs, proof history, and preferences available without letting stale context override intent."
 icon: Notebook
 ---
 
-To prevent agents from repeating mistakes or requesting duplicate details, Niyatna OS integrates a durable, local memory provider.
+Niyatna Memory keeps the company from resetting between requests.
 
-This memory provider indexes past execution metrics, system configurations, preferences, and verified code patterns, serving them as context inputs to agent runtimes.
+It gives agents and humans access to relevant SOPs, decisions, standards, customers, workflows, and proof history. Memory is useful only when it supports the active intent; it should never silently override what the company asks for now.
 
 ---
 
-## Context Allocation
+## Memory types
 
-The memory provider handles three distinct context types:
-*   **System Conventions:** Directory configurations, compile parameters, and framework specs.
-*   **Founder Preferences:** Visual aesthetics, copywriting tones, and security constraints.
-*   **Historical Fixes:** Stored logs of past bugs, API rate limits, and configuration corrections.
+Niyatna can organize several kinds of company memory:
 
-## Memory Rule: Intent Dominance
+* **Company canon:** Mission, standards, definitions, and operating rules.
+* **Department knowledge:** SOPs, checklists, responsibilities, and recurring workflows.
+* **Decision history:** Prior approvals, rejections, and rationale.
+* **Proof history:** Evidence from completed or blocked work.
+* **Preference memory:** Brand, design, copy, security, and workflow preferences.
+* **Customer or partner context:** Scoped context for authorized work.
 
-Memory serves only as context, never as a command. In Niyatna OS, the active OpenIntent packet always overrides historical memory. If an intent packet specifies a new direction, the runtime disregards conflicting memory entries, preventing the system from copying outdated solutions.
+## Memory rule: intent dominance
 
+Memory serves the active intent. If a current OpenIntent packet or authorized company instruction conflicts with old memory, the current instruction wins.
+
+## Why it matters
+
+Agentic companies need continuity. Without memory, every request becomes a new explanation. With governed memory, the company system can answer, assign, evaluate, and report back with context.

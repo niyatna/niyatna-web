@@ -1,23 +1,36 @@
 ---
 title: Bounded Plan Sequencing
-description: "Decompose complex intents into structured execution sequences and delegate to subagents under Niyatna OS."
+description: "Break complex intents into owned steps, review gates, and proof-backed handoffs."
 icon: Notebook
 ---
 
-When a human operator submits a large, complex OpenIntent packet, Niyatna OS decomposes the goal into a sequence of smaller, bounded steps. This plan sequencing ensures that each sub-task produces verifiable proof before proceeding.
+Large company intents should not move as one vague instruction. Niyatna breaks them into bounded steps so each piece has ownership, context, and proof.
 
 ---
 
-## Subagent Delegation
+## When sequencing is needed
 
-For tasks containing independent operational lanes, Niyatna OS spawns specialized **subagents** (e.g., Code Researcher, Copy Writer, Security Auditor):
-*   **Scoped Workspaces:** Each subagent is spawned in a separate, isolated subdirectory or container.
-*   **Independent Verification:** Each subagent must compile, test, and verify its specific output.
-*   **Result Consolidation:** The parent agent aggregates subagent proofs (file diffs, logs, screenshots) into the main Proof of Intent bundle.
+Use bounded sequencing when an intent has:
 
-## Plan Structure
+* multiple departments or assignees;
+* dependent steps;
+* separate review gates;
+* sensitive data boundaries;
+* recurring follow-up;
+* different proof requirements per stage.
 
-1.  **Scope Definitions:** Explicitly listing files, directories, and tables to be modified.
-2.  **Preservation Rules:** Declaring what must remain untouched.
-3.  **Verification Criteria:** Specifying the tests, scripts, or checks that prove completion.
-4.  **Staging Flags:** Panning out which steps require human review before executing the next phase.
+## Plan structure
+
+A Niyatna plan should define:
+
+1. **Step owner:** Human, agent, or mixed responsibility.
+2. **Scope:** What the step may touch.
+3. **Input context:** SOPs, files, prior decisions, or source material.
+4. **Output:** The artifact or decision expected from the step.
+5. **Review gate:** Who approves, rejects, or redirects.
+6. **Proof:** Evidence required before the next step begins.
+7. **Memory update:** What the system should remember.
+
+## Delegation rule
+
+Subagents can help with independent lanes, but they should not create a hidden agent swarm. The parent intent remains the anchor, and each delegated step must report back into the same proof trail.

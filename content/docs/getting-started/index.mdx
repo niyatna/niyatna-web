@@ -1,48 +1,56 @@
 ---
 title: The Formation Roadmap
-description: "The 5-phase standard for establishing, runtime provisioning, and operating an Agentic Company under Niyatna OS."
+description: "A practical formation path for companies moving from scattered AI use into governed agentic operations."
 icon: Rocket
 ---
 
-Transitioning an organization to the agentic standard requires structured gates and protocol compliance. The Niyatna standard defines a 5-phase formation pathway to establish, run, and scale an Agentic Company.
+Niyatna formation starts with company intent, not tooling. The goal is to understand how work should move through people, agents, memory, permissions, and proof before automation is introduced.
 
 ---
 
-## Phase 1: Intent Mapping & Drag Audits
+## Phase 1: map company intent
 
-Before deploying agent runtimes, founders must audit operational drag and explicitly document the company's intent.
-*   **Drag Auditing:** Identify repetitive administrative or analytical processes draining significant weekly operational hours (e.g., payment reconciliation, customer provisioning, manual reporting).
-*   **Intent Specification:** Translate business rules, data requirements, and taste preferences into structured parameters.
-*   **Standard Boundary Design:** Define what must be automated, what requires human validation, and what must remain blocked.
+Identify the work that should become askable, assignable, remembered, automated, and proven.
 
-## Phase 2: Agent Architecture Design
+* **Intent mapping:** Clarify the company outcomes that matter.
+* **Drag audit:** Find recurring work, repeated questions, handoff delays, and review bottlenecks.
+* **Boundary design:** Decide which actions can move automatically, which require review, and which should stay blocked.
 
-With the intent mapped, founders design the specialized agent workforce configuration. Roles are designed to map directly to operational departments:
-*   **Niyatna Sales Ops Agent (Lead Acquisition):** Scrapes target contacts, qualifies B2B leads based on ICP rules, and drafts personalized outreach templates.
-*   **Niyatna Ops Agent (Process Sync):** Automatically syncs CRM closed-won deal milestones, provisions client folders, and triggers team notifications.
-*   **Niyatna CFO Agent (Financial Guardrail):** Fetches transaction logs from payment gateways, reconciles bank deposits, and flags invoice discrepancies.
+## Phase 2: define the operating map
 
-Each agent is provisioned with a dedicated identity, goals, tools, and authority boundaries.
+Niyatna needs a company map before agents can act safely.
 
-## Phase 3: Runtime Provisioning (Niyatna OS)
+Define:
 
-Runtimes are provisioned in secure, isolated sandboxes. The Niyatna OS layer handles infrastructure setup:
-*   **Sandbox Isolation:** Spawns jailed virtual runtimes (isolated agent containers) restricting system path access.
-*   **Credential Routing:** Integrates API keys and certificates using LocalRoute, delivering scoped session tokens to runtimes without exposing master secrets.
-*   **Command Boundaries:** Disables shell write access and external webhooks unless explicitly whitelisted in the workspace config.
+* roles and departments;
+* authorized requesters;
+* review and approval owners;
+* external partners or clients with scoped access;
+* SOPs, standards, and recurring workflows;
+* evidence required before work is considered complete.
 
-## Phase 4: Intent Delegation (OpenIntent)
+## Phase 3: create the first OpenIntent flows
 
-Daily operations are dispatched using OpenIntent packets. Rather than vague, conversational chat prompts, tasks are structured into strict schemas containing:
-1.  **Goals:** The target outcomes.
-2.  **Context:** Pointers to local memory, schemas, and live database scopes.
-3.  **Constraints:** Budget caps, time limits, and disallowed libraries.
-4.  **Proof Standards:** Defined evidence (e.g., git diffs, payment logs, transaction receipts) required for verification.
+Start with a narrow set of repeatable requests.
 
-## Phase 5: Verification & Veto (Proof of Intent)
+Each flow should include:
 
-Once execution completes, Niyatna OS parses the output and returns a structured Proof of Intent bundle via Niyatna HQ:
-*   **Evidence Inspection:** Displays execution logs, file diffs, and API receipts.
-*   **Consensus Verification:** Compares agent output against validation rules.
-*   **Human Veto:** The operator reviews the proof and either approves the changes to the production system or triggers a rollback.
-*   **Strategic Leverage:** Completed tasks return time back to the founders, reclaiming space for high-level decision making.
+* the request shape;
+* context and source materials;
+* permission boundaries;
+* assigned human or agent path;
+* acceptance criteria;
+* proof and report-back format.
+
+## Phase 4: connect memory, route, and proof
+
+Once the first flows are clear, Niyatna connects the system surfaces:
+
+* **Memory** provides relevant company context.
+* **Route** chooses the right human, agent, model, or tool path.
+* **HQ** tracks owned work and review gates.
+* **Proof of Intent** records evidence and final status.
+
+## Phase 5: expand deliberately
+
+After the first workflows prove useful, expand by department or operating area. Niyatna should grow as a governed company system, not as a pile of disconnected automations.

@@ -1,30 +1,39 @@
 ---
 title: OpenIntent Composer
-description: "Translate business requests into structured, verifiable intent packets."
+description: "Translate company requests into structured intents with boundaries, acceptance criteria, and proof."
 icon: Command
 ---
 
-In Niyatna OS, work is never initiated by sending vague conversational prompts to a chat interface. Operators use the **OpenIntent Composer** to construct structured intent packets.
+OpenIntent Composer turns a company request into a structured intent before work begins.
 
-This guarantees that agent runtimes receive complete, unambiguous goal definitions, preventing logical drift and unauthorized operations.
+Instead of asking an agent to "just handle it," the requester defines the goal, context, permission scope, success criteria, and proof standard. This reduces drift and makes review possible.
 
 ---
 
-## Packet Specifications
+## Intent fields
 
-A structured OpenIntent packet requires:
+A useful OpenIntent packet includes:
 
-*   **Goal:** A clear, declarative objective.
-*   **Context:** Pointers to active folders, database scopes, and local memory context.
-*   **Allowed Tools:** A strict list of whitelisted capabilities (filesystem access, specific APIs).
-*   **Constraints:** Time limits, file boundaries, and budget ceilings.
-*   **Acceptance Criteria:** Tests, compiler requirements, or checks that must pass.
-*   **Proof Standard:** The exact format of evidence (diffs, logs, receipts) the agent must return.
+* **Goal:** The company outcome to produce.
+* **Requester:** Who asked and under which role.
+* **Context:** Relevant docs, SOPs, prior decisions, or source materials.
+* **Permission scope:** What the system can read, write, schedule, or escalate.
+* **Assignee path:** Human, agent, or mixed route.
+* **Constraints:** Budget, deadline, risk, privacy, and tool boundaries.
+* **Acceptance criteria:** What must be true for the work to count as done.
+* **Proof standard:** Evidence and report-back format.
+* **Memory rule:** What should be remembered after completion.
 
 ## Example
 
-> **Goal:** Crop transparent margins from public/niyatna-logo.png and generate app/favicon.ico containing sizes 16x16 up to 256x256.
-> **Constraints:** Use PIL in a local Python script, preserve the original aspect ratio, and save output directly to the public directory.
-> **Proof Standard:** Return terminal log execution and the generated favicons.
+> **Goal:** Prepare a finance recap request for Adit on 22 June, evaluate the output against company standards, and report the result back to Riyan.
+>
+> **Permission scope:** Finance workspace only. No payment actions. No external sharing.
+>
+> **Acceptance criteria:** Recap is complete, reviewed against the attached standard, and returned with clear findings.
+>
+> **Proof standard:** Task record, submitted recap, evaluation notes, and final report-back.
 
-This structured packet defines the task boundary. "Fix the logo size" is not an intent.
+## Composer rule
+
+A clear intent is stronger than a long prompt. The composer should make the request legible to the company before an agent or automation touches it.
