@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: `The terms of service that apply to your engagement with Niyatna.`,
+  description: `The terms that apply to visiting Niyatna and engaging us for agentic-company systems.`,
   alternates: { canonical: `${SITE.url}/terms` },
 }
 
@@ -18,71 +18,72 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Terms"
         title="Terms of Service"
-        lead="Plain-language terms for visiting our site, entering the standard, and deploying Niyatna OS."
+        lead="Plain-language terms for using this site, contacting Niyatna, and engaging us to design or deploy agentic-company systems."
         meta={<span>Last updated · {updated}</span>}
       />
 
       <Prose>
         <h2>The short version</h2>
         <ul>
-          <li>Niyatna provides the operating stack and architecture standards for running the Agentic Company.</li>
-          <li>We translate your intent into verified agent execution; you retain ultimate ownership of your goals and rules.</li>
-          <li>Any code or integration delivered to you during paid engagements is yours upon completion.</li>
-          <li>We handle data with strict isolation; you are responsible for any credentials you provide.</li>
+          <li>Niyatna provides operating standards, architecture, and implementation support for companies ready to become agentic.</li>
+          <li>You keep ownership of your company goals, data, rules, approvals, and final decisions.</li>
+          <li>Any deployment details, deliverables, pricing, confidentiality terms, and support commitments should be defined in a separate signed agreement.</li>
+          <li>Agent outputs require review. Niyatna provides systems and proof trails, not a guarantee that every AI-generated output is correct or risk-free.</li>
         </ul>
 
-        <h2>1. Services & Engagements</h2>
+        <h2>1. Scope</h2>
         <p>
-          Niyatna provisions the operating stack, standards, and gates for companies ready to become agentic. The specific configurations, implementations, and licensing terms for any system deployment will be defined in a separate, mutually signed system agreement. These Terms govern all such deployments unless explicitly superseded by a signed agreement.
+          These Terms govern your use of the Niyatna website, documentation, contact forms, qualification process, and any engagement with Niyatna unless a separate signed agreement says otherwise. If a signed agreement conflicts with these Terms, the signed agreement controls for that engagement.
         </p>
 
-        <h2>2. Client Responsibilities & Data Access</h2>
+        <h2>2. Services and Engagements</h2>
         <p>
-          To implement and operate agentic runtimes under Niyatna OS, you may need to grant access to your codebases, database environments, APIs, or third-party tools. You are solely responsible for:
-        </p>
-        <ul>
-          <li>Ensuring you have all necessary rights, licenses, and permissions to grant us access to these environments.</li>
-          <li>The parameters, motives, rules, and guidelines you provide for training or configuring AI agents.</li>
-          <li>Implementing appropriate access control and rotating credentials upon project completion.</li>
-        </ul>
-
-        <h2>3. Intellectual Property</h2>
-        <p>
-          Unless otherwise agreed in a separate Statement of Work, all custom code, automation setups, schemas, and configurations delivered to you as part of a paid engagement become your sole intellectual property upon full payment of the agreed fees. Niyatna retains ownership of its pre-existing tools, open-source libraries, protocols, and standard operating blueprints.
+          Niyatna designs and supports agentic-company systems: operating layers, standards, approval gates, memory/context structures, agent workflows, integrations, and proof practices. The exact scope, deliverables, timeline, pricing, access, and deployment model must be agreed separately for each company.
         </p>
 
-        <h2>4. Third-Party AI Services</h2>
+        <h2>3. Qualification</h2>
         <p>
-          The Niyatna OS environment and agent runtimes integrate with third-party artificial intelligence providers (such as Anthropic, OpenAI, or Google Cloud Vertex AI). These providers operate under their own terms of service and data privacy agreements. You agree to comply with the terms of these third-party providers when utilizing integrations that connect to their APIs. Niyatna is not responsible for any modifications, outages, or policy changes made by third-party providers.
+          Access to Niyatna may be gated. We may decline or delay an engagement if a company does not yet have the operational clarity, data readiness, ownership structure, or approval discipline required to safely delegate work to agents.
         </p>
 
-        <h2>5. Disclaimer of Warranties</h2>
+        <h2>4. Client Responsibilities</h2>
         <p>
-          While the system executes and verifies agent actions to high operational standards, AI agent outputs are generated probabilistically by neural networks. We implement extensive verification layers, but all deliverables, code, and systems are provided on an &ldquo;as-is&rdquo; and &ldquo;as-available&rdquo; basis, without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
+          You are responsible for ensuring you have the rights to provide any data, credentials, repositories, documents, tools, instructions, or third-party accounts used in an engagement. You are also responsible for reviewing agent outputs, approving high-risk actions, maintaining your own internal policies, and rotating or revoking credentials when appropriate.
         </p>
 
-        <h2>6. Limitation of Liability</h2>
+        <h2>5. Third-Party Services</h2>
         <p>
-          To the maximum extent permitted by applicable law, Niyatna, its directors, employees, or agents, shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, goodwill, or other intangible losses, arising out of or relating to:
-        </p>
-        <ul>
-          <li>The operation or outputs of Niyatna OS or agent runtimes.</li>
-          <li>Any unauthorized access to or alteration of your transmissions or data.</li>
-          <li>Service interruptions or failures of third-party integrations.</li>
-        </ul>
-        <p>
-          In no event shall our total aggregate liability exceed the greater of one hundred US dollars ($100 USD) or the total fees paid by you to Niyatna in the twelve (12) months preceding the claim.
+          Niyatna systems may connect to model providers, cloud platforms, collaboration tools, code hosts, payment processors, messaging platforms, and other company systems. Those providers operate under their own terms and privacy policies. Niyatna is not responsible for their outages, pricing changes, policy changes, or independent security practices.
         </p>
 
-        <h2>7. Governing Law & Dispute Resolution</h2>
+        <h2>6. Intellectual Property</h2>
         <p>
-          These Terms and any dispute arising out of or related to them shall be governed by and construed in accordance with the laws of the <strong>Republic of Indonesia</strong>. Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts located in <strong>Bogor, West Java, Indonesia</strong>, and you hereby consent to the personal jurisdiction and venue of such courts.
+          Unless a separate agreement says otherwise, custom deliverables created specifically for you in a paid engagement become yours after full payment. Niyatna retains ownership of its pre-existing tools, frameworks, templates, methods, protocols, know-how, and reusable operating standards.
         </p>
 
-        <h2>8. Contact</h2>
+        <h2>7. Confidentiality and Data</h2>
         <p>
-          Questions about these terms can be directed to{" "}
-          <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>.
+          Confidentiality, data handling, provider choices, access boundaries, and retention rules may be defined in a separate agreement or deployment plan. You should not send secrets, credentials, or sensitive data through unapproved channels.
+        </p>
+
+        <h2>8. Disclaimers</h2>
+        <p>
+          Niyatna systems are designed to improve control, delegation, and verification, but no AI or software system can guarantee perfect outputs, uninterrupted service, complete security, or a specific business result. Services and materials are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis unless a signed agreement states otherwise.
+        </p>
+
+        <h2>9. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, Niyatna is not liable for indirect, incidental, special, consequential, exemplary, or punitive damages, including lost profits, lost data, business interruption, or loss of goodwill. Unless a signed agreement states otherwise, our total liability is limited to the greater of one hundred US dollars ($100 USD) or the fees you paid to Niyatna for the relevant engagement in the twelve months before the claim.
+        </p>
+
+        <h2>10. Governing Law</h2>
+        <p>
+          These Terms are governed by the laws of the <strong>Republic of Indonesia</strong>, unless a separate signed agreement specifies another governing law or venue.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          Questions about these Terms can be directed to <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>.
         </p>
       </Prose>
 

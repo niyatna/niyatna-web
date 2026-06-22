@@ -26,7 +26,7 @@ const legalLinks = [
 ]
 
 const contactLinks = [
-  { label: "Email Us", href: `mailto:${SITE.email}` },
+  { label: SITE.email, href: `mailto:${SITE.email}` },
   { label: "Begin Qualification", href: "/contact" },
 ]
 
@@ -40,7 +40,7 @@ const socialLinks = [
 export function SiteFooter() {
   return (
     <footer className="relative border-t border-border/50 bg-muted/20">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.65fr_1fr_1fr_1fr]">
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5">
             <Image
@@ -54,8 +54,11 @@ export function SiteFooter() {
               {SITE.name}
             </span>
           </Link>
-          <p className="mt-4 max-w-xs text-sm text-muted-foreground leading-relaxed">
+          <p className="mt-4 max-w-sm text-sm text-muted-foreground leading-relaxed">
             {SITE.description}
+          </p>
+          <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground/80">
+            Your Intent · Your Agents · Your System · Your Company
           </p>
         </div>
 

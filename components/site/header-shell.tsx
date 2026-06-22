@@ -97,16 +97,16 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
     >
       <div
         className={cn(
-          "mx-3 flex max-w-6xl items-center justify-between gap-4 px-4 sm:mx-auto sm:px-6",
-          "rounded-full transition-all duration-300 w-full",
+          "mx-3 flex max-w-6xl items-center justify-between gap-3 px-3 sm:mx-auto sm:px-6",
+          "rounded-full transition-all duration-300",
           (scrolled || mobileMenuOpen) &&
-            "border border-white/10 bg-white/70 px-4 py-2 shadow-lg shadow-black/[0.04] backdrop-blur-xl dark:border-white/[0.08] dark:bg-zinc-950/60 dark:shadow-black/40"
+            "border border-white/10 bg-white/70 py-2 shadow-lg shadow-black/[0.04] backdrop-blur-xl dark:border-white/[0.08] dark:bg-zinc-950/60 dark:shadow-black/40"
         )}
       >
-        <div className="flex-1 flex items-center justify-start gap-2.5">
+        <div className="flex min-w-0 flex-1 items-center justify-start gap-2.5">
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-semibold tracking-tight"
+            className="flex min-w-0 items-center gap-2.5 font-semibold tracking-tight"
             aria-label={`${SITE.name} home`}
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -118,7 +118,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
               priority
               className="rounded-md"
             />
-            <span className="text-base">{SITE.name}</span>
+            <span className="truncate text-base">{SITE.name}</span>
           </Link>
         </div>
 
@@ -134,7 +134,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
           ))}
         </nav>
 
-        <div className="flex-1 flex items-center justify-end gap-2">
+        <div className="flex shrink-0 flex-1 items-center justify-end gap-1.5 sm:gap-2">
           <ThemeToggle />
           <Button asChild size="sm" className="hidden sm:inline-flex rounded-full gap-2">
             <Link href="/contact">
@@ -147,7 +147,7 @@ export function HeaderShell({ stars, rawStars }: HeaderShellProps) {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex size-8 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100/50 text-foreground md:hidden cursor-pointer hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 transition-colors"
+            className="flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-zinc-100/50 text-foreground transition-colors hover:bg-zinc-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 md:hidden cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <CloseIcon className="size-4" /> : <MenuIcon className="size-4" />}

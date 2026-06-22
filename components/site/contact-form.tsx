@@ -51,9 +51,9 @@ export function ContactForm() {
         <div className="flex size-14 items-center justify-center rounded-full bg-green-500/10 text-green-500 dark:bg-green-500/15">
           <HugeiconsIcon icon={SentIcon} className="size-6" strokeWidth={1.8} />
         </div>
-        <h3 className="mt-5 text-lg font-semibold text-zinc-900 dark:text-white">Application Received</h3>
+        <h3 className="mt-5 text-lg font-semibold text-zinc-900 dark:text-white">Inquiry Received</h3>
         <p className="mt-2.5 max-w-sm text-sm text-muted-foreground leading-relaxed">
-          Thank you. We have received your details, mapped the problem to our queue, and will contact you shortly to review your qualification.
+          Thank you. We received your details and will review whether the problem is a fit for Niyatna readiness mapping.
         </p>
         <Button
           onClick={() => setStatus("idle")}
@@ -118,7 +118,7 @@ export function ContactForm() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="drag" className="text-xs font-medium text-zinc-500 uppercase tracking-wider dark:text-zinc-400">
-            Current Team Size
+            Company Stage
           </label>
           <select
             id="drag"
@@ -127,17 +127,17 @@ export function ContactForm() {
             disabled={status === "submitting"}
             className="w-full rounded-xl border border-zinc-200 bg-zinc-100/50 px-4 py-3 text-sm text-zinc-900 outline-none transition-colors focus:border-zinc-300 focus:bg-white dark:border-white/[0.08] dark:bg-zinc-950/60 dark:text-zinc-300 dark:focus:border-white/20 dark:focus:bg-zinc-950 disabled:opacity-50"
           >
-            <option value="solo">Solo Founder</option>
-            <option value="2-5">2 - 5 People</option>
-            <option value="6-20">6 - 20 People</option>
-            <option value="20-plus">20+ People</option>
+            <option value="exploring">Exploring agentic operations</option>
+            <option value="small-team">Small team with recurring workflows</option>
+            <option value="growing-company">Growing company with departments</option>
+            <option value="established">Established company with approval needs</option>
           </select>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="text-xs font-medium text-zinc-500 uppercase tracking-wider dark:text-zinc-400">
-          The Problem & Your Intent
+          Intent to Map
         </label>
         <textarea
           id="message"
@@ -145,7 +145,7 @@ export function ContactForm() {
           required
           rows={5}
           disabled={status === "submitting"}
-          placeholder="What problem is your company solving? What operational tasks drain your time? What would you delegate if you could?"
+          placeholder="What company work should become askable, assignable, approved, or proven? What context and approvals does it need?"
           className="w-full rounded-xl border border-zinc-200 bg-zinc-100/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-500 outline-none transition-colors focus:border-zinc-300 focus:bg-white dark:border-white/[0.08] dark:bg-zinc-950/60 dark:text-white dark:placeholder-zinc-600 dark:focus:border-white/20 dark:focus:bg-zinc-950 disabled:opacity-50 resize-none"
         />
       </div>
@@ -162,7 +162,7 @@ export function ContactForm() {
         disabled={status === "submitting"}
         className="w-full rounded-xl"
       >
-        {status === "submitting" ? "Sending..." : "Apply for Readiness"}
+        {status === "submitting" ? "Sending..." : "Begin Qualification"}
       </Button>
     </form>
   )

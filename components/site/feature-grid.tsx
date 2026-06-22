@@ -1,13 +1,13 @@
 import {
-  AiIdeaIcon,
-  CheckListIcon,
   CodeFolderIcon,
   CommandIcon,
   CpuIcon,
-  EnergyIcon,
   Layout02Icon,
   Notebook01Icon,
   PaintBrush02Icon,
+  AiIdeaIcon,
+  GlobeIcon,
+  Shield01Icon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
@@ -15,49 +15,49 @@ import { Section, SectionEyebrow, SectionHeading } from "./section"
 
 const items = [
   {
-    icon: CpuIcon,
-    title: "Sandbox Isolation",
-    desc: "Every agent workforce execution is contained inside isolated, hardware-restricted secure containers.",
-  },
-  {
     icon: CommandIcon,
-    title: "Security Gates",
-    desc: "Granular access-control rules defining exactly what directories, paths, and API keys are reachable.",
-  },
-  {
-    icon: AiIdeaIcon,
-    title: "OpenIntent Packets",
-    desc: "Rigorous schemas mapping your desired outcomes, constraints, and success standards under the OpenIntent protocol.",
-  },
-  {
-    icon: Notebook01Icon,
-    title: "Local Memory Contexts",
-    desc: "Dynamic context assemblers that query historical memory profiles to keep runtimes aligned.",
-  },
-  {
-    icon: CheckListIcon,
-    title: "Verification Primitives",
-    desc: "Dual-agent verification steps cross-checking outputs before staging for human validation.",
+    title: "Niyatna OS",
+    desc: "The operating layer where authorized people ask the company, route requests, and see what agents are allowed to do.",
   },
   {
     icon: PaintBrush02Icon,
-    title: "Niyatna HQ Panels",
-    desc: "Clear visual Command Room workspaces showing inputs, execution logs, and output diffs in a unified layout.",
-  },
-  {
-    icon: Layout02Icon,
-    title: "Administrative Veto",
-    desc: "You retain absolute veto power. Action logs, diffs, and outcomes require your approval.",
+    title: "Niyatna HQ",
+    desc: "A command room for owned work: tasks, assignees, due dates, approvals, status, and report-back.",
   },
   {
     icon: CodeFolderIcon,
-    title: "Niyatna Agent Runtimes",
-    desc: "Custom agentic scripts and tool integrations built specifically to execute tasks under Niyatna OS.",
+    title: "Niyatna Agents",
+    desc: "Role-based agent workforces that execute department work under scoped permissions and human rules.",
   },
   {
-    icon: EnergyIcon,
-    title: "Proof Registry",
-    desc: "Saved-hour metrics showing the continuous return on your investment, backed by inspectable evidence logs.",
+    icon: Notebook01Icon,
+    title: "Company Memory",
+    desc: "SOPs, decisions, docs, customer context, and proof logs stored as context the system can reuse.",
+  },
+  {
+    icon: GlobeIcon,
+    title: "Channel Layer",
+    desc: "Discord, Telegram, WhatsApp, Slack, and email surfaces where work can be requested without losing governance.",
+  },
+  {
+    icon: CpuIcon,
+    title: "Tool Integrations",
+    desc: "Google Workspace, GitHub, Stripe, and company tools connected only to the scopes each role needs.",
+  },
+  {
+    icon: AiIdeaIcon,
+    title: "OpenIntent",
+    desc: "The intent format that turns a messy request into a goal, owner, constraints, approval path, and expected proof.",
+  },
+  {
+    icon: Layout02Icon,
+    title: "Proof of Intent",
+    desc: "Every completed action returns evidence: output, logs, review status, and what changed.",
+  },
+  {
+    icon: Shield01Icon,
+    title: "Security Gates",
+    desc: "Approval rules, role boundaries, sandboxing, and veto windows keep sensitive actions controlled.",
   },
 ]
 
@@ -66,7 +66,7 @@ export function FeatureGrid() {
     <Section id="more">
       <div className="mx-auto max-w-3xl">
         <SectionEyebrow>Infrastructure</SectionEyebrow>
-        <SectionHeading>Built for trust, verification, and control.</SectionHeading>
+        <SectionHeading>The infrastructure behind an agentic company.</SectionHeading>
       </div>
 
       <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-3">

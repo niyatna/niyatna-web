@@ -12,74 +12,74 @@ import { HugeiconsIcon } from "@hugeicons/react"
 
 export const metadata: Metadata = {
   title: "Reference Architectures",
-  description: `Reference architectures demonstrating Niyatna OS and Niyatna Agent workforces in production.`,
+  description: `Reference patterns for how Niyatna turns company intent into governed agent work, approval, memory, and proof.`,
   alternates: { canonical: `${SITE.url}/work` },
 }
 
 const deploymentsList = [
   {
-    title: "Financial Operations & Ledger Reconciliation",
-    profile: "CFO Agent Deployment Pattern",
-    drag: "Finance teams spent 12 hours daily comparing billing ledgers against invoice databases and resolving discrepancies. The problem was manual reconciliation drag at scale.",
-    solution: "Staged OpenIntent parameters to eliminate ledger comparison drag. Deployed a Niyatna CFO Agent utilizing LocalRoute to mount read-only billing scopes, auto-reconcile invoices via vLLM-compatible checking models, and isolate mismatches inside a secure workspace sandbox, routing verification results to Niyatna HQ.",
-    return: "12 Hours Reclaimed Daily",
+    title: "Finance Review & Reconciliation",
+    profile: "Finance Agent Pattern",
+    drag: "Finance teams often lose time gathering statements, invoices, spreadsheets, and prior decisions before a person can even review what changed.",
+    solution: "Niyatna maps the finance intent, scopes read-only sources where possible, assigns the review to finance agents, stages exceptions for approval, and returns proof for human sign-off.",
+    return: "Review loop shortened",
     metricIcon: Time02Icon,
     features: [
-      "99.8% transaction auto-reconciliation rate",
-      "Staged PDF invoice generation and secure archiving",
-      "Proof of Intent checks validating bank ledger matches before write",
+      "Role-scoped access to finance context and source documents",
+      "Exceptions staged for review instead of silently acted on",
+      "Proof trail linking the original request to checked outputs",
     ],
   },
   {
-    title: "Client Onboarding & Customer Operations",
-    profile: "COO Agent Deployment Pattern",
-    drag: "Operations teams spent 22 hours weekly syncing client stages, generating checklists, and distributing updates. The problem was repetitive coordination drag blocking strategic work.",
-    solution: "Configured intent boundaries to automate client workspace provisioning. Deployed a Niyatna COO Agent to monitor CRM milestones via LocalRoute, sync metadata records, and relay onboarding briefs to Discord and Slack channels automatically.",
-    return: "22 Hours Reclaimed Weekly",
+    title: "Client Onboarding & Operations",
+    profile: "Operations Agent Pattern",
+    drag: "New client work often spreads across messages, folders, CRM notes, checklists, and manager memory.",
+    solution: "Niyatna turns the onboarding intent into owned work: tasks, assignees, required context, approval points, and report-back inside the company operating layer.",
+    return: "Handoff clarity improved",
     metricIcon: FolderCodeIcon,
     features: [
-      "Real-time CRM-to-database metadata synchronization",
-      "Automated ephemeral workspace sandbox mounts",
-      "High-signal alerts relayed to team channels",
+      "Workspace and task setup guided by approved company context",
+      "Clear ownership for follow-ups, blockers, and due dates",
+      "Report-back loop so status does not disappear into chat",
     ],
   },
   {
-    title: "Autonomous Software Lifecycle Management",
-    profile: "Engineer Agent Deployment Pattern",
-    drag: "Engineering leads spent 15 hours weekly verifying formatting, running manual test suites, compiling builds, and drafting PR reviews. The problem was coordination overhead blocking active development.",
-    solution: "Provisioned an isolated workspace sandbox. Deployed Niyatna Engineer Agents to index codebase context via local memory, compile packages, run unit tests, and format changes. Code modifications are staged as Git patches requiring human veto/approval on Niyatna HQ.",
-    return: "15 Hours Reclaimed Weekly",
+    title: "Engineering Review & Release Support",
+    profile: "Engineering Agent Pattern",
+    drag: "Engineering work can stall when context, tests, reviews, and deployment decisions live in different places.",
+    solution: "Niyatna can route engineering intent into agent-assisted review, test evidence, change summaries, and approval gates before sensitive actions move forward.",
+    return: "Review evidence centralized",
     metricIcon: FolderCodeIcon,
     features: [
-      "Zero-retention local code analysis inside isolated agent containers",
-      "Automated test diagnostics and build verification gates",
-      "Verification profiles requiring explicit strategic sign-off",
+      "Code and task context gathered before agent work begins",
+      "Test/build evidence attached to the proof record",
+      "Human approval required for sensitive release steps",
     ],
   },
   {
-    title: "Executive Reporting & Business Intelligence",
-    profile: "CEO Agent Deployment Pattern",
-    drag: "Leadership lost 15 hours weekly aggregating department OKR data, generating briefs, and modeling budgets. The problem was manual report compilation blocking decision making.",
-    solution: "Defined strategic planning goals and mounted read-only workspace access. Deployed a Niyatna CEO Agent to audit progress logs across departments, compute budget reallocation models via LocalRoute, and compile briefs for board review.",
-    return: "15 Hours Reclaimed Weekly",
+    title: "Sales & Partner Follow-up",
+    profile: "Sales Ops Agent Pattern",
+    drag: "Follow-ups, partner requests, account notes, and outreach drafts become inconsistent when every person reconstructs context manually.",
+    solution: "Niyatna gives authorized roles a way to ask for customer context, assign next actions, prepare drafts, and require approval before external sends.",
+    return: "Follow-up ownership clarified",
     metricIcon: Tick01Icon,
     features: [
-      "Multi-workspace progress and audit logging",
-      "Automated resource allocation modeling (12 scenarios)",
-      "Executive briefs staged for administrative veto/approval on Niyatna HQ",
+      "Approved context retrieval for customer and partner work",
+      "Drafts staged for review before external communication",
+      "Next actions assigned with owner, due date, and proof trail",
     ],
   },
   {
-    title: "Marketing Campaign & Distribution Management",
-    profile: "Growth Agent Deployment Pattern",
-    drag: "Growth teams spent 18 hours weekly formatting product copy, scheduling multi-channel announcements, and checking brand alignment. The problem was repetitive layout and distribution overhead.",
-    solution: "Configured intent packets detailing campaign assets and copy guidelines. Deployed a Niyatna Growth Agent to generate distribution drafts, cross-check against brand knowledge vaults, and queue drafts for validation.",
-    return: "18 Hours Reclaimed Weekly",
+    title: "Marketing & Distribution Rhythm",
+    profile: "Growth Agent Pattern",
+    drag: "Campaign work breaks down when messaging, assets, schedule, approval, and results are managed in separate places.",
+    solution: "Niyatna turns campaign intent into coordinated work: asset preparation, channel scheduling, brand checks, approvals, and proof of what shipped.",
+    return: "Campaign loop governed",
     metricIcon: Tick01Icon,
     features: [
-      "Asset formatting and alignment with brand specifications",
-      "Draft scheduling and cross-channel staging integration",
-      "Veto gates preventing external releases without human approval",
+      "Brand and campaign context attached before work starts",
+      "Draft and schedule steps staged for approval",
+      "Report-back closes the loop with evidence of what changed",
     ],
   },
 ]
@@ -89,21 +89,23 @@ export default function WorkPage() {
     <PageShell>
       <PageHero
         eyebrow="Reference Architectures"
-        title="Production Patterns"
-        lead="Every pattern started with a real business problem. Here is how Niyatna OS has been deployed to eliminate operational drag and establish the Agentic Company standard."
+        title="Deployment Patterns"
+        lead="Examples of how the Niyatna standard can be shaped around real company functions: finance, operations, engineering, sales, and distribution."
         meta={
           <>
-            <span>Real Problems</span>
+            <span>Intent</span>
             <span className="size-1 rounded-full bg-muted-foreground/40" />
-            <span>Measured Results</span>
+            <span>Ownership</span>
+            <span className="size-1 rounded-full bg-muted-foreground/40" />
+            <span>Proof</span>
           </>
         }
       />
 
       <Prose>
-        <h2>Deployments</h2>
+        <h2>Reference patterns</h2>
         <p>
-          Each reference deployment demonstrates Niyatna OS solving a specific operational problem by mapping intent and auditing proof.
+          These are architecture patterns, not fabricated case studies. They show where an agentic-company system can enter a company function, what it should control, and what proof should come back.
         </p>
 
         <div className="mt-12 space-y-12">
@@ -134,14 +136,14 @@ export default function WorkPage() {
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">The Solution</h4>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">The Pattern</h4>
                   <p className="mt-1.5 text-sm text-zinc-700 leading-relaxed dark:text-zinc-300">
                     {study.solution}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Features</h4>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">What must be true</h4>
                   <ul className="mt-2 space-y-1.5 pl-4 list-disc text-sm text-muted-foreground">
                     {study.features.map((f, idx) => (
                       <li key={idx}>{f}</li>

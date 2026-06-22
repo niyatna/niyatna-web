@@ -1,36 +1,48 @@
 "use client"
 
 import {
-  AmazonIcon,
-  AppleIcon,
   ArrowRight01Icon,
-  FigmaIcon,
+  AttachmentIcon,
+  ChatGptIcon,
+  ClaudeIcon,
+  Database01Icon,
+  DiscordIcon,
   GithubIcon,
+  GoogleGeminiIcon,
   GoogleIcon,
-  MetaIcon,
-  MicrosoftIcon,
   SlackIcon,
-  SpotifyIcon,
   StripeIcon,
+  TelegramIcon,
+  WhatsappIcon,
 } from "@hugeicons/core-free-icons"
-import { HugeiconsIcon } from "@hugeicons/react"
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 import { motion } from "motion/react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { TypingAnimation } from "@/components/text-typing"
 import { Button } from "@/components/ui/button"
 
-const brands = [
-  { name: "Google", icon: GoogleIcon },
-  { name: "Apple", icon: AppleIcon },
-  { name: "Microsoft", icon: MicrosoftIcon },
-  { name: "Meta", icon: MetaIcon },
-  { name: "Stripe", icon: StripeIcon },
+type Brand = {
+  name: string
+  icon?: IconSvgElement
+  image?: string
+}
+
+const brands: Brand[] = [
+  { name: "Hermes Agent", image: "/brand/logos/hermes-agent.png" },
+  { name: "Paperclip", icon: AttachmentIcon },
+  { name: "Discord", icon: DiscordIcon },
+  { name: "Telegram", icon: TelegramIcon },
+  { name: "WhatsApp", icon: WhatsappIcon },
+  { name: "Google Workspace", icon: GoogleIcon },
+  { name: "GitHub", icon: GithubIcon },
   { name: "Slack", icon: SlackIcon },
-  { name: "Figma", icon: FigmaIcon },
-  { name: "Github", icon: GithubIcon },
-  { name: "Amazon", icon: AmazonIcon },
-  { name: "Spotify", icon: SpotifyIcon },
+  { name: "Stripe", icon: StripeIcon },
+  { name: "Obsidian", icon: Database01Icon },
+  { name: "OpenAI", icon: ChatGptIcon },
+  { name: "Gemini", icon: GoogleGeminiIcon },
+  { name: "Claude", icon: ClaudeIcon },
 ]
 
 export function Hero() {
@@ -41,7 +53,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh] bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(255,255,255,0.06),transparent_70%)]"
       />
 
-      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6 pb-20 sm:pb-28">
+      <div className="mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-6 pb-16 sm:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,10 +79,10 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.05 }}
           className="mt-7 text-4xl font-semibold tracking-[-0.04em] text-balance sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="text-foreground/55">The bridge to the</span>
+          <span className="text-foreground/55">The future of your</span>
           <br className="inline" />{" "}
           <TypingAnimation
-            words={["Agentic Company.", "Intent-Led Standard.", "Autonomous Workforce.", "Future of Business."]}
+            words={["Agentic Company.", "Agent Workforce.", "Operating System.", "Company Standard."]}
             loop
             typeSpeed={70}
             deleteSpeed={40}
@@ -86,7 +98,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.12 }}
           className="mt-7 max-w-2xl text-base text-balance text-foreground/70 sm:text-lg"
         >
-          When anyone can solve problems with AI, the scarce thing becomes the system to organize it. Niyatna builds the operating system, standards, and gates for companies ready to become agentic.
+          Niyatna is the operating system, standards, and gates for companies ready to become agentic—turning human intent into controlled agent work and proof.
         </motion.p>
 
         <motion.div
@@ -118,11 +130,13 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.32 }}
           className="mt-6 flex flex-wrap items-center justify-center gap-3 font-mono text-[11px] tracking-[0.12em] text-foreground/60 uppercase"
         >
-          <span>Problem-First</span>
+          <span>Your Intent</span>
           <span className="size-1 rounded-full bg-muted-foreground/40" />
-          <span>Intent-Driven</span>
+          <span>Your Agents</span>
           <span className="size-1 rounded-full bg-muted-foreground/40" />
-          <span>Agent-Delegated</span>
+          <span>Your System</span>
+          <span className="size-1 rounded-full bg-muted-foreground/40" />
+          <span>Your Company</span>
         </motion.div>
       </div>
 
@@ -138,11 +152,21 @@ export function Hero() {
               key={i}
               className="flex items-center gap-2.5 shrink-0 text-foreground/45 hover:text-foreground transition-colors cursor-pointer select-none"
             >
-              <HugeiconsIcon
-                icon={brand.icon}
-                className="size-4 shrink-0"
-                strokeWidth={1.8}
-              />
+              {brand.image ? (
+                <Image
+                  src={brand.image}
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="size-5 shrink-0 rounded-[0.35rem] object-cover opacity-80 grayscale"
+                />
+              ) : (
+                <HugeiconsIcon
+                  icon={brand.icon ?? AttachmentIcon}
+                  className="size-4 shrink-0"
+                  strokeWidth={1.8}
+                />
+              )}
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase shrink-0">
                 {brand.name}
               </span>

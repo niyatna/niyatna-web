@@ -3,10 +3,10 @@
   "target": "preview",
   "argv": [
     "/home/galyarder/.nvm/versions/node/v24.15.0/bin/node",
-    "/home/galyarder/.local/share/pnpm/store/v11/links/@/vercel/54.14.0/2102acd3dbd10d29787b609bb32de83e785c2ce920a051e28065d2eef0bdaf3a/node_modules/vercel/dist/vc.js",
+    "/home/galyarder/.local/share/pnpm/store/v11/links/@/vercel/54.14.2/a66cfb043c490972123746f15a0507131ce903c542546fd6b1a33f619489dea5/node_modules/vercel/dist/vc.js",
     "build"
   ],
-  "cliVersion": "54.14.0",
+  "cliVersion": "54.14.2",
   "builds": [
     {
       "require": "@vercel/next",

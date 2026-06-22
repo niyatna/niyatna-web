@@ -9,29 +9,31 @@ import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "About",
-  description: `What ${SITE.name} is, who builds it, and how it's put together.`,
+  description: `What ${SITE.name} is and how it helps companies become agentic without losing control.`,
   alternates: { canonical: `${SITE.url}/about` },
 }
 
 const stack = [
-  { label: "Intent", note: "the problem worth solving" },
-  { label: "Dream", note: "the world after the problem" },
-  { label: "Mission", note: "what you commit to doing" },
-  { label: "Vision", note: "how it looks when it works" },
-  { label: "Goals", note: "measurable delegated targets" },
-  { label: "Agents", note: "specialized autonomous execution" },
+  { label: "Intent", note: "what the company wants done" },
+  { label: "Agents", note: "who executes within boundaries" },
+  { label: "System", note: "where context, approval, and proof live" },
+  { label: "Company", note: "the organization stays in control" },
 ]
 
 export default function AboutPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="About"
-        title="About Niyatna"
-        lead="Everything starts with intent. A company is not a collection of people or agents—it is a solution to a problem. Niyatna builds the systems that make this the standard."
+        eyebrow="About Niyatna"
+        title="Empowering Human Intent"
+        lead="Niyatna builds the operating system, standards, and gates for companies ready to become agentic—so human intent can become delegated work without losing ownership, context, or proof."
         meta={
           <>
-            <span>Empowering Human Intent</span>
+            <span>Your Intent</span>
+            <span className="size-1 rounded-full bg-muted-foreground/40" />
+            <span>Your Agents</span>
+            <span className="size-1 rounded-full bg-muted-foreground/40" />
+            <span>Your System</span>
           </>
         }
       />
@@ -39,35 +41,26 @@ export default function AboutPage() {
       <Prose>
         <h2>The thesis</h2>
         <p>
-          A company exists because civilization has a problem and someone decided to solve it. That decision is intent. Without intent, no amount of workforce—human or AI—produces a real company. It just produces noise.
+          AI agents are not the company. The intent is the company. Agents are leverage. Without an operating layer, agent work becomes scattered prompts, hidden context, unclear authority, and outputs nobody can fully trust.
         </p>
         <p>
-          Niyatna is built around this truth. We do not start with agents, tools, or automation. We start with the problem. From that problem comes intent. With intent you get a dream. From the dream, a mission. From the mission, a vision. From the vision, goals. And only then—goals get delegated to specialized AI agents. That is what we call the Agentic Company.
-        </p>
-
-        <h2>What is an Agentic Company?</h2>
-        <p>
-          It is not a Kanban board with a chatbot. It is not &ldquo;AI-powered productivity.&rdquo; An Agentic Company is a modern standard where every department—Finance, Marketing, Sales, Operations, Engineering—can be run by specialized AI agents. Each agent has its own personality, mission, goals, boundaries, responsibilities, targets, capabilities, specialization, knowledge base, tools, MCP skills, and slash commands.
-        </p>
-        <p>
-          But none of that matters if the company itself has no intent. The agents are not the company. The intent is the company. The agents are the leverage.
+          Niyatna exists to form the layer around agent work: goals, roles, memory, tools, channels, approval gates, and proof. The company stays the source of truth; agents become the execution surface.
         </p>
 
-        <h2>Why this matters now</h2>
+        <h2>What is an agentic company?</h2>
         <p>
-          Traditional companies scale by hiring more people. That works, but it is slow, expensive, and creates operational drag. The Agentic Company scales by delegating goals to autonomous agents that execute within strict permission boundaries—while the human retains full strategic authority.
+          An agentic company is a company where authorized people can ask the company system, assign work, retrieve context, automate routines, and verify outcomes through shared governance instead of relying on scattered chats and manual follow-up.
         </p>
         <p>
-          Niyatna exists to make this the standard, not the exception. However, Niyatna OS is not a generic utility or an off-the-shelf software product. It is designed strictly for organizations ready to commit to rigorous operational standards, explicit delegation boundaries, and verified intent mapping.
+          It is not a founder-only cockpit, and it is not a team of generic chatbot users. Department leads, operators, partners, auditors, and selected clients can interact with the company system according to role boundaries.
         </p>
 
-        <h2>The Standard</h2>
+        <h2>What Niyatna builds</h2>
         <p>
-          Niyatna builds the operating system, standards, and gates for companies ready to become agentic. We define the company runtime (Niyatna OS), the delegation protocol (OpenIntent), and the verification primitives (Proof of Intent) that make autonomous delegation safe, verifiable, and anchored to human will.
+          Niyatna brings together the operating pieces required for that shift: Niyatna OS, Niyatna HQ, agent workforces, company memory, OpenIntent, approval rules, integrations, and Proof of Intent. The exact stack depends on the company, but the standard is the same: intent becomes owned, governed, verifiable work.
         </p>
         <p>
-          Access to the Niyatna stack is restricted. To review readiness and request system qualification, contact us at{" "}
-          <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>.
+          We do not sell open self-serve automation. Access is qualified because agentic work needs real company readiness: clear owners, useful context, tool access, security boundaries, and agreement on what proof must come back.
         </p>
       </Prose>
 
@@ -100,22 +93,22 @@ export default function AboutPage() {
         <h2>What it is not</h2>
         <ul>
           <li>
-            It is not another assistant persona. The product is the bridge from
-            intent to execution.
+            It is not just a chatbot. Chat is only one surface; the important layer is ownership, memory, approval, and proof.
           </li>
           <li>
-            It is not automation theatre. Delegated work must return proof, not
-            confidence.
+            It is not an automation agency. Niyatna is not a pile of one-off workflows; it is a standard for how company work becomes delegated and governed.
           </li>
           <li>
-            It is not replacing people. It is compressing operational drag so
-            people can reclaim time, judgment, and agency.
+            It is not a model wrapper. Models can change, but the company system—intent, authority, context, and proof—must remain stable.
+          </li>
+          <li>
+            It is not a promise to replace people. It is a way to return time and leverage to the humans who own the company’s direction.
           </li>
         </ul>
 
-        <h2>Engagement</h2>
+        <h2>Qualification</h2>
         <p>
-          We support qualified organizations in adopting the Niyatna standard to run agentic companies. To read more about how our system operates under the hood, explore our <Link href="/docs">Documentation</Link>.
+          Niyatna is for companies with enough operating clarity to benefit from agent work safely. To review readiness, start with qualification or read the <Link href="/docs">Documentation</Link>.
         </p>
       </Prose>
 

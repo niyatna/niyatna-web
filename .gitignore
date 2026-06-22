@@ -37,3 +37,8 @@ next-env.d.ts
 
 # fumadocs
 .source/
+
+# local tooling / generated deployment output
+.codegraph/
+.vercel/output/functions/
+.vercel/output/static/

@@ -4,11 +4,11 @@
 
 Niyatna's website is a silent-premium identity surface — a cool slate-black canvas (`oklch(0.148 0.004 228.8)`) where content emerges from darkness through carefully calibrated luminance stacking. The overall impression is one of sculptural restraint: matte porcelain white text (`oklch(0.987 0.002 197.1)`) against graphite depths, with structure communicated through semi-transparent white borders (`border-white/10`, `border-white/[0.08]`) rather than color variation. This is not a dark theme applied to a light design — it is darkness as the native medium, where depth is managed through subtle gradations of OKLCH lightness rather than traditional shadows.
 
-The typography system is built on Inter (variable weight 100–900) for all headings and body, paired with Geist Mono (variable weight 100–900) for technical metadata, status markers, and ritual labels. At display sizes (72px hero down to 36px section titles), Inter runs aggressive negative letter-spacing (`-0.04em` to `-0.02em`), creating compressed, authoritative headlines that feel engineered rather than designed. Geist Mono appears exclusively in uppercase metadata contexts — eyebrow labels, marquee brand tickers, terminal displays, and architecture role tags — always at small sizes (9–12px) with wide tracking (`0.12em` to `0.20em`), functioning as the system's technical ritual voice.
+The typography system is built on Inter (variable weight 100–900) for all headings and body, paired with Geist Mono (variable weight 100–900) for technical metadata, status markers, and ritual labels. At display sizes (72px hero down to 36px section titles), Inter runs aggressive negative letter-spacing (`-0.04em` to `-0.02em`), creating compressed, authoritative headlines that feel engineered rather than designed. Geist Mono appears exclusively in uppercase metadata contexts — eyebrow labels, marquee brand tickers, proof captions, and architecture role tags — always at small sizes (9–12px) with wide tracking (`0.12em` to `0.20em`), functioning as the system's technical ritual voice.
 
 The color system is entirely achromatic — no brand accent color exists. The palette moves through a single OKLCH hue channel (~214–228°, a cool slate-blue undertone) at different lightness values, from the deepest background (`0.148`) through elevated surfaces (`0.218`, `0.275`) to matte porcelain text (`0.987`). There is no indigo, no violet, no chromatic accent — only the luminance stacking of cool grays. Status indicators use emerald green (`emerald-500`) sparingly for "active/online" states, and destructive red for error states. All interactive surfaces — buttons, cards, inputs — use pill-shaped (`rounded-full` / `rounded-4xl`) borders with translucent white edges, like porcelain forms drawn in moonlight.
 
-A flowing WebGL line-wave animation (`ogl` shader) runs behind the hero section — 40 inner lines and 15 outer lines, white on dark, with sin-wave displacement at speed 0.35, creating an atmospheric sense of flowing intent-paths. This is the only decorative motion on the page. All other animation is functional: staggered fade-in entrances (0.5–0.6s, y: 6–10px), a typewriter cycling through brand phrases, and scroll-linked perspective tilts on screenshots.
+A flowing WebGL line-wave animation (`ogl` shader) runs behind the hero section — 40 inner lines and 15 outer lines, white on dark, with sin-wave displacement at speed 0.35, creating an atmospheric sense of flowing intent-paths. This is the only decorative motion on the page. All other animation is functional: staggered fade-in entrances (0.5–0.7s, y: 6–18px), a typewriter cycling through category phrases, and scroll-linked chapter changes in the IntentScroll proof visuals.
 
 **Key Characteristics:**
 - Dark-mode-default: `oklch(0.148 0.004 228.8)` page background, `oklch(0.218 0.008 223.9)` card surface, `oklch(0.275 0.011 216.9)` elevated muted
@@ -33,6 +33,27 @@ The visual identity centers on a white 3D satin/porcelain ribbon mark representi
 | **Favicon** | `app/favicon.ico` | Multi-res (16–256px) | Browser tab icon |
 
 The mark is a continuous, flowing satin/porcelain ribbon that subtly suggests "N" through motion — not a literal typographic N. Visual direction: matte porcelain / satin white / soft brushed silver on dark graphite backgrounds. No AI-purple/blue glow, no robot/brain/sparkle iconography.
+
+### Current Landing Visual Spine
+
+The current public landing spine is a **six-image abstract/editorial system**, not an implementation-screen tour:
+
+1. **Hero / Intent Path** — a normal company starts becoming agentic.
+2. **OS** — authorized people can ask the company system within role boundaries.
+3. **HQ** — requests become owned work with assignee, due date, review gate, and proof requirement.
+4. **Memory** — SOPs, decisions, departments, customers, and proof logs stop resetting.
+5. **Automations + Route** — recurring work, schedules, routing, and follow-up keep moving.
+6. **Proof** — every intent returns evidence and report-back.
+
+Visual rules:
+
+- Keep the top hero text-only.
+- Use the post-hero visual slot for the hero abstract image plus concise explanatory copy.
+- Keep scroll visuals large, contained, and unobstructed.
+- Put step text outside/below the image frame, not over the asset.
+- Use company-wide role cues such as Finance Lead, Sales, Operations, Auditor, Partner Access, and Client Access.
+- Show permission boundaries, assignees, schedules, review gates, proof, and memory as calm business-readable metaphors.
+- Do not use raw implementation screens, code/config material, crowded fake dashboards, screenshot collages, or single-person command framing as the primary public landing story.
 
 ---
 
@@ -102,7 +123,7 @@ All colors use the OKLCH color space for perceptually uniform luminance steps. T
 | Family | Stack | Usage |
 |--------|-------|-------|
 | **Sans (Primary)** | `"Inter", system-ui, -apple-system, sans-serif` | All headings, body text, navigation, buttons |
-| **Mono (Technical)** | `"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace` | Eyebrow labels, marquee tickers, terminal displays, metadata tags, architecture roles |
+| **Mono (Technical)** | `"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace` | Eyebrow labels, marquee tickers, proof captions, metadata tags, architecture roles |
 | **Heading** | `var(--font-sans)` | Alias — resolves to Inter |
 
 Fonts loaded via Google Fonts `<link>` tags (not `next/font`) with `display=swap`. Both are variable-weight (100–900).
@@ -124,7 +145,7 @@ Fonts loaded via Google Fonts `<link>` tags (not `next/font`) with `display=swap
 | Mono Eyebrow | Geist Mono | 11px | 400 | default | `0.12em`–`0.20em` | Uppercase. Hero pill, section eyebrow, page hero eyebrow. |
 | Mono Marquee | Geist Mono | 10px | 400 | default | `0.20em` | Uppercase. Brand marquee ticker labels. |
 | Mono Role Tag | Geist Mono | 9px | 400 | default | `tracking-wider` | Uppercase. Architecture layer role labels. |
-| Mono Terminal | Geist Mono | 12px | 400 | relaxed | normal | Demo terminal output text. |
+| Mono Proof Caption | Geist Mono | 12px | 400 | relaxed | normal | Visual captions and system metadata in proof/architecture surfaces. |
 | Mono Section Eyebrow | Geist Mono | 12px (`text-xs`) | 400 | default | `0.20em` | Uppercase. Section component eyebrow. |
 | Decorative Giant | Inter | `14vw` | 700 (bold) | 0.8 | `tracking-tighter` | Footer giant text at 6% opacity. |
 | Prose h2 | Inter | 30px (`text-3xl`) | 600 | default | `-0.02em` | Legal/docs page subheadings. Responsive: `text-2xl` → `text-3xl`. |
@@ -246,12 +267,13 @@ Fonts loaded via Google Fonts `<link>` tags (not `next/font`) with `display=swap
 - Items: `not-last:border-b data-open:bg-muted/50`
 - Source: [accordion.tsx](file:///home/galyarder/projects/Niyatna/components/ui/accordion.tsx)
 
-### Terminal Chrome (Demo)
+### Hero Visual Explanation Section
 
-- Frame: 3 dots (`size-2.5 rounded-full`) in `bg-zinc-300` (light) / `bg-zinc-700` (dark)
-- Caption: monospace uppercase `text-[10px] tracking-wider`
-- Body: `font-mono text-[12px] leading-relaxed`
-- Log entries: `motion.div` with `opacity: 0→1, x: -4→0, stagger: index * 0.05s`
+- Container: `section#demo` with `px-4 pb-24 pt-16 sm:px-6 sm:pb-32 sm:pt-20 lg:pt-24`
+- Copy block: centered `max-w-4xl`, headline `text-3xl font-semibold tracking-[-0.035em] sm:text-4xl lg:text-5xl`, body `max-w-2xl`
+- Visual frame: `mx-auto mt-12 max-w-7xl overflow-hidden rounded-[2rem] sm:mt-16`
+- Asset: `/brand/screenshots/hero-abstract.png`, unobstructed, no fake chrome, no overlay cards
+- Motion: copy reveals with `opacity/y` entrance; image reveals after `0.08s`
 - Source: [demo.tsx](file:///home/galyarder/projects/Niyatna/components/site/demo.tsx)
 
 ### Background Grid
@@ -303,7 +325,7 @@ Tailwind v4 default scale (4px base unit). Key recurring values:
 | Section horizontal | `px-4 sm:px-6` (16px → 24px) | Mobile gutter protection |
 | Feature grid gap | `gap-px` | 1px gaps create visible grid dividers |
 | Footer grid gap | `gap-10` (40px) | Column spacing |
-| Demo grid gap | `gap-6 md:p-8` (24px gap, 32px padding) | Terminal showcase |
+| Hero visual gap | `mt-12 sm:mt-16` (48px → 64px) | Gap between explanation copy and hero abstract image |
 | Intent scroll gap | `lg:gap-14` (56px) | Between sidebar and content |
 | Contact form gap | `gap-6` (24px) | Form field spacing |
 
@@ -321,7 +343,7 @@ Tailwind v4 default scale (4px base unit). Key recurring values:
 **Grid Patterns:**
 - Feature grid: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` — 3-column on desktop, 2 on tablet, stack on mobile
 - Footer: `md:grid-cols-[1.5fr_1fr_1fr_1fr]` — wider brand column + 3 equal link columns
-- Demo: `md:grid-cols-[1.2fr_0.8fr]` — wider terminal + narrower log panel
+- Hero visual explanation: single-column copy `max-w-4xl` followed by image `max-w-7xl`; never squeeze the first visual proof moment into a split implementation grid
 - IntentScroll: `lg:grid-cols-12 lg:gap-14` — 4-column sidebar + 8-column content (sticky)
 - Start section: `lg:grid-cols-12` — 5-column text + 7-column cards
 - Contact form: `sm:grid-cols-2` — 2-column field layout
@@ -421,25 +443,26 @@ Niyatna rejects traditional dark-mode shadows (dark on dark is invisible). Depth
 - Duration: `0.2s`
 - Source: [header-shell.tsx](file:///home/galyarder/projects/Niyatna/components/site/header-shell.tsx)
 
-**Demo log entries** — staggered list:
-- `opacity: 0→1, x: -4→0`
-- Duration: `0.2s`, stagger: `index * 0.05s`
+**Hero visual section reveal:**
+- Copy block: `opacity: 0→1, y: 14→0`
+- Image frame: `opacity: 0→1, y: 18→0`
+- Duration: `0.6–0.7s`, image delay `0.08s`
 - Source: [demo.tsx](file:///home/galyarder/projects/Niyatna/components/site/demo.tsx)
 
 ### Typewriter Animation
 
-- Words: `["Agentic Company.", "Intent-Led Standard.", "Autonomous Workforce.", "Future of Business."]`
+- Words: `["Agentic Company.", "Agent Workforce.", "Operating System.", "Company Standard."]`
 - Type speed: `70ms`, delete speed: `40ms`, pause delay: `1700ms`
 - Cursor: blinking line (`animate-blink-cursor`)
 - Source: [text-typing.tsx](file:///home/galyarder/projects/Niyatna/components/site/text-typing.tsx)
 
 ### Scroll-linked Motion
 
-**Screenshot frame tilt:**
-- `rotateX: [4°, 0°, -2°]` based on scroll progress via `useScroll`/`useTransform`
-- Opacity: `[0, 1, 1, 0.7]` scroll-mapped
-- Perspective: `1400px`
-- Source: [screenshot-frame.tsx](file:///home/galyarder/projects/Niyatna/components/site/screenshot-frame.tsx)
+**Proof image chapter changes:**
+- IntentScroll changes the active proof visual by scroll position, not by decorative tilt gimmicks
+- Image containers stay large, readable, and unobstructed
+- Step copy lives outside the image frame so the asset keeps visual authority
+- Source: [intent-scroll.tsx](file:///home/galyarder/projects/Niyatna/components/site/intent-scroll.tsx)
 
 **IntentScroll step transitions:**
 - Step indicator slides via `transform: translateY(${activeIndex * 54}px)` with `transition-transform duration-300`

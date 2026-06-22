@@ -25,7 +25,7 @@ export function ThemeToggle() {
       aria-label="Toggle theme (press d)"
       title="Toggle theme (press d)"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="rounded-full"
+      className="size-8 shrink-0 rounded-full md:size-9"
     >
       <HugeiconsIcon
         icon={mounted ? (isDark ? Sun03Icon : Moon02Icon) : Moon02Icon}

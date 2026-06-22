@@ -92,7 +92,7 @@
   {
     "id": "/docs/getting-started/workspace",
     "title": "Niyatna OS & Workspaces",
-    "content": "How Niyatna OS isolates agent execution, manages credentials, and stages verification proofs for the human Command Room.",
+    "content": "How Niyatna OS isolates agent execution, manages credentials, and stages verification proofs for the human operator.",
     "url": "/docs/getting-started/workspace"
   },
   {

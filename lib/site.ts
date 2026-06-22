@@ -4,6 +4,7 @@ export const SITE = {
   url: "https://niyatna.xyz",
   tagline: "Empowering Human Intent",
   description:
-    "Niyatna builds the operating system, standards, and gates for companies ready to become agentic. Define intent, mount secure sandboxed workspaces, and verify execution under the Proof of Intent standard.",
+    "Niyatna is the operating system, standards, and gates for companies ready to become agentic—turning human intent into governed agent work your team can control, verify, and scale.",
   email: "hello@niyatna.xyz",
 } as const
+

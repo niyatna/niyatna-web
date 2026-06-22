@@ -4,17 +4,17 @@ description: "Track filesystem modifications, command outcomes, and API changes 
 icon: GitBranch
 ---
 
-The **Delegation Trail** (monitored in the Command Room) is the ledger of all actions taken by Niyatna Agents.
+The **Delegation Trail** (monitored in Niyatna HQ) is the ledger of all actions taken by Niyatna Agents.
 
 Every filesystem edit, command execution, and network request produces a permanent, inspectable proof trail linking back to the original OpenIntent packet ID.
 
-<img src="/source-control.webp" alt="Niyatna change control" width="2560" height="1600" />
+<img src="/brand/screenshots/niyatna-agent.png" alt="Delegation and change audit trail" width="2560" height="1600" />
 
 ---
 
 ## Audit Checklist
 
-Before approving a staged change, the Command Room checks the delegation trail:
+Before approving a staged change, Niyatna OS checks the delegation trail:
 *   **Target Alignment:** Did the agent only modify files and tables specified inside the intent scope?
 *   **Safety Audit:** Were there any unexpected network calls or dependency modifications?
 *   **Test Evidence:** Are compile checks, test suites, or screenshots attached?

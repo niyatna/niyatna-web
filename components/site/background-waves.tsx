@@ -38,7 +38,7 @@ export function BackgroundWaves() {
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
       {/* Center vignette to anchor content */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,var(--background)_92%)] opacity-70"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,var(--background)_98%)] opacity-50"
         style={{ ["--background" as never]: "var(--background)" }}
       />
     </div>

@@ -6,33 +6,33 @@ icon: Terminal
 
 To transition manual workflows into the agentic standard, Niyatna OS deploys a workforce of specialized **Niyatna Agents**. Rather than running generic chatbot assistants, we assign distinct agents to head specific operational departments.
 
-Each agent functions as an independent execution unit with its own defined **identity, goals, tools, boundaries, and dreams**.
+Each agent functions as an independent execution unit with its own defined **identity, goals, tools, and authority boundaries**.
 
 ---
 
-## 1. Niyatna CEO Agent (Strategic Catalyst)
-*   **Mission:** Audit operational alignment, track progress across departments, and model resource distribution.
-*   **Vision:** Eliminate strategic latency by translating intent instantly into goal parameters.
+## 1. Niyatna Sales Ops Agent (Lead Acquisition)
+*   **Mission:** Scrape target profiles, qualify prospects, and draft personalized outreach.
+*   **Outcome:** A high-margin outbound acquisition machine designed to minimize manual search latency.
 *   **Goals:**
-    *   Synthesize department logs to compile weekly progress briefs.
-    *   Model resource allocation scenarios based on budget constraints.
-    *   Draft OKR and performance updates for human board review.
-*   **Boundaries:** Has read-only analytical access across workspace history. Cannot execute planning changes without explicit board approval.
+    *   Scrape B2B contacts from target directories based on custom filters.
+    *   Qualify leads matching exact revenue, head count, and tech stack criteria.
+    *   Generate personalized outreach drafts and stage them for manual approval.
+*   **Boundaries:** Scopes are limited to lead databases and draft folders. Cannot dispatch live emails without human sign-off.
 
-## 2. Niyatna COO Agent (Execution Engine)
-*   **Mission:** Manage operational data pipelines, automate client onboarding, and sync CRM statuses.
-*   **Vision:** Automate coordination overhead, keeping team notification channels synced with real execution.
+## 2. Niyatna Ops Agent (Process Sync)
+*   **Mission:** Automate customer onboarding pipelines, provision workspaces, and sync CRM milestones.
+*   **Outcome:** Instant client onboarding designed to eliminate manual delays and operational lag.
 *   **Goals:**
-    *   Monitor HubSpot/Salesforce CRM deals for status triggers.
-    *   Initialize database records, provision client files, and mount workspace sandboxes.
-    *   Route stage milestones and distribute briefs across company channels.
-*   **Boundaries:** Authorized to write to operational databases and APIs. Outbound communication actions (emails, alerts) are staged and require human sign-off.
+    *   Monitor HubSpot/Salesforce CRM webhooks for closed-won deal triggers.
+    *   Initialize client database entries, clone repositories, and provision secure sandboxes.
+    *   Publish onboarding briefings and setup logs across Slack/Discord company channels.
+*   **Boundaries:** Authorized to read CRM data and write to isolated client servers. Outbound credentials and packages are staged for human veto.
 
 ## 3. Niyatna CFO Agent (Financial Guardrail)
-*   **Mission:** Maintain financial hygiene, reconcile ledgers, and audit daily transactions.
-*   **Vision:** A transparent financial auditing pipeline that flags margin drift and prevents unauthorized payouts.
+*   **Mission:** Automate daily invoice reconciliation, audit transactions, and flag margin drift.
+*   **Outcome:** Real-time billing integrity with automated checks to flag invoice errors or leakages.
 *   **Goals:**
-    *   Poll payment gateways (Stripe, PayPal) and bank ledger APIs.
-    *   Match transactions against invoices and database receipts.
-    *   Isolate mismatched records, calculate net margins, and compile PDF archives.
-*   **Boundaries:** Has read-only bank API access. Write permissions are restricted to staging invoice entries. Payouts and refunds are strictly locked behind administrator veto gates.
+    *   Fetch daily transactions from Stripe, PayPal, and bank ledger endpoints.
+    *   Match transaction payloads against invoices using checksum validation.
+    *   Isolate invoice anomalies, compile net margin reports, and update ledgers.
+*   **Boundaries:** Read-only transaction endpoints. Write permissions are restricted to staging databases. Bank transfers and payouts require explicit human approval.

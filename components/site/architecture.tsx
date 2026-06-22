@@ -6,45 +6,84 @@ import {
   CpuIcon,
   CodeFolderIcon,
   Layout02Icon,
+  BookOpenIcon,
+  GlobeIcon,
+  Notebook01Icon,
+  CommandIcon,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Section, SectionEyebrow, SectionHeading, SectionLead } from "./section"
 
 const layers = [
   {
-    number: "05",
-    name: "Niyatna HQ",
-    role: "Control Surface",
-    desc: "A unified dashboard and control surface for humans and agents to inspect work in progress, check system status, review proofs, and make decisions.",
-    icon: Layout02Icon,
-  },
-  {
-    number: "04",
-    name: "Niyatna Agents",
-    role: "Execution Layer",
-    desc: "Specialized, goal-oriented agents equipped with secure identities, dedicated missions, customized skills, specific tools, and clear authority boundaries.",
-    icon: CodeFolderIcon,
-  },
-  {
-    number: "03",
-    name: "Niyatna OS",
-    role: "Operating Layer",
-    desc: "The company-level runtime connecting agents, memory, tools, dashboards, credential vaults, communication channels, and proof systems.",
-    icon: CpuIcon,
+    number: "01",
+    name: "Readiness Gate",
+    role: "Qualification Layer",
+    desc: "Checks whether the company has clear goals, owners, data access, SOPs, and approval rules before agents are added.",
+    icon: BookOpenIcon,
   },
   {
     number: "02",
-    name: "Proof of Intent",
-    role: "Verification Primitive",
-    desc: "Our verification engine producing cryptographic proof that delegated execution matches human-defined intent. Veto gates and consensus loops ensure compliance.",
+    name: "OpenIntent",
+    role: "Intent Layer",
+    desc: "Turns a messy request into a structured intent: outcome, owner, constraints, authority, risk, and expected proof.",
+    icon: AiIdeaIcon,
+  },
+  {
+    number: "03",
+    name: "Company Blueprint",
+    role: "Operating Map",
+    desc: "Maps departments, roles, tools, channels, memory sources, and agents into one governed company system.",
+    icon: CodeFolderIcon,
+  },
+  {
+    number: "04",
+    name: "Niyatna OS",
+    role: "Operating Surface",
+    desc: "The askable layer where people request work, retrieve context, and trigger governed agent workflows.",
+    icon: CommandIcon,
+  },
+  {
+    number: "05",
+    name: "Niyatna HQ",
+    role: "Command Room",
+    desc: "Tracks owned work, assignees, due dates, approvals, status, and report-back across the company.",
+    icon: Layout02Icon,
+  },
+  {
+    number: "06",
+    name: "Agent Workforce",
+    role: "Execution Layer",
+    desc: "Specialized agents execute department work with role-scoped tools, memory, credentials, and boundaries.",
+    icon: CpuIcon,
+  },
+  {
+    number: "07",
+    name: "Memory & Knowledge",
+    role: "Context Layer",
+    desc: "SOPs, decisions, docs, customers, and previous proof logs become context the system can reuse.",
+    icon: Notebook01Icon,
+  },
+  {
+    number: "08",
+    name: "Channels & Integrations",
+    role: "Tool Layer",
+    desc: "Connects the work surfaces and business tools your company already uses without losing governance.",
+    icon: GlobeIcon,
+  },
+  {
+    number: "09",
+    name: "Approval & Security Gates",
+    role: "Control Layer",
+    desc: "Sensitive actions are staged behind approvals, scopes, sandboxing, and veto windows before execution continues.",
     icon: Shield01Icon,
   },
   {
-    number: "01",
-    name: "OpenIntent",
-    role: "Protocol Standard",
-    desc: "An open protocol and specification layer defining structured intent packets, interoperable goal structures, and secure message routing rules.",
-    icon: AiIdeaIcon,
+    number: "10",
+    name: "Proof of Intent",
+    role: "Verification Layer",
+    desc: "Every completed action returns evidence: output, checks, logs, reviewer status, and what changed.",
+    icon: Shield01Icon,
   },
 ]
 
@@ -55,7 +94,7 @@ export function Architecture() {
         <SectionEyebrow>Architecture</SectionEyebrow>
         <SectionHeading>The Niyatna Stack</SectionHeading>
         <SectionLead className="mx-auto">
-          An integrated company-making architecture built to organize intent, scale execution, and guarantee control.
+          A formation stack for turning company intent into governed agent execution without losing ownership, context, or proof.
         </SectionLead>
       </div>
 

@@ -9,27 +9,39 @@ import { Section, SectionEyebrow, SectionHeading, SectionLead } from "./section"
 const faqs = [
   {
     q: "What is Niyatna?",
-    a: "Niyatna is the agentic-company formation system: the integrated operating stack, standards, rules, gates, and interfaces for forming and running agentic companies. We empower human intent to solve market problems by translating dreams into missions, visions, goals, and delegated AI agent workforces.",
+    a: "Niyatna is a formation system for agentic companies. It gives a company the operating layer, standards, agents, memory, approval gates, and proof needed to turn human intent into governed work.",
   },
   {
-    q: "Why does an Agentic Company start with real business problems?",
-    a: "A company is not just a collection of people or AI agents; it is a solution to a market problem. Civilizations have problems, and companies solve them. Niyatna ensures that your agentic workforce is anchored to a real, core intent and problem-solving goal, rather than running hollow automation.",
+    q: "Is this just another chatbot or automation agency?",
+    a: "No. Chatbots answer prompts. Automation agencies wire one-off workflows. Niyatna forms the company system around agent work: who can ask, what agents can do, what context they can access, when approval is required, and what proof must come back.",
   },
   {
-    q: "What is an Agentic Company?",
-    a: "An Agentic Company is the future standard of organization. It is not just a Kanban board with a chatbot. In an Agentic Company, specialized AI agents (across Finance, Marketing, Sales, and Operations) operate with defined personalities, missions, goals, responsibilities, targets, capabilities, knowledge bases, and tools like MCP skills and slash commands.",
+    q: "What is an agentic company?",
+    a: "An agentic company is a company where authorized people can ask, assign, retrieve context, automate routines, and verify outcomes through a shared operating system instead of relying on scattered chats, memory, and manual follow-up.",
   },
   {
-    q: "How does the delegation loop work under this system?",
-    a: "It starts with human intent. With intent, you get a dream. From that dream, you derive a mission. From that mission, a vision. From that vision, specific goals. Finally, these goals are delegated to specialized AI agents. This chain ensures that every autonomous action maps directly back to the human will.",
+    q: "What is OpenIntent?",
+    a: "OpenIntent is the intent layer underneath Niyatna. It turns a messy request into a structured operating packet: goal, owner, constraints, permissions, risk level, expected output, and proof requirements.",
   },
   {
-    q: "What boundaries and guardrails do the AI agents have?",
-    a: "Every agent operates within strict permission gates and isolated workspaces. High-risk operations (such as ledger modifications, external integrations, or customer outreach) require human validation and are subject to administrator veto gates.",
+    q: "What is Proof of Intent?",
+    a: "Proof of Intent is Niyatna's verification primitive. Every meaningful agent action should return evidence—output, logs, screenshots, checks, review status, and what changed—so the company can audit the result.",
   },
   {
-    q: "What is the primary benefit of this system?",
-    a: "Scaling problem-solving leverage. By delegating repetitive operational drag to a specialized, secure AI agent workforce, humans reclaim the space to think, direct, and solve higher-level business challenges.",
+    q: "How does Niyatna keep humans in control?",
+    a: "Agents work inside role boundaries. Sensitive actions can be staged behind approval gates, scoped credentials, sandboxed execution, and veto windows before anything external or destructive happens.",
+  },
+  {
+    q: "Where does company memory live?",
+    a: "It depends on the deployment. Niyatna can connect SOPs, docs, decisions, customer context, and proof history from the company's approved memory layer, then expose only the context each role is allowed to use.",
+  },
+  {
+    q: "Is access gated?",
+    a: "Yes. Niyatna is not meant to be open self-serve software for anyone with a prompt. A company needs enough operational discipline, ownership, data readiness, and approval structure before agent work can be safely delegated.",
+  },
+  {
+    q: "Is our data safe?",
+    a: "Niyatna is designed for private, scoped deployments. Data handling depends on the final architecture, but the default standard is least-privilege access, company-controlled infrastructure where configured, approval gates for risky actions, and no broad agent access without a reason.",
   },
 ]
 
@@ -40,7 +52,7 @@ export function FAQ() {
         <SectionEyebrow>FAQ</SectionEyebrow>
         <SectionHeading>Questions, answered.</SectionHeading>
         <SectionLead className="mx-auto">
-          The point is not more automation. The point is preserving human intent while agents multiply execution.
+          The short version: Niyatna is not a chatbot. It is the governed operating layer for companies ready to become agentic.
         </SectionLead>
       </div>
 

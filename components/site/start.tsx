@@ -13,66 +13,49 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { Section, SectionEyebrow, SectionHeading } from "./section"
 
-interface ActivityRow {
-  label: string
-  detail: string
-  href: string
-}
-
-interface EngagementBlock {
-  id: string
+interface ReadinessCheck {
   icon: IconSvgElement
-  name: string
-  activities: ActivityRow[]
-  note?: string
+  title: string
+  desc: string
 }
 
-const tracks: EngagementBlock[] = [
+const readinessChecks: ReadinessCheck[] = [
   {
-    id: "system",
+    icon: BookOpenIcon,
+    title: "Intent chain",
+    desc: "Which company outcomes should become delegated agent work first.",
+  },
+  {
     icon: CodeFolderIcon,
-    name: "System",
-    activities: [
-      { label: "Intent packets", detail: "How we define your goals and taste bounds", href: "/docs" },
-      { label: "Permission gates", detail: "Guarantees on what agents can do automatically", href: "/docs/ai/security" },
-    ],
+    title: "Company context",
+    desc: "The SOPs, tools, docs, owners, channels, and data access agents need.",
   },
   {
-    id: "methodology",
-    icon: GlobeIcon,
-    name: "Methodology",
-    note: "core architecture",
-    activities: [
-      { label: "Agentic Company Design", detail: "Map your intent chain and agent architecture", href: "/docs/getting-started" },
-      { label: "Proof standard", detail: "Verifiable logs, screenshots, and diffs", href: "/docs/reference/data" },
-    ],
-  },
-  {
-    id: "engagement",
     icon: Shield01Icon,
-    name: "Engagement",
-    activities: [
-      { label: "Operational safety", detail: "Human-in-the-loop review guidelines", href: "/security" },
-      { label: "Project kickoff", detail: "Establish your agent workforce boundaries", href: "/docs/getting-started" },
-    ],
+    title: "Authority boundaries",
+    desc: "Who can approve, what agents may touch, and what must stay human-controlled.",
+  },
+  {
+    icon: CheckListIcon,
+    title: "Proof loop",
+    desc: "What evidence must return before work is accepted or remembered.",
   },
 ]
 
-const statsList = [
-  { value: "Problem", label: "The starting point" },
-  { value: "Intent", label: "The human decision" },
-  { value: "Goals", label: "Delegated targets" },
-  { value: "Agents", label: "Autonomous execution" },
+const readinessSignals = [
+  { value: "Intent", label: "Outcome" },
+  { value: "Context", label: "Memory" },
+  { value: "Authority", label: "Control" },
+  { value: "Proof", label: "Evidence" },
 ]
 
 export function Start() {
   const recommended = {
     label: "Begin Qualification",
     url: "/contact",
-    sub: "Tell us the problem you are solving to check system readiness.",
+    sub: "Apply for readiness mapping. We identify where agents should enter, what needs approval, and what proof the system must return.",
   }
 
   return (
@@ -84,118 +67,91 @@ export function Start() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-foreground/[0.025] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_0%,black,transparent_70%)]"
       />
-      <div className="relative grid gap-8 lg:grid-cols-12">
-        <div className="lg:col-span-5 lg:flex lg:flex-col lg:justify-between">
-          <div>
-            <SectionEyebrow>Get started</SectionEyebrow>
-            <SectionHeading className="mt-3">
-              Start with the problem, not the tools.
-            </SectionHeading>
-            <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-[17px]">
-              The Agentic Company is not formed by loose agents, but by intent. Define the problem, map the goals, and delegate execution to specialized agents running inside Niyatna OS.
-            </p>
 
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 mt-6 backdrop-blur-sm">
-              {statsList.map((s) => (
-                <div key={s.label} className="bg-background/60 px-4 py-5 text-center">
-                  <div className="font-mono text-lg font-semibold tracking-tight text-foreground">
-                    {s.value}
-                  </div>
-                  <div className="mt-1 text-[9px] tracking-wider text-muted-foreground uppercase">
-                    {s.label}
-                  </div>
+      <div className="relative grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+        <div className="min-w-0">
+          <SectionEyebrow>The Gate</SectionEyebrow>
+          <SectionHeading className="mt-3">
+            Access opens when the company is ready.
+          </SectionHeading>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[17px]">
+            Niyatna is not an open chatbot login. We map your intent, company context, authority boundaries, and proof loop before deploying agent work.
+          </p>
+
+          <div className="mt-7 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+            {readinessSignals.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-2xl border border-border/60 bg-background/55 px-4 py-4 backdrop-blur-sm"
+              >
+                <div className="font-mono text-sm font-semibold tracking-tight text-foreground">
+                  {s.value}
                 </div>
-              ))}
-            </div>
+                <div className="mt-1 text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {s.label}
+                </div>
+              </div>
+            ))}
           </div>
- 
-          <div className="mt-8 rounded-2xl border border-border/60 bg-background/60 p-5 backdrop-blur-sm">
-            <div className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-              Get in touch
+
+          <div className="mt-7 rounded-2xl border border-border/60 bg-background/60 p-5 backdrop-blur-sm sm:p-6">
+            <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              Qualified access
             </div>
-            <div className="mt-2 text-sm text-foreground/85">
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80 sm:text-[15px]">
               {recommended.sub}
-            </div>
-            <Button asChild size="lg" className="mt-4 w-full rounded-full">
-              <Link href={recommended.url}>
-                <HugeiconsIcon icon={BookOpenIcon} strokeWidth={2} />
-                {recommended.label}
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button asChild size="lg" className="rounded-full sm:w-auto">
+                <Link href={recommended.url}>
+                  <HugeiconsIcon icon={BookOpenIcon} strokeWidth={2} />
+                  {recommended.label}
+                </Link>
+              </Button>
+              <Link
+                href="/docs"
+                className="inline-flex items-center justify-center gap-1 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:text-foreground sm:justify-start"
+              >
+                Read the standard
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  className="size-3"
+                  strokeWidth={2}
+                />
               </Link>
-            </Button>
-            <Link
-              href="/docs"
-              className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.12em] text-muted-foreground uppercase transition-colors hover:text-foreground"
-            >
-              Explore our documentation
-              <HugeiconsIcon
-                icon={ArrowRight01Icon}
-                className="size-3"
-                strokeWidth={2}
-              />
-            </Link>
+            </div>
           </div>
         </div>
 
-        <div className="lg:col-span-7">
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-background/60 backdrop-blur-sm">
-            {tracks.map((t, i) => (
-              <div
-                key={t.id}
-                className={cn(
-                  "px-6 py-6",
-                  i !== tracks.length - 1 && "border-b border-border/60"
-                )}
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex size-9 items-center justify-center text-foreground/80">
-                      <HugeiconsIcon
-                        icon={t.icon}
-                        className="size-5"
-                        strokeWidth={1.8}
-                      />
-                    </span>
-                    <div>
-                      <div className="text-base font-medium tracking-tight">
-                        {t.name}
-                      </div>
-                      {t.note && (
-                        <div className="font-mono text-[11px] tracking-[0.12em] text-muted-foreground uppercase">
-                          {t.note}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+        <div className="min-w-0 rounded-3xl border border-border/60 bg-background/55 p-4 backdrop-blur-sm sm:p-5 lg:p-6">
+          <div className="flex items-start gap-3 border-b border-border/50 pb-5">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-2xl border border-border/60 bg-foreground/[0.03] text-foreground/75">
+              <HugeiconsIcon icon={GlobeIcon} className="size-5" strokeWidth={1.8} />
+            </span>
+            <div className="min-w-0">
+              <div className="text-base font-semibold tracking-tight text-foreground">
+                What the gate checks
+              </div>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                The gate protects the company from adding agents before the system can control them.
+              </p>
+            </div>
+          </div>
 
-                <ul className="mt-5 divide-y divide-border/40">
-                  {t.activities.map((act) => (
-                    <li
-                      key={act.label + act.detail}
-                      className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between"
-                    >
-                      <div className="min-w-0">
-                        <div className="text-sm text-foreground/85">
-                          {act.label}
-                        </div>
-                        <div className="mt-0.5 truncate font-mono text-[11px] text-muted-foreground/80">
-                          {act.detail}
-                        </div>
-                      </div>
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="shrink-0 rounded-full"
-                      >
-                        <Link href={act.href} target={act.href.startsWith("http") ? "_blank" : undefined} rel={act.href.startsWith("http") ? "noreferrer" : undefined}>
-                          <HugeiconsIcon icon={CheckListIcon} strokeWidth={2} />
-                          Open
-                        </Link>
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
+          <div className="divide-y divide-border/45">
+            {readinessChecks.map((check) => (
+              <div key={check.title} className="grid grid-cols-[2.25rem_1fr] gap-4 py-5">
+                <span className="mt-0.5 flex size-9 items-center justify-center rounded-xl border border-border/55 bg-foreground/[0.025] text-foreground/70">
+                  <HugeiconsIcon icon={check.icon} className="size-4.5" strokeWidth={1.8} />
+                </span>
+                <div className="min-w-0">
+                  <div className="text-sm font-medium tracking-tight text-foreground">
+                    {check.title}
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {check.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
