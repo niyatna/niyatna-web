@@ -64,7 +64,7 @@ const items = [
 export function FeatureGrid() {
   return (
     <Section id="more">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl text-center">
         <SectionEyebrow>Infrastructure</SectionEyebrow>
         <SectionHeading>The infrastructure behind an agentic company.</SectionHeading>
       </div>
