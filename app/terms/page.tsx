@@ -83,7 +83,7 @@ export default function TermsPage() {
 
         <h2>11. Contact</h2>
         <p>
-          Questions about these Terms can be directed to <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>.
+          Questions about these Terms can be directed to <Link href="mailto:hello@niyatna.com">hello@niyatna.com</Link>.
         </p>
       </Prose>
 

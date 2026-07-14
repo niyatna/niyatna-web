@@ -79,7 +79,7 @@ export default function PrivacyPage() {
 
         <h2>9. Contact Us</h2>
         <p>
-          If you have privacy questions or data requests, contact us at <Link href="mailto:hello@niyatna.xyz">hello@niyatna.xyz</Link>. For security issues, contact <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link>.
+          If you have privacy questions or data requests, contact us at <Link href="mailto:hello@niyatna.com">hello@niyatna.com</Link>. For security issues, contact <Link href="mailto:security@niyatna.com">security@niyatna.com</Link>.
         </p>
       </Prose>
 

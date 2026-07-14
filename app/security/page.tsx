@@ -29,9 +29,9 @@ export default function SecurityPage() {
 
       <div className="mx-auto mb-10 flex max-w-3xl items-center justify-center px-4 sm:px-6">
         <Button asChild size="sm" className="rounded-full">
-          <Link href="mailto:security@niyatna.xyz">
+          <Link href="mailto:security@niyatna.com">
             <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} />
-            security@niyatna.xyz
+            security@niyatna.com
           </Link>
         </Button>
       </div>
@@ -73,7 +73,7 @@ export default function SecurityPage() {
 
         <h2>Vulnerability Reporting</h2>
         <p>
-          If you find a security issue or have concerns about an integration, write to us at <Link href="mailto:security@niyatna.xyz">security@niyatna.xyz</Link>. Include enough detail to reproduce or assess the issue, but do not send secrets or private credentials by email.
+          If you find a security issue or have concerns about an integration, write to us at <Link href="mailto:security@niyatna.com">security@niyatna.com</Link>. Include enough detail to reproduce or assess the issue, but do not send secrets or private credentials by email.
         </p>
       </Prose>
 
@@ -87,10 +87,10 @@ export default function SecurityPage() {
           <span>
             Security contact: {" "}
             <Link
-              href="mailto:security@niyatna.xyz"
+              href="mailto:security@niyatna.com"
               className="text-foreground underline decoration-muted-foreground/40 underline-offset-4 hover:decoration-foreground"
             >
-              security@niyatna.xyz
+              security@niyatna.com
             </Link>
             .
           </span>

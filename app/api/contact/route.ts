@@ -70,8 +70,8 @@ export async function POST(request: Request) {
             "Authorization": `Bearer ${resendApiKey}`,
           },
           body: JSON.stringify({
-            from: "Niyatna Contact <hello@niyatna.xyz>",
-            to: ["hello@niyatna.xyz"],
+            from: "Niyatna Contact <hello@niyatna.com>",
+            to: ["hello@niyatna.com"],
             subject: `New Inquiry from ${name} (${company})`,
             html: `
               <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #18181b; line-height: 1.6;">

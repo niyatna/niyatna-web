@@ -4,7 +4,7 @@
   <br />
   <br />
   <h3>Niyatna</h3>
-  <p>The public website for <a href="https://niyatna.xyz">Niyatna</a> — the formation system for companies becoming agentic.</p>
+  <p>The public website for <a href="https://niyatna.com">Niyatna</a> — the formation system for companies becoming agentic.</p>
   <br />
   <a href="https://github.com/niyatna/niyatna-web/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License" /></a>
   <img src="https://img.shields.io/badge/Next.js-v16.1.7-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
@@ -16,7 +16,7 @@
 
 ---
 
-This repository contains the public website, documentation surface, and brand proof assets for [Niyatna](https://niyatna.xyz).
+This repository contains the public website, documentation surface, and brand proof assets for [Niyatna](https://niyatna.com).
 
 ## What is Niyatna?
 
@@ -28,7 +28,7 @@ Niyatna turns company intent into owned work: routed to the right human or agent
 
 > **Turn company intent into verified work.**
 
-[Explore Niyatna](https://niyatna.xyz) · [Begin Qualification](https://niyatna.xyz/contact)
+[Explore Niyatna](https://niyatna.com) · [Begin Qualification](https://niyatna.com/contact)
 
 ---
 

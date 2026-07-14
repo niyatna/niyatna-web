@@ -121,9 +121,9 @@ export default function AboutPage() {
             </Link>
           </Button>
           <Button asChild variant="ghost" size="sm" className="rounded-full">
-            <Link href="mailto:hello@niyatna.xyz">
+            <Link href="mailto:hello@niyatna.com">
               <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} />
-              hello@niyatna.xyz
+              hello@niyatna.com
             </Link>
           </Button>
         </div>

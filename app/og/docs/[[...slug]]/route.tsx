@@ -131,7 +131,7 @@ export async function GET(
             fontFamily: "monospace",
           }}
         >
-          niyatna.xyz/docs/{slug.join("/")}
+          niyatna.com/docs/{slug.join("/")}
         </div>
       </div>
 
